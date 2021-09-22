@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.lang.ModuleLayer.Controller;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 /**
  *
@@ -20,7 +21,9 @@ import javax.swing.ImageIcon;
  */
 public class CharacterCreator extends javax.swing.JFrame {
     
-    ViewController controller;
+    private ViewController controller;
+    
+    private JFileChooser openFileChosser;
 
     /**
      * Creates new form CharacterCreator
@@ -49,6 +52,8 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         characterLabel = new javax.swing.JLabel();
         weaponLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Creador de personajes");
@@ -63,6 +68,26 @@ public class CharacterCreator extends javax.swing.JFrame {
         weaponLabel.setMaximumSize(new java.awt.Dimension(250, 250));
         weaponLabel.setPreferredSize(new java.awt.Dimension(250, 250));
 
+        jButton1.setText("Seleccionar imagen");
+        jButton1.setMaximumSize(new java.awt.Dimension(250, 24));
+        jButton1.setMinimumSize(new java.awt.Dimension(250, 24));
+        jButton1.setPreferredSize(new java.awt.Dimension(250, 24));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Seleccionar imagen");
+        jButton2.setMaximumSize(new java.awt.Dimension(250, 24));
+        jButton2.setMinimumSize(new java.awt.Dimension(250, 24));
+        jButton2.setPreferredSize(new java.awt.Dimension(250, 24));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,8 +95,10 @@ public class CharacterCreator extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(characterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(544, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -80,12 +107,34 @@ public class CharacterCreator extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(characterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       String path = getSelectedPath();
+       if(path != null){
+           setImage(path,characterLabel);
+       } else {
+           System.out.println("No seleccionó ningún archivo");
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       String path = getSelectedPath();
+       if(path != null){
+           setImage(path,weaponLabel);
+       } else {
+           System.out.println("No seleccionó ningún archivo");
+       }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,9 +188,22 @@ public class CharacterCreator extends javax.swing.JFrame {
             e.printStackTrace();
         }
     }
+    
+    private String getSelectedPath(){
+        openFileChosser = new JFileChooser();
+        openFileChosser.setCurrentDirectory(new File("src/images/"));
+        int returnValue = openFileChosser.showOpenDialog(this);
+        if(returnValue == JFileChooser.APPROVE_OPTION){
+            return openFileChosser.getSelectedFile().getPath();
+        } else {
+            return null;
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel characterLabel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel weaponLabel;
     // End of variables declaration//GEN-END:variables
 }
