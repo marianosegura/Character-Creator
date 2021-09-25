@@ -6,68 +6,26 @@
 package gamelib;
 
 /**
- *
+ * Generic weapon class.
  * @author Luis Mariano Ramírez Segura
  */
-public abstract class Weapon extends GameObject<Character> {
-    protected int scope,
-        explosionRange,
-        maxSupplies,
-        supplies,
-        levelMultiplier;
-    protected String image;
-    protected boolean levelDependant;
-
+public class Weapon extends AbstractWeapon {
     public Weapon(int scope, int range, int maxSupplies, int levelMultiplier, String image, boolean levelDependant, String name, int damage, int level, int x, int y) {
-        super(name, damage, level, x, y);
-        this.scope = scope;
-        this.explosionRange = range;
-        this.maxSupplies = maxSupplies;
-        this.supplies = maxSupplies;
-        this.levelMultiplier = levelMultiplier;
-        this.image = image;
-        this.levelDependant = levelDependant;
+        super(scope, range, maxSupplies, levelMultiplier, image, levelDependant, name, damage, level, x, y);
     }
-
+    
     public Weapon(int scope, int range, int maxSupplies, int levelMultiplier, String image, boolean levelDependant) {
-        this.scope = scope;
-        this.explosionRange = range;
-        this.maxSupplies = maxSupplies;
-        this.supplies = maxSupplies;
-        this.levelMultiplier = levelMultiplier;
-        this.image = image;
-        this.levelDependant = levelDependant;
+        super(scope, range, maxSupplies, levelMultiplier, image, levelDependant);
     }
     
-    public Weapon() {
-        this.scope = 1;
-        this.explosionRange = 1;
-        this.maxSupplies = 1;
-        this.supplies = maxSupplies;
-        this.levelMultiplier = 1;
-        this.image = "";
-        this.levelDependant = false;
-    }
-    
-    /**
-     * Reloads the weapon. Limited to maximum supplies.
-     * @param amount Amount of supplies to reload
-     */
-    public void reload(int amount) {
-        this.supplies = Math.min(this.maxSupplies, this.supplies + amount);
+    @Override
+    public IPrototype shallowClone() {
+        return this.deepClone();
     }
 
-    /**
-     * 
-     * @param character 
-     */
     @Override
-    public void attack(Character character) { 
-        character.getHit(this.getDamage());
+    public IPrototype deepClone() {
+        return new Weapon(scope, explosionRange, maxSupplies, levelMultiplier, image, levelDependant, name, damage, level, x, y);
     }
     
-    @Override
-    public int getDamage() {  // multiply by factor if level dependant
-        return (this.levelDependant) ? this.damage * this.levelMultiplier : this.damage;
-    }
 }
