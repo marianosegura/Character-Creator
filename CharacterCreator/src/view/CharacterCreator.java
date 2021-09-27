@@ -63,53 +63,53 @@ public class CharacterCreator extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         weaponList = new javax.swing.JList<>();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jSpinner1 = new javax.swing.JSpinner();
+        directionBox = new javax.swing.JComboBox<>();
+        moveSteps = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        damageCharacter = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
-        jSpinner4 = new javax.swing.JSpinner();
+        levelCharacter = new javax.swing.JSpinner();
+        xCharacter = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
-        jSpinner5 = new javax.swing.JSpinner();
+        yCharacter = new javax.swing.JSpinner();
         jLabel9 = new javax.swing.JLabel();
-        jSpinner6 = new javax.swing.JSpinner();
+        size = new javax.swing.JSpinner();
         jLabel10 = new javax.swing.JLabel();
-        jSpinner7 = new javax.swing.JSpinner();
+        maxHealth = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
-        jSpinner8 = new javax.swing.JSpinner();
+        health = new javax.swing.JSpinner();
         jLabel12 = new javax.swing.JLabel();
-        jSpinner9 = new javax.swing.JSpinner();
+        hitPerUnitTime = new javax.swing.JSpinner();
         jLabel13 = new javax.swing.JLabel();
-        jSpinner10 = new javax.swing.JSpinner();
+        cost = new javax.swing.JSpinner();
         jLabel14 = new javax.swing.JLabel();
-        jSpinner11 = new javax.swing.JSpinner();
+        unlockLevel = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jSpinner12 = new javax.swing.JSpinner();
-        jSpinner13 = new javax.swing.JSpinner();
+        levelWeapon = new javax.swing.JSpinner();
+        xWeapon = new javax.swing.JSpinner();
         jLabel16 = new javax.swing.JLabel();
-        jSpinner14 = new javax.swing.JSpinner();
+        yWeapon = new javax.swing.JSpinner();
         jLabel17 = new javax.swing.JLabel();
-        jSpinner15 = new javax.swing.JSpinner();
+        damageWeapon = new javax.swing.JSpinner();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jSpinner16 = new javax.swing.JSpinner();
+        scope = new javax.swing.JSpinner();
         jLabel20 = new javax.swing.JLabel();
-        jSpinner17 = new javax.swing.JSpinner();
+        explosionRange = new javax.swing.JSpinner();
         jLabel21 = new javax.swing.JLabel();
-        jSpinner18 = new javax.swing.JSpinner();
+        maxSupplies = new javax.swing.JSpinner();
         jLabel22 = new javax.swing.JLabel();
-        jSpinner19 = new javax.swing.JSpinner();
+        supplies = new javax.swing.JSpinner();
         jLabel23 = new javax.swing.JLabel();
-        jSpinner20 = new javax.swing.JSpinner();
+        levelMultiplier = new javax.swing.JSpinner();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        levelDepend = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -219,62 +219,117 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(weaponList);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una dirección", "Arriba", "Abajo", "Izquierda", "Derecha" }));
-        jComboBox1.setToolTipText("");
-        jComboBox1.setPreferredSize(new java.awt.Dimension(250, 24));
+        directionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una dirección", "Arriba", "Abajo", "Izquierda", "Derecha" }));
+        directionBox.setToolTipText("");
+        directionBox.setPreferredSize(new java.awt.Dimension(250, 24));
 
-        jSpinner1.setName("Cantidad de pasos "); // NOI18N
-        jSpinner1.setPreferredSize(new java.awt.Dimension(250, 24));
+        moveSteps.setName("Cantidad de pasos "); // NOI18N
+        moveSteps.setPreferredSize(new java.awt.Dimension(250, 24));
+        moveSteps.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                moveStepsStateChanged(evt);
+            }
+        });
 
         jLabel5.setText("Cantidad de pasos");
 
-        jSpinner2.setName("Cantidad de pasos "); // NOI18N
-        jSpinner2.setPreferredSize(new java.awt.Dimension(250, 24));
+        damageCharacter.setName("Cantidad de pasos "); // NOI18N
+        damageCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        damageCharacter.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                damageCharacterStateChanged(evt);
+            }
+        });
 
         jLabel6.setText("Daño");
 
         jLabel7.setText("Nivel");
 
-        jSpinner3.setName("Cantidad de pasos "); // NOI18N
-        jSpinner3.setPreferredSize(new java.awt.Dimension(250, 24));
+        levelCharacter.setName("Cantidad de pasos "); // NOI18N
+        levelCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        levelCharacter.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                levelCharacterStateChanged(evt);
+            }
+        });
 
-        jSpinner4.setName("Cantidad de pasos "); // NOI18N
-        jSpinner4.setPreferredSize(new java.awt.Dimension(250, 24));
+        xCharacter.setName("Cantidad de pasos "); // NOI18N
+        xCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        xCharacter.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                xCharacterStateChanged(evt);
+            }
+        });
 
         jLabel8.setText("Posición en X");
 
-        jSpinner5.setName("Cantidad de pasos "); // NOI18N
-        jSpinner5.setPreferredSize(new java.awt.Dimension(250, 24));
+        yCharacter.setName("Cantidad de pasos "); // NOI18N
+        yCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        yCharacter.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                yCharacterStateChanged(evt);
+            }
+        });
 
         jLabel9.setText("Posición en Y");
 
-        jSpinner6.setName("Cantidad de pasos "); // NOI18N
-        jSpinner6.setPreferredSize(new java.awt.Dimension(250, 24));
+        size.setName("Cantidad de pasos "); // NOI18N
+        size.setPreferredSize(new java.awt.Dimension(250, 24));
+        size.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                sizeStateChanged(evt);
+            }
+        });
 
         jLabel10.setText("Tamaño");
 
-        jSpinner7.setName("Cantidad de pasos "); // NOI18N
-        jSpinner7.setPreferredSize(new java.awt.Dimension(250, 24));
+        maxHealth.setName("Cantidad de pasos "); // NOI18N
+        maxHealth.setPreferredSize(new java.awt.Dimension(250, 24));
+        maxHealth.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                maxHealthStateChanged(evt);
+            }
+        });
 
         jLabel11.setText("Salud maxima");
 
-        jSpinner8.setName("Cantidad de pasos "); // NOI18N
-        jSpinner8.setPreferredSize(new java.awt.Dimension(250, 24));
+        health.setName("Cantidad de pasos "); // NOI18N
+        health.setPreferredSize(new java.awt.Dimension(250, 24));
+        health.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                healthStateChanged(evt);
+            }
+        });
 
         jLabel12.setText("Salud actual");
 
-        jSpinner9.setName("Cantidad de pasos "); // NOI18N
-        jSpinner9.setPreferredSize(new java.awt.Dimension(250, 24));
+        hitPerUnitTime.setName("Cantidad de pasos "); // NOI18N
+        hitPerUnitTime.setPreferredSize(new java.awt.Dimension(250, 24));
+        hitPerUnitTime.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                hitPerUnitTimeStateChanged(evt);
+            }
+        });
 
         jLabel13.setText("Golpes por unidad de tiempo");
 
-        jSpinner10.setName("Cantidad de pasos "); // NOI18N
-        jSpinner10.setPreferredSize(new java.awt.Dimension(250, 24));
+        cost.setName("Cantidad de pasos "); // NOI18N
+        cost.setPreferredSize(new java.awt.Dimension(250, 24));
+        cost.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                costStateChanged(evt);
+            }
+        });
 
         jLabel14.setText("Costo");
 
-        jSpinner11.setName("Cantidad de pasos "); // NOI18N
-        jSpinner11.setPreferredSize(new java.awt.Dimension(250, 24));
+        unlockLevel.setName("Cantidad de pasos "); // NOI18N
+        unlockLevel.setPreferredSize(new java.awt.Dimension(250, 24));
+        unlockLevel.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                unlockLevelStateChanged(evt);
+            }
+        });
 
         jLabel15.setText("Nivel de desbloqueo");
 
@@ -292,57 +347,107 @@ public class CharacterCreator extends javax.swing.JFrame {
         jButton4.setText("Nuevo Personaje");
         jButton4.setPreferredSize(new java.awt.Dimension(250, 24));
 
-        jSpinner12.setName("Cantidad de pasos "); // NOI18N
-        jSpinner12.setPreferredSize(new java.awt.Dimension(250, 24));
+        levelWeapon.setName("Cantidad de pasos "); // NOI18N
+        levelWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        levelWeapon.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                levelWeaponStateChanged(evt);
+            }
+        });
 
-        jSpinner13.setName("Cantidad de pasos "); // NOI18N
-        jSpinner13.setPreferredSize(new java.awt.Dimension(250, 24));
+        xWeapon.setName("Cantidad de pasos "); // NOI18N
+        xWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        xWeapon.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                xWeaponStateChanged(evt);
+            }
+        });
 
         jLabel16.setText("Posición en X");
 
-        jSpinner14.setName("Cantidad de pasos "); // NOI18N
-        jSpinner14.setPreferredSize(new java.awt.Dimension(250, 24));
+        yWeapon.setName("Cantidad de pasos "); // NOI18N
+        yWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        yWeapon.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                yWeaponStateChanged(evt);
+            }
+        });
 
         jLabel17.setText("Posición en Y");
 
-        jSpinner15.setName("Cantidad de pasos "); // NOI18N
-        jSpinner15.setPreferredSize(new java.awt.Dimension(250, 24));
+        damageWeapon.setName("Cantidad de pasos "); // NOI18N
+        damageWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        damageWeapon.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                damageWeaponStateChanged(evt);
+            }
+        });
 
         jLabel18.setText("Daño");
 
         jLabel19.setText("Nivel");
 
-        jSpinner16.setName("Cantidad de pasos "); // NOI18N
-        jSpinner16.setPreferredSize(new java.awt.Dimension(250, 24));
+        scope.setName("Cantidad de pasos "); // NOI18N
+        scope.setPreferredSize(new java.awt.Dimension(250, 24));
+        scope.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                scopeStateChanged(evt);
+            }
+        });
 
         jLabel20.setText("Alcance");
 
-        jSpinner17.setName("Cantidad de pasos "); // NOI18N
-        jSpinner17.setPreferredSize(new java.awt.Dimension(250, 24));
+        explosionRange.setName("Cantidad de pasos "); // NOI18N
+        explosionRange.setPreferredSize(new java.awt.Dimension(250, 24));
+        explosionRange.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                explosionRangeStateChanged(evt);
+            }
+        });
 
         jLabel21.setText("Rango de explosión");
 
-        jSpinner18.setName("Cantidad de pasos "); // NOI18N
-        jSpinner18.setPreferredSize(new java.awt.Dimension(250, 24));
+        maxSupplies.setName("Cantidad de pasos "); // NOI18N
+        maxSupplies.setPreferredSize(new java.awt.Dimension(250, 24));
+        maxSupplies.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                maxSuppliesStateChanged(evt);
+            }
+        });
 
         jLabel22.setText("Munición máxima");
 
-        jSpinner19.setName("Cantidad de pasos "); // NOI18N
-        jSpinner19.setPreferredSize(new java.awt.Dimension(250, 24));
+        supplies.setName("Cantidad de pasos "); // NOI18N
+        supplies.setPreferredSize(new java.awt.Dimension(250, 24));
+        supplies.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                suppliesStateChanged(evt);
+            }
+        });
 
         jLabel23.setText("Munición");
 
-        jSpinner20.setName("Cantidad de pasos "); // NOI18N
-        jSpinner20.setPreferredSize(new java.awt.Dimension(250, 24));
+        levelMultiplier.setName("Cantidad de pasos "); // NOI18N
+        levelMultiplier.setPreferredSize(new java.awt.Dimension(250, 24));
+        levelMultiplier.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                levelMultiplierStateChanged(evt);
+            }
+        });
 
         jLabel24.setText("Multiplicador de nivel");
 
         jLabel25.setText("Nivel ");
 
-        jCheckBox1.setText("Dependiente");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        levelDepend.setText("Dependiente");
+        levelDepend.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                levelDependStateChanged(evt);
+            }
+        });
+        levelDepend.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                levelDependActionPerformed(evt);
             }
         });
 
@@ -437,64 +542,64 @@ public class CharacterCreator extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(weaponName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel5)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(damageCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
                             .addComponent(jLabel7)
-                            .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(levelCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(xCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
-                            .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(yCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jSpinner15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(damageWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel18)
                             .addComponent(jLabel19)
-                            .addComponent(jSpinner12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(levelWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16)
-                            .addComponent(jSpinner13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(xWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel17)
-                            .addComponent(jSpinner14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(yWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
-                            .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel11)
-                            .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12)
-                            .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel13)
-                            .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14)
-                            .addComponent(jSpinner10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel15))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20)
-                            .addComponent(jSpinner16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(scope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel21)
-                            .addComponent(jSpinner17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(explosionRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel22)
-                            .addComponent(jSpinner18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel23)
-                            .addComponent(jSpinner19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(supplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel24)
-                            .addComponent(jSpinner20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel25)
                                 .addGap(4, 4, 4)
-                                .addComponent(jCheckBox1))))
+                                .addComponent(levelDepend))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jSpinner11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -529,62 +634,62 @@ public class CharacterCreator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(damageCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel7)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(levelCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(xCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(yCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(71, 71, 71)
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jSpinner15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(damageWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel19)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(levelWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(xWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(yWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel20)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(scope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel21)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(explosionRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel22)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel23)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(supplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel24)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel25)
-                                    .addComponent(jCheckBox1)))
+                                    .addComponent(levelDepend)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(layout.createSequentialGroup()
@@ -592,7 +697,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                                             .addComponent(jLabel10)
                                             .addComponent(selectImageCharacterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(jLabel26))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -600,7 +705,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                                     .addComponent(jSpinner21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jSpinner7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -609,30 +714,30 @@ public class CharacterCreator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jSpinner8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel13)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jLabel14)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jSpinner10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(7, 7, 7)
                                         .addComponent(jLabel15))
                                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jSpinner11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -720,9 +825,9 @@ public class CharacterCreator extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
+    private void levelDependActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelDependActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_levelDependActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -755,6 +860,90 @@ public class CharacterCreator extends javax.swing.JFrame {
         int indexWeapon = weaponList.locationToIndex(evt.getPoint());
         controller.setWeapon(indexWeapon);
     }//GEN-LAST:event_weaponListMouseClicked
+
+    private void damageCharacterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_damageCharacterStateChanged
+        controller.setDamage((int) damageCharacter.getValue(),true);
+    }//GEN-LAST:event_damageCharacterStateChanged
+
+    private void damageWeaponStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_damageWeaponStateChanged
+        controller.setDamage((int) damageWeapon.getValue(),false);
+    }//GEN-LAST:event_damageWeaponStateChanged
+
+    private void levelCharacterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_levelCharacterStateChanged
+        controller.setLevel((int) levelCharacter.getValue(),true);
+    }//GEN-LAST:event_levelCharacterStateChanged
+
+    private void levelWeaponStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_levelWeaponStateChanged
+        controller.setLevel((int) levelWeapon.getValue(),false);
+    }//GEN-LAST:event_levelWeaponStateChanged
+
+    private void xCharacterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_xCharacterStateChanged
+        controller.setX((int) xCharacter.getValue(), true);
+    }//GEN-LAST:event_xCharacterStateChanged
+
+    private void levelDependStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_levelDependStateChanged
+        controller.setLevelDependant(levelDepend.isSelected());
+    }//GEN-LAST:event_levelDependStateChanged
+
+    private void xWeaponStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_xWeaponStateChanged
+        controller.setX((int) xCharacter.getValue(), false);
+    }//GEN-LAST:event_xWeaponStateChanged
+
+    private void yCharacterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_yCharacterStateChanged
+        controller.setY((int) xCharacter.getValue(), true);
+    }//GEN-LAST:event_yCharacterStateChanged
+
+    private void yWeaponStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_yWeaponStateChanged
+        controller.setY((int) xCharacter.getValue(), false);
+    }//GEN-LAST:event_yWeaponStateChanged
+
+    private void sizeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_sizeStateChanged
+        controller.setSize((int) size.getValue());
+    }//GEN-LAST:event_sizeStateChanged
+
+    private void maxHealthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_maxHealthStateChanged
+        controller.setMaxHealth((int) maxHealth.getValue());
+    }//GEN-LAST:event_maxHealthStateChanged
+
+    private void healthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_healthStateChanged
+        controller.setMaxHealth((int) health.getValue());
+    }//GEN-LAST:event_healthStateChanged
+
+    private void hitPerUnitTimeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_hitPerUnitTimeStateChanged
+        controller.setHitsPerTimeUnit((int) hitPerUnitTime.getValue());
+    }//GEN-LAST:event_hitPerUnitTimeStateChanged
+
+    private void costStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_costStateChanged
+        controller.setCost((int) cost.getValue());
+    }//GEN-LAST:event_costStateChanged
+
+    private void unlockLevelStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_unlockLevelStateChanged
+        controller.setUnlockLevel((int) unlockLevel.getValue());
+    }//GEN-LAST:event_unlockLevelStateChanged
+
+    private void moveStepsStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_moveStepsStateChanged
+        controller.setMoveSteps((int) moveSteps.getValue());
+    }//GEN-LAST:event_moveStepsStateChanged
+
+    private void scopeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_scopeStateChanged
+        controller.setScope((int) scope.getValue());
+    }//GEN-LAST:event_scopeStateChanged
+
+    private void explosionRangeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_explosionRangeStateChanged
+        controller.setExplosionRange((int) explosionRange.getValue());
+    }//GEN-LAST:event_explosionRangeStateChanged
+
+    private void maxSuppliesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_maxSuppliesStateChanged
+        controller.setMaxSupplies((int) maxSupplies.getValue());
+    }//GEN-LAST:event_maxSuppliesStateChanged
+
+    private void suppliesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_suppliesStateChanged
+        controller.setSupplies((int) supplies.getValue());
+    }//GEN-LAST:event_suppliesStateChanged
+
+    private void levelMultiplierStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_levelMultiplierStateChanged
+        controller.setLevelMultiplier((int) levelMultiplier.getValue());
+    }//GEN-LAST:event_levelMultiplierStateChanged
 
     /**
      * @param args the command line arguments
@@ -830,6 +1019,13 @@ public class CharacterCreator extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel characterLabel;
     private javax.swing.JList<String> characterList;
+    private javax.swing.JSpinner cost;
+    private javax.swing.JSpinner damageCharacter;
+    private javax.swing.JSpinner damageWeapon;
+    private javax.swing.JComboBox<String> directionBox;
+    private javax.swing.JSpinner explosionRange;
+    private javax.swing.JSpinner health;
+    private javax.swing.JSpinner hitPerUnitTime;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -837,8 +1033,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -868,37 +1062,32 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner10;
-    private javax.swing.JSpinner jSpinner11;
-    private javax.swing.JSpinner jSpinner12;
-    private javax.swing.JSpinner jSpinner13;
-    private javax.swing.JSpinner jSpinner14;
-    private javax.swing.JSpinner jSpinner15;
-    private javax.swing.JSpinner jSpinner16;
-    private javax.swing.JSpinner jSpinner17;
-    private javax.swing.JSpinner jSpinner18;
-    private javax.swing.JSpinner jSpinner19;
-    private javax.swing.JSpinner jSpinner2;
-    private javax.swing.JSpinner jSpinner20;
     private javax.swing.JSpinner jSpinner21;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JSpinner jSpinner5;
-    private javax.swing.JSpinner jSpinner6;
-    private javax.swing.JSpinner jSpinner7;
-    private javax.swing.JSpinner jSpinner8;
-    private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JSpinner levelCharacter;
+    private javax.swing.JCheckBox levelDepend;
+    private javax.swing.JSpinner levelMultiplier;
+    private javax.swing.JSpinner levelWeapon;
+    private javax.swing.JSpinner maxHealth;
+    private javax.swing.JSpinner maxSupplies;
+    private javax.swing.JSpinner moveSteps;
+    private javax.swing.JSpinner scope;
     private javax.swing.JButton selectImageCharacterButton;
     private javax.swing.JButton selectImageWeoponButton;
+    private javax.swing.JSpinner size;
     private javax.swing.JList<String> spriteList;
+    private javax.swing.JSpinner supplies;
+    private javax.swing.JSpinner unlockLevel;
     private javax.swing.JLabel weaponLabel;
     private javax.swing.JList<String> weaponList;
     private javax.swing.JTextField weaponName;
+    private javax.swing.JSpinner xCharacter;
+    private javax.swing.JSpinner xWeapon;
+    private javax.swing.JSpinner yCharacter;
+    private javax.swing.JSpinner yWeapon;
     // End of variables declaration//GEN-END:variables
 
     private void setList() {
