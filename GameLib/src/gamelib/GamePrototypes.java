@@ -42,4 +42,9 @@ public class GamePrototypes<T extends IPrototype> {
     public void addPrototype(String id, T object){   
         objects.put(id, object);   
     }
+
+    public HashMap<String, T> getObjects() {
+        return objects;
+    }
+    
 }

@@ -240,5 +240,17 @@ public abstract class AbstractCharacter extends GameObject<AbstractCharacter> {
             character.getHit(this.damage * this.hitsPerTimeUnit);
         }
     }
+
+    /**
+     * Increments the character and the weapons level. 
+     * @param increment Level increment
+     */
+    @Override
+    public void increaseLevel(int increment) {
+        super.increaseLevel(increment); 
+        for (AbstractWeapon weapon : weapons) {
+            weapon.increaseLevel(increment);
+        }
+    }
     
 }
