@@ -1,0 +1,68 @@
+
+[
+	{
+	    "name": "barbaro",
+	    "damage": 130,
+	    "level": 1,
+	    "x": 0,
+	    "y": 0,
+	    "size": 1,
+	    "maxHealth": 100,
+	    "health": 100,
+	    "hitsPerTimeUnit": 2,
+	    "cost": 20,
+	    "unlockLevel": 1,
+	    "moveSteps": 1,
+	    "spriteState": "jumping",
+	    "spriteSets": 
+	    [
+	    	{
+	    		"level": 1,
+	    		"spriteSets":
+	    		[
+	    			{
+	    				"state":"jumping",
+	    				"URL": ""
+	    		    },
+	    		    {
+	    				"state":"attacking",
+	    				"URL": ""
+	    		    }
+	    			
+	    		]
+
+	    	},
+	    	{
+	    		"level": 2,
+	    		"spriteSets":
+	    		[
+	    			{
+	    				"state":"jumping",
+	    				"URL": ""
+	    		    },
+	    		    {
+	    				"state":"attacking",
+	    				"URL": ""
+	    		    }
+	    			
+	    		]
+
+	    	}	
+
+	    ],
+	    "weapons": [
+	    	{
+	    		"name":"espada"
+	    	},
+	    	{
+				"name":"hacha"
+	    	},
+	    	{
+	    		"name":"escudo"
+	    	}
+	    ],
+	    "equipedWeapon": "espada",
+	    "direction": "RIGHT"
+	}
+]
+	
