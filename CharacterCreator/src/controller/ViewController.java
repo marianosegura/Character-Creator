@@ -5,13 +5,26 @@
  */
 package controller;
 
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author esteban
  */
 public class ViewController {
+    
 
     public ViewController() {
+    }
+    
+    public DefaultListModel getListModelCharacters(){
+        DefaultListModel listModel = new DefaultListModel();
+        ArrayList<String> list = new ArrayList();//Cambiar por la lista de personajes
+        for (int i = 0; i < list.size(); i++) {
+            listModel.addElement(list.get(i));
+        }
+        return listModel;
     }
     
     
