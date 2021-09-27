@@ -32,6 +32,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     public CharacterCreator() {
         initComponents();
         controller = new ViewController();
+        setList();
         //imagenes de ejemplo
         String homerPath = "src/images/homer.jpg";
         String bartPath = "src/images/Bart.png";
@@ -61,7 +62,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList2 = new javax.swing.JList<>();
+        weaponList = new javax.swing.JList<>();
         jComboBox1 = new javax.swing.JComboBox<>();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
@@ -117,10 +118,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jList3 = new javax.swing.JList<>();
+        characterList = new javax.swing.JList<>();
         jTextField3 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        spriteList = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Creador de personajes");
@@ -206,12 +207,17 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jList2.setModel(new javax.swing.AbstractListModel<String>() {
+        weaponList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane2.setViewportView(jList2);
+        weaponList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                weaponListMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(weaponList);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una dirección", "Arriba", "Abajo", "Izquierda", "Derecha" }));
         jComboBox1.setToolTipText("");
@@ -364,13 +370,18 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         jLabel27.setText("List de personajes");
 
-        jList3.setModel(new javax.swing.AbstractListModel<String>() {
+        characterList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jList3.setPreferredSize(new java.awt.Dimension(250, 100));
-        jScrollPane3.setViewportView(jList3);
+        characterList.setPreferredSize(new java.awt.Dimension(250, 100));
+        characterList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                characterListMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(characterList);
 
         jTextField3.setForeground(new java.awt.Color(153, 153, 153));
         jTextField3.setText("Estado");
@@ -391,12 +402,12 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        spriteList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(spriteList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -735,6 +746,16 @@ public class CharacterCreator extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
+    private void characterListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_characterListMouseClicked
+        int indexCharacter = characterList.locationToIndex(evt.getPoint());
+        controller.setCharacter(indexCharacter);
+    }//GEN-LAST:event_characterListMouseClicked
+
+    private void weaponListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_weaponListMouseClicked
+        int indexWeapon = weaponList.locationToIndex(evt.getPoint());
+        controller.setWeapon(indexWeapon);
+    }//GEN-LAST:event_weaponListMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -808,6 +829,7 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel characterLabel;
+    private javax.swing.JList<String> characterList;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -843,9 +865,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
-    private javax.swing.JList<String> jList2;
-    private javax.swing.JList<String> jList3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -876,8 +895,15 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JButton selectImageCharacterButton;
     private javax.swing.JButton selectImageWeoponButton;
+    private javax.swing.JList<String> spriteList;
     private javax.swing.JLabel weaponLabel;
+    private javax.swing.JList<String> weaponList;
     private javax.swing.JTextField weaponName;
     // End of variables declaration//GEN-END:variables
+
+    private void setList() {
+        characterList.setModel(controller.getListModelCharacters());
+        weaponList.setModel(controller.getListModelCharacters());
+    }
 
 }
