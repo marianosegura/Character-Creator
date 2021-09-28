@@ -14,6 +14,8 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+import static javax.swing.JOptionPane.showMessageDialog;
 import javax.swing.JTextField;
 
 /**
@@ -55,10 +57,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         weaponLabel = new javax.swing.JLabel();
         selectImageCharacterButton = new javax.swing.JButton();
         selectImageWeoponButton = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        nameCharacter = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        weaponName = new javax.swing.JTextField();
+        nameWeapon = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jToggleButton1 = new javax.swing.JToggleButton();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -86,7 +88,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         unlockLevel = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -119,9 +120,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel27 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         characterList = new javax.swing.JList<>();
-        jTextField3 = new javax.swing.JTextField();
+        stateSprite = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         spriteList = new javax.swing.JList<>();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Creador de personajes");
@@ -156,22 +158,27 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField1.setText("Nombre");
-        jTextField1.setMaximumSize(new java.awt.Dimension(250, 24));
-        jTextField1.setMinimumSize(new java.awt.Dimension(250, 24));
-        jTextField1.setPreferredSize(new java.awt.Dimension(250, 24));
-        jTextField1.addFocusListener(new java.awt.event.FocusAdapter() {
+        nameCharacter.setForeground(new java.awt.Color(153, 153, 153));
+        nameCharacter.setText("Nombre");
+        nameCharacter.setMaximumSize(new java.awt.Dimension(250, 24));
+        nameCharacter.setMinimumSize(new java.awt.Dimension(250, 24));
+        nameCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        nameCharacter.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField1FocusGained(evt);
+                nameCharacterFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField1FocusLost(evt);
+                nameCharacterFocusLost(evt);
             }
         });
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        nameCharacter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                nameCharacterActionPerformed(evt);
+            }
+        });
+        nameCharacter.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameCharacterKeyTyped(evt);
             }
         });
 
@@ -179,22 +186,27 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         jLabel2.setText("Arma");
 
-        weaponName.setForeground(new java.awt.Color(153, 153, 153));
-        weaponName.setText("Nombre");
-        weaponName.setMaximumSize(new java.awt.Dimension(250, 24));
-        weaponName.setMinimumSize(new java.awt.Dimension(250, 24));
-        weaponName.setPreferredSize(new java.awt.Dimension(250, 24));
-        weaponName.addFocusListener(new java.awt.event.FocusAdapter() {
+        nameWeapon.setForeground(new java.awt.Color(153, 153, 153));
+        nameWeapon.setText("Nombre");
+        nameWeapon.setMaximumSize(new java.awt.Dimension(250, 24));
+        nameWeapon.setMinimumSize(new java.awt.Dimension(250, 24));
+        nameWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        nameWeapon.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                weaponNameFocusGained(evt);
+                nameWeaponFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                weaponNameFocusLost(evt);
+                nameWeaponFocusLost(evt);
             }
         });
-        weaponName.addActionListener(new java.awt.event.ActionListener() {
+        nameWeapon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                weaponNameActionPerformed(evt);
+                nameWeaponActionPerformed(evt);
+            }
+        });
+        nameWeapon.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nameWeaponKeyTyped(evt);
             }
         });
 
@@ -332,11 +344,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
 
         jLabel15.setText("Nivel de desbloqueo");
-
-        jTextField2.setEditable(false);
-        jTextField2.setForeground(java.awt.SystemColor.inactiveCaption);
-        jTextField2.setText("Arma equipada");
-        jTextField2.setPreferredSize(new java.awt.Dimension(250, 24));
 
         jButton1.setText("Guardar Personaje");
         jButton1.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -488,22 +495,22 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(characterList);
 
-        jTextField3.setForeground(new java.awt.Color(153, 153, 153));
-        jTextField3.setText("Estado");
-        jTextField3.setMaximumSize(new java.awt.Dimension(250, 24));
-        jTextField3.setMinimumSize(new java.awt.Dimension(250, 24));
-        jTextField3.setPreferredSize(new java.awt.Dimension(250, 24));
-        jTextField3.addFocusListener(new java.awt.event.FocusAdapter() {
+        stateSprite.setForeground(new java.awt.Color(153, 153, 153));
+        stateSprite.setText("Estado");
+        stateSprite.setMaximumSize(new java.awt.Dimension(250, 24));
+        stateSprite.setMinimumSize(new java.awt.Dimension(250, 24));
+        stateSprite.setPreferredSize(new java.awt.Dimension(250, 24));
+        stateSprite.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jTextField3FocusGained(evt);
+                stateSpriteFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jTextField3FocusLost(evt);
+                stateSpriteFocusLost(evt);
             }
         });
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        stateSprite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                stateSpriteActionPerformed(evt);
             }
         });
 
@@ -513,6 +520,14 @@ public class CharacterCreator extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(spriteList);
+
+        jButton8.setText("Selecciona un arma a equipar");
+        jButton8.setPreferredSize(new java.awt.Dimension(250, 24));
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -527,7 +542,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addComponent(jLabel26)
                     .addComponent(jLabel27)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(stateSprite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jButton7, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -535,12 +550,12 @@ public class CharacterCreator extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(weaponName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(nameWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel5)
                     .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -597,9 +612,9 @@ public class CharacterCreator extends javax.swing.JFrame {
                                 .addComponent(levelDepend))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -629,8 +644,8 @@ public class CharacterCreator extends javax.swing.JFrame {
                                     .addComponent(jLabel2))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(weaponName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(nameCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nameWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel6)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -706,7 +721,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(stateSprite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel12)
@@ -731,8 +746,8 @@ public class CharacterCreator extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(12, 12, 12)
                                 .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel5)
@@ -791,35 +806,41 @@ public class CharacterCreator extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_selectImageWeoponButtonActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void nameCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameCharacterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_nameCharacterActionPerformed
 
-    private void jTextField1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusGained
-        if(jTextField1.getText().equals("Nombre")){
-            jTextField1.setText("");
-            jTextField1.setForeground(Color.BLACK);
+    private void nameCharacterFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameCharacterFocusGained
+        if(nameCharacter.getText().equals("Nombre")){
+            nameCharacter.setText("");
+            nameCharacter.setForeground(Color.BLACK);
         }
-    }//GEN-LAST:event_jTextField1FocusGained
+    }//GEN-LAST:event_nameCharacterFocusGained
 
-    private void jTextField1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField1FocusLost
-        if(jTextField1.getText().equals("")){
-            jTextField1.setText("Nombre");
-            jTextField1.setForeground(Color.GRAY);
+    private void nameCharacterFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameCharacterFocusLost
+        if(nameCharacter.getText().equals("")){
+            nameCharacter.setText("Nombre");
+            nameCharacter.setForeground(Color.GRAY);
         }
-    }//GEN-LAST:event_jTextField1FocusLost
+    }//GEN-LAST:event_nameCharacterFocusLost
 
-    private void weaponNameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weaponNameFocusGained
-        
-    }//GEN-LAST:event_weaponNameFocusGained
+    private void nameWeaponFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameWeaponFocusGained
+        if(nameWeapon.getText().equals("Nombre")){
+            nameWeapon.setText("");
+            nameWeapon.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_nameWeaponFocusGained
 
-    private void weaponNameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_weaponNameFocusLost
+    private void nameWeaponFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nameWeaponFocusLost
+        if(nameWeapon.getText().equals("")){
+            nameWeapon.setText("Nombre");
+            nameWeapon.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_nameWeaponFocusLost
+
+    private void nameWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameWeaponActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_weaponNameFocusLost
-
-    private void weaponNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_weaponNameActionPerformed
+    }//GEN-LAST:event_nameWeaponActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         // TODO add your handling code here:
@@ -833,23 +854,23 @@ public class CharacterCreator extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jTextField3FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusGained
-        if(jTextField3.getText().equals("Estado")){
-            jTextField3.setText("");
-            jTextField3.setForeground(Color.BLACK);
+    private void stateSpriteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stateSpriteFocusGained
+        if(stateSprite.getText().equals("Estado")){
+            stateSprite.setText("");
+            stateSprite.setForeground(Color.BLACK);
         }
-    }//GEN-LAST:event_jTextField3FocusGained
+    }//GEN-LAST:event_stateSpriteFocusGained
 
-    private void jTextField3FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextField3FocusLost
-        if(jTextField3.getText().equals("")){
-            jTextField3.setText("Estado");
-            jTextField3.setForeground(Color.GRAY);
+    private void stateSpriteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stateSpriteFocusLost
+        if(stateSprite.getText().equals("")){
+            stateSprite.setText("Estado");
+            stateSprite.setForeground(Color.GRAY);
         }
-    }//GEN-LAST:event_jTextField3FocusLost
+    }//GEN-LAST:event_stateSpriteFocusLost
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void stateSpriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateSpriteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_stateSpriteActionPerformed
 
     private void characterListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_characterListMouseClicked
         int indexCharacter = characterList.locationToIndex(evt.getPoint());
@@ -945,6 +966,26 @@ public class CharacterCreator extends javax.swing.JFrame {
         controller.setLevelMultiplier((int) levelMultiplier.getValue());
     }//GEN-LAST:event_levelMultiplierStateChanged
 
+    private void nameCharacterKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameCharacterKeyTyped
+        controller.setName(nameCharacter.getText(),true);
+    }//GEN-LAST:event_nameCharacterKeyTyped
+
+    private void nameWeaponKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nameWeaponKeyTyped
+        controller.setName(nameWeapon.getText(),false);
+    }//GEN-LAST:event_nameWeaponKeyTyped
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String[] options = controller.getNameWeapons();
+        if(options[0].contains("No hay armas aún")){
+            showMessageDialog(null, options[0]);
+        } else {
+           ImageIcon icon = new ImageIcon("src/images/icon.png");
+           String name = (String)JOptionPane.showInputDialog(null, "Selecciona el arma que quieras", 
+                "I like turtles", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]); 
+           controller.setEquipedWeapon(name);
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1033,6 +1074,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1063,9 +1105,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner21;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JSpinner levelCharacter;
     private javax.swing.JCheckBox levelDepend;
@@ -1074,16 +1113,18 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JSpinner maxHealth;
     private javax.swing.JSpinner maxSupplies;
     private javax.swing.JSpinner moveSteps;
+    private javax.swing.JTextField nameCharacter;
+    private javax.swing.JTextField nameWeapon;
     private javax.swing.JSpinner scope;
     private javax.swing.JButton selectImageCharacterButton;
     private javax.swing.JButton selectImageWeoponButton;
     private javax.swing.JSpinner size;
     private javax.swing.JList<String> spriteList;
+    private javax.swing.JTextField stateSprite;
     private javax.swing.JSpinner supplies;
     private javax.swing.JSpinner unlockLevel;
     private javax.swing.JLabel weaponLabel;
     private javax.swing.JList<String> weaponList;
-    private javax.swing.JTextField weaponName;
     private javax.swing.JSpinner xCharacter;
     private javax.swing.JSpinner xWeapon;
     private javax.swing.JSpinner yCharacter;

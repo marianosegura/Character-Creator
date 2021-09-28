@@ -9,6 +9,8 @@ import gamelib.Character;
 import gamelib.CharacterBuilder;
 import gamelib.Direction;
 import gamelib.Weapon;
+import gamelib.CharacterPrototypes;
+import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -19,43 +21,53 @@ import javax.swing.DefaultListModel;
  */
 public class ViewController {
     
-    private ArrayList<Character> characterList;
-    private ArrayList<Weapon> weaponList;
+    private ArrayList<String> characterList;
+    private ArrayList<String> weaponList;
     private CharacterBuilder actualCharacter;
     private WeaponBuilder actualWeapon;
     private Character dataCharacter;
     private Weapon dataWeapon;
+    private CharacterPrototypes characterPrototypes;
+    private WeaponPrototypes weaponPrototypes;
 
     public ViewController() {
-        characterList = new ArrayList<Character>();
-        weaponList = new ArrayList<Weapon>();
+        characterPrototypes = new CharacterPrototypes();
+        weaponPrototypes = new WeaponPrototypes();
+        //En este momento necesito los datos del json para mostrar las listas
+        characterList = new ArrayList<String>(
+                characterPrototypes.getObjects().keySet());
+        weaponList = new ArrayList<String>(
+                weaponPrototypes.getObjects().keySet());
         actualCharacter = new CharacterBuilder();
         actualWeapon = new WeaponBuilder();
-        
     }
     
     public DefaultListModel getListModelCharacters(){
         DefaultListModel listModel = new DefaultListModel();
         for (int i = 0; i < characterList.size(); i++) {
-            listModel.addElement(characterList.get(i).getName() + " Level:" +
-                    characterList.get(i).getLevel());
+            
+            listModel.addElement(characterList.get(i));
         }
         return listModel;
     }
     public DefaultListModel getListModelWeapon(){
         DefaultListModel listModel = new DefaultListModel();
         for (int i = 0; i < weaponList.size(); i++) {
-            listModel.addElement(weaponList.get(i).getName());
+            listModel.addElement(weaponList.get(i));
         }
         return listModel;
     }
-    public void setCharacter(int index){
-        dataCharacter = characterList.get(index);
-        //...
+    public Character setCharacter(int index){
+        dataCharacter = characterPrototypes.
+                getPrototypeDeepClone(characterList.get(index));
+        actualCharacter = new CharacterBuilder(dataCharacter);
+        return dataCharacter;
     }
-    public void setWeapon(int index){
-        dataWeapon = weaponList.get(index);
-        //...
+    public Weapon setWeapon(int index){
+        dataWeapon = weaponPrototypes
+                .getPrototypeDeepClone(weaponList.get(index));
+        actualWeapon = new WeaponBuilder(dataWeapon);
+        return dataWeapon;
     }
 
     public void setDamage(int value, boolean character) {
@@ -120,8 +132,8 @@ public class ViewController {
     }
     
     public void setEquipedWeapon(String name){
-        Weapon w = new Weapon(1,2,5,2,"tengo que cambiar",true);//tengo que sacarlo de la fotocopiadora
-        actualCharacter.setEquipedWeapon(w);
+        Weapon weapon = weaponPrototypes.getPrototypeDeepClone(name);
+        actualCharacter.setEquipedWeapon(weapon);
     }
     
     public void setDirection(String dir){
@@ -173,5 +185,21 @@ public class ViewController {
     
     public void setLevelDependant(boolean depent){
         actualWeapon.setLevelDependant(depent);
+    }
+
+    public void setName(String name, boolean character) {
+        if(character){
+            actualCharacter.setName(name);
+        } else {
+            actualWeapon.setName(name);
+        }
+    }
+
+    public String[] getNameWeapons() {
+        if(weaponList.size() == 0){
+            String[] result = {"No hay armas aún"};
+            return result;
+        }
+        return weaponList.toArray(new String[0]);
     }
 }
