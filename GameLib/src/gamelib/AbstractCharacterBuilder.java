@@ -127,8 +127,8 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
         return (E) this;
     }
     
-    public E setEquipedWeapon(AbstractWeapon weapon) {
-        this.equipedWeapon = weapon;
+    public E setEquipedWeapon(int index) {
+        this.equipedWeapon = weapons.get(index);
         return (E) this;
     }
 

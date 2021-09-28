@@ -135,9 +135,8 @@ public class ViewController {
         actualCharacter.setSpriteState(state);
     }
     
-    public void setEquipedWeapon(String name){
-        Weapon weapon = weaponPrototypes.getPrototypeDeepClone(name);
-        actualCharacter.setEquipedWeapon(weapon);
+    public void setEquipedWeapon(int index){
+        actualCharacter.setEquipedWeapon(index);
     }
     
     public void setDirection(String dir){
@@ -200,11 +199,11 @@ public class ViewController {
     }
 
     public String[] getNameWeapons() {
-        if(weaponList.isEmpty()){
-            String[] result = {"No hay armas aún"};
-            return result;
+        if(dataCharacter == null || dataCharacter.getWeapons().isEmpty()){
+           String[] result = {"No hay armas aún"};
+            return result; 
         }
-        return weaponList.toArray(new String[0]);
+        return dataCharacter.getWeapons().toArray(new String[0]);
     }
     
     public boolean save(boolean isCharacter){
@@ -219,6 +218,7 @@ public class ViewController {
                 weaponPrototypes
                         .addPrototype(newWeapon.getName(), newWeapon);
                 actualWeapon = new WeaponBuilder();
+                
             }
             //Guardar el archivo
             setListNames();

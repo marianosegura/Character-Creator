@@ -11,6 +11,8 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -830,6 +832,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void selectImageWeoponButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectImageWeoponButtonActionPerformed
        String path = getSelectedPath();
        if(path != null){
+           System.out.println(path);
            setImage(path,weaponLabel);
        } else {
            System.out.println("No seleccionó ningún archivo");
@@ -911,7 +914,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         int indexWeapon = weaponList.locationToIndex(evt.getPoint());
         controller.setWeapon(indexWeapon);
         nameWeapon.setText(controller.getDataWeapon().getName());
-        //cambiar name a negro
+        nameWeapon.setForeground(Color.BLACK);
         damageWeapon.setValue(controller.getDataWeapon().getDamage());
         levelWeapon.setValue(controller.getDataWeapon().getLevel());
         xWeapon.setValue(controller.getDataWeapon().getX());
@@ -1026,7 +1029,8 @@ public class CharacterCreator extends javax.swing.JFrame {
            ImageIcon icon = new ImageIcon("src/images/icon.png");
            String name = (String)JOptionPane.showInputDialog(null, "Selecciona el arma que quieras", 
                 "I like turtles", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]); 
-           controller.setEquipedWeapon(name);
+            System.out.println("index: "+Arrays.asList(options).indexOf(name));
+           controller.setEquipedWeapon(Arrays.asList(options).indexOf(name));
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -1051,17 +1055,16 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void deleteWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteWeaponActionPerformed
         controller.delete(false);
         setLists();
-        //me falta actualizar pantalla
+        clearWeaponView();
     }//GEN-LAST:event_deleteWeaponActionPerformed
 
     private void newCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCharacterActionPerformed
         controller.newGameObject(true);
-        setLists();
     }//GEN-LAST:event_newCharacterActionPerformed
 
     private void newWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWeaponActionPerformed
         controller.newGameObject(false);
-        setLists();
+        clearWeaponView();
     }//GEN-LAST:event_newWeaponActionPerformed
 
     /**
@@ -1215,6 +1218,22 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void setLists() {
         characterList.setModel(controller.getListModelCharacters());
         weaponList.setModel(controller.getListModelWeapons());
+    }
+    
+    private void clearWeaponView(){
+        nameWeapon.setText("Nombre");
+        nameWeapon.setForeground(Color.GRAY);
+        damageWeapon.setValue(0);
+        levelWeapon.setValue(0);
+        xWeapon.setValue(0);
+        yWeapon.setValue(0);
+        scope.setValue(0);
+        explosionRange.setValue(0);
+        maxSupplies.setValue(0);
+        supplies.setValue(0);
+        levelMultiplier.setValue(0);
+        levelDepend.setSelected(false);
+        setImage("./src/images/Bart.png",weaponLabel);
     }
 
 }
