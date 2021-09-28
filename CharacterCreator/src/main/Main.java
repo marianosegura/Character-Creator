@@ -22,16 +22,17 @@ import org.json.simple.parser.ParseException;
  * @author Luis Mariano Ramírez Segura
  */
 public class Main {
-
     /**
      * @param args the command line arguments
      */
+    
     public static void main(String[] args) {
-        System.out.println("P1");
         JsonData j = new JsonData();
         List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
         weapons = j.loadWeapon();
-        System.out.println("main" + weapons);
+        //GamePrototypes<AbstractWeapon> Weapons = new ()
+        System.out.println("Weapons loaded.");
+        
     }
     
 }

@@ -20,60 +20,41 @@ import org.json.simple.parser.ParseException;
 public class JsonData {
     private List<AbstractCharacter> characters = new ArrayList<AbstractCharacter>();
     private List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
-
-    public JsonData(){
-        
+    public JsonData(){ 
     }
-    
     public List<AbstractCharacter> loadCharacter(){
         try{
-            
-            
-            
-            
         }catch(Exception e){
             System.out.println("Error"+e);
         }
-        
         return characters;
     }
     
     public List<AbstractWeapon> loadWeapon(){
-        System.out.println("Hi!");
         JSONParser parser = new JSONParser();
-        
         try{
-            Object obj = parser.parse(new FileReader("weapon.json"));
+            Object obj = parser.parse(new FileReader("PrototypeBasicWeapons.json"));
             JSONObject jsonObject = (JSONObject) obj;
-            System.out.println("JSON LEIDO:" + jsonObject.get("weapons"));
             JSONArray array = (JSONArray) jsonObject.get("weapons");
-            
-            
-          
-            
-             for(int i = 0 ; i < array.size() ; i++) {
-                System.out.println("Game Lib FOR"); 
+            for(int i = 0 ; i < array.size() ; i++) {
                 JSONObject jsonObject1 = (JSONObject) array.get(i);
-
-                System.out.println("DATOS DEL ARMA: " + i);
-                System.out.println("name: " + jsonObject1.get("name"));
-                System.out.println("damage: " + jsonObject1.get("damage"));
-                System.out.println("level: " + jsonObject1.get("level"));
-                
-                System.out.println("x: " + jsonObject1.get("x"));
-
-                System.out.println("sdfasdfasdfas");
-                
-                Weapon nuevo = new Weapon(1, 1, 1, 1, "sadfasdf", true, (String)jsonObject1.get("name"),(int)(long)jsonObject1.get("damage"), (int)(long)jsonObject1.get("level"),(int)(long)jsonObject1.get("x"),1);
+                Weapon nuevo = new Weapon((int)(long)jsonObject1.get("scope"),
+                        (int)(long)jsonObject1.get("explosionRange"),
+                        (int)(long)jsonObject1.get("maxSupplies"),
+                        (int)(long)jsonObject1.get("levelMultiplier"),
+                        (String)jsonObject1.get("image"),
+                        (boolean)jsonObject1.get("levelDependant"),
+                        (String)jsonObject1.get("name"),
+                        (int)(long)jsonObject1.get("damage"),
+                        (int)(long)jsonObject1.get("level"),
+                        (int)(long)jsonObject1.get("x"),
+                        (int)(long)jsonObject1.get("y"));
                 weapons.add(nuevo);
-                System.out.println("holi XD" + weapons);
             }
-            
         }
         catch(Exception ex){
             System.out.println(ex);
-        }
-        System.out.println(weapons);    
+        }   
     return weapons;
     }
 }
