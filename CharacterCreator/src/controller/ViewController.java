@@ -62,7 +62,7 @@ public class ViewController {
     public Character setCharacter(int index){
         System.out.println("characterList["+index+"]: "+characterList.get(index));
         dataCharacter = characterPrototypes.
-                getPrototypeClone(characterList.get(index));
+                getPrototypeDeepClone(characterList.get(index));
         System.out.println("Character loaded: " + dataCharacter);
         actualCharacter = new CharacterBuilder(dataCharacter);
         return dataCharacter;
@@ -266,5 +266,13 @@ public class ViewController {
             characterPrototypes
                     .addPrototype(character.getName(), (Character)character);
         }
+    }
+    
+    public Character getDataCharacter(){
+        return dataCharacter;
+    }
+    
+    public Weapon getDataWeapon(){
+        return dataWeapon;
     }
 }

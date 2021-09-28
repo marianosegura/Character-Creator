@@ -910,6 +910,20 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void weaponListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_weaponListMouseClicked
         int indexWeapon = weaponList.locationToIndex(evt.getPoint());
         controller.setWeapon(indexWeapon);
+        nameWeapon.setText(controller.getDataWeapon().getName());
+        //cambiar name a negro
+        damageWeapon.setValue(controller.getDataWeapon().getDamage());
+        levelWeapon.setValue(controller.getDataWeapon().getLevel());
+        xWeapon.setValue(controller.getDataWeapon().getX());
+        yWeapon.setValue(controller.getDataWeapon().getY());
+        scope.setValue(controller.getDataWeapon().getScope());
+        explosionRange.setValue(controller.getDataWeapon().getExplosionRange());
+        maxSupplies.setValue(controller.getDataWeapon().getMaxSupplies());
+        supplies.setValue(controller.getDataWeapon().getSupplies());
+        levelMultiplier.setValue(controller.getDataWeapon().getLevelMultiplier());
+        levelDepend.setSelected(controller.getDataWeapon().isLevelDependant());
+        System.out.println("path: "+controller.getDataWeapon().getImage());
+        setImage(controller.getDataWeapon().getImage(),weaponLabel);
     }//GEN-LAST:event_weaponListMouseClicked
 
     private void damageCharacterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_damageCharacterStateChanged
