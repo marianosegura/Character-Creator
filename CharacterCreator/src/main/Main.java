@@ -40,9 +40,12 @@ public class Main {
         
         List<AbstractCharacter> characters = new ArrayList<AbstractCharacter>();
         characters = j.loadCharacter();
+        GamePrototypes<AbstractCharacter> Characters = new GamePrototypes<AbstractCharacter>();
+        for (AbstractCharacter b : characters ){
+            Characters.addPrototype(b.getName(), b);
+            //System.out.println(b.getEquipedWeapon());
+        }
         System.out.println("characters loaded.");
-        
-        
     }
     
 }
