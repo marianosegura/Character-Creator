@@ -1,6 +1,6 @@
 {
     "characters":[
-    {"name":"barbaro","damage": 130,"level": 1,"x": 0,"y": 0,"size": 1,"maxHealth": 100,"health": 100,"hitsPerTimeUnit": 2,"cost": 20,"unlockLevel": 1,"moveSteps": 1,"spriteState": "jumping",
+    {"name":"barbaro1","damage": 130,"level": 1,"x": 0,"y": 0,"size": 1,"maxHealth": 100,"health": 100,"hitsPerTimeUnit": 2,"cost": 20,"unlockLevel": 1,"moveSteps": 1,"spriteState": "jumping",
         "spriteSets":[
             {"level": 1,"Sprite":[
                             {"state":"jumping","URL": ""},
@@ -17,7 +17,7 @@
         ],
         "equipedWeapon":{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"Gamelib\\src\\image\\espada.png","levelDependant":true},
         "direction":"RIGHT"
-    },{"name":"barbaro","damage": 130,"level": 1,"x": 0,"y": 0,"size": 1,"maxHealth": 100,"health": 100,"hitsPerTimeUnit": 2,"cost": 20,"unlockLevel": 1,"moveSteps": 1,"spriteState": "jumping",
+    },{"name":"barbaro2","damage": 130,"level": 1,"x": 0,"y": 0,"size": 1,"maxHealth": 100,"health": 100,"hitsPerTimeUnit": 2,"cost": 20,"unlockLevel": 1,"moveSteps": 1,"spriteState": "jumping",
         "spriteSets":[
             {"level": 1,"Sprite":[
                             {"state":"jumping","URL": ""},

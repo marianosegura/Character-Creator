@@ -87,6 +87,10 @@ public abstract class GameObject<T extends GameObject> implements IPrototype {
         this.x = x;
         this.y = y;
     }
-    
+
+    @Override
+    public String toString() {
+        return "GameObject{" + "name=" + name + ", damage=" + damage + ", level=" + level + ", x=" + x + ", y=" + y + '}';
+    }
     
 }

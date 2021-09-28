@@ -5,14 +5,19 @@
  */
 package controller;
 
+import gamelib.AbstractCharacter;
+import gamelib.AbstractWeapon;
 import gamelib.Character;
 import gamelib.CharacterBuilder;
 import gamelib.Direction;
 import gamelib.Weapon;
 import gamelib.CharacterPrototypes;
+import gamelib.GamePrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
+import gamelib.JsonData;
 import java.util.ArrayList;
+import java.util.List;
 import javax.swing.DefaultListModel;
 
 /**
@@ -33,7 +38,7 @@ public class ViewController {
     public ViewController() {
         characterPrototypes = new CharacterPrototypes();
         weaponPrototypes = new WeaponPrototypes();
-        //En este momento necesito los datos del json para mostrar las listas
+        loadPrototypes();
         setListNames();
         actualCharacter = new CharacterBuilder();
         actualWeapon = new WeaponBuilder();
@@ -47,7 +52,7 @@ public class ViewController {
         }
         return listModel;
     }
-    public DefaultListModel getListModelWeapon(){
+    public DefaultListModel getListModelWeapons(){
         DefaultListModel listModel = new DefaultListModel();
         for (int i = 0; i < weaponList.size(); i++) {
             listModel.addElement(weaponList.get(i));
@@ -55,8 +60,10 @@ public class ViewController {
         return listModel;
     }
     public Character setCharacter(int index){
+        System.out.println("CharacterListLenght: " + characterList.size());
         dataCharacter = characterPrototypes.
                 getPrototypeDeepClone(characterList.get(index));
+        System.out.println("Character cargado: " + dataCharacter);
         actualCharacter = new CharacterBuilder(dataCharacter);
         return dataCharacter;
     }
@@ -237,9 +244,29 @@ public class ViewController {
     }
 
     private void setListNames() {
+        System.out.println(characterPrototypes.getObjects().keySet());
         characterList = new ArrayList<String>(
                 characterPrototypes.getObjects().keySet());
+        System.out.println(weaponPrototypes.getObjects().keySet());
         weaponList = new ArrayList<String>(
                 weaponPrototypes.getObjects().keySet());
+    }
+
+    private void loadPrototypes() {
+        JsonData j = new JsonData();
+        List<AbstractWeapon> weapons = j.loadWeapon();
+        System.out.println("Weapons:");
+        System.out.println(weapons);
+        for (AbstractWeapon weapon : weapons ){
+            weaponPrototypes
+                    .addPrototype(weapon.getName(), (Weapon)weapon);
+        }
+        List<AbstractCharacter> characters = j.loadCharacter();
+        System.out.println("Characters:");
+        for (AbstractCharacter character : characters ){
+            System.out.println(character);
+            characterPrototypes
+                    .addPrototype(character.getName(), (Character)character);
+        }
     }
 }
