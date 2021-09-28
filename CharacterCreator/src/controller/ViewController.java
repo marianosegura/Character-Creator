@@ -12,7 +12,6 @@ import gamelib.CharacterBuilder;
 import gamelib.Direction;
 import gamelib.Weapon;
 import gamelib.CharacterPrototypes;
-import gamelib.GamePrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
 import gamelib.JsonData;
@@ -150,6 +149,10 @@ public class ViewController {
         actualCharacter.setSpriteState(state);
     }
     
+    public void addStripteSet(int level,String state, String path){
+       actualCharacter.getSpriteSet(level).addSprite(state, path);
+    }
+    
     public void setEquipedWeapon(int index){
         actualCharacter.setEquipedWeapon(index);
     }
@@ -285,10 +288,10 @@ public class ViewController {
         JsonData j = new JsonData();
         List<AbstractWeapon> weapons = j.loadWeapon();
         System.out.println("Weapons:");
-        System.out.println(weapons);
         for (AbstractWeapon weapon : weapons ){
             weaponPrototypes
                     .addPrototype(weapon.getName(), (Weapon)weapon);
+            System.out.println(weapons);
         }
         List<AbstractCharacter> characters = j.loadCharacter();
         System.out.println("Characters:");
