@@ -6,6 +6,7 @@
 package main;
 
 import gamelib.AbstractWeapon;
+import gamelib.GamePrototypes;
 import gamelib.JsonData;
 
 import java.io.FileNotFoundException;
@@ -30,7 +31,10 @@ public class Main {
         JsonData j = new JsonData();
         List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
         weapons = j.loadWeapon();
-        //GamePrototypes<AbstractWeapon> Weapons = new ()
+        GamePrototypes<AbstractWeapon> Weapons = new GamePrototypes<AbstractWeapon>();
+        for (AbstractWeapon a : weapons ){
+            Weapons.addPrototype(a.getName(), a);
+        }
         System.out.println("Weapons loaded.");
         
     }
