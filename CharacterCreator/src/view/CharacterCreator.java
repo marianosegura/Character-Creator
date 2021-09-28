@@ -904,7 +904,6 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void characterListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_characterListMouseClicked
         int indexCharacter = characterList.locationToIndex(evt.getPoint());
-        System.out.println("Click en el index:" + indexCharacter);
         controller.setCharacter(indexCharacter);
     }//GEN-LAST:event_characterListMouseClicked
 

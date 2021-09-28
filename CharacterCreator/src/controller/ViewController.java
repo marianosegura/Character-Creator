@@ -60,10 +60,10 @@ public class ViewController {
         return listModel;
     }
     public Character setCharacter(int index){
-        System.out.println("CharacterListLenght: " + characterList.size());
+        System.out.println("characterList["+index+"]: "+characterList.get(index));
         dataCharacter = characterPrototypes.
-                getPrototypeDeepClone(characterList.get(index));
-        System.out.println("Character cargado: " + dataCharacter);
+                getPrototypeClone(characterList.get(index));
+        System.out.println("Character loaded: " + dataCharacter);
         actualCharacter = new CharacterBuilder(dataCharacter);
         return dataCharacter;
     }
@@ -244,10 +244,8 @@ public class ViewController {
     }
 
     private void setListNames() {
-        System.out.println(characterPrototypes.getObjects().keySet());
         characterList = new ArrayList<String>(
                 characterPrototypes.getObjects().keySet());
-        System.out.println(weaponPrototypes.getObjects().keySet());
         weaponList = new ArrayList<String>(
                 weaponPrototypes.getObjects().keySet());
     }
