@@ -5,6 +5,7 @@
  */
 package main;
 
+import gamelib.AbstractCharacter;
 import gamelib.AbstractWeapon;
 import gamelib.JsonData;
 
@@ -32,6 +33,11 @@ public class Main {
         weapons = j.loadWeapon();
         //GamePrototypes<AbstractWeapon> Weapons = new ()
         System.out.println("Weapons loaded.");
+        
+        List<AbstractCharacter> characters = new ArrayList<AbstractCharacter>();
+        characters = j.loadCharacter();
+        System.out.println("characters loaded.");
+        
         
     }
     
