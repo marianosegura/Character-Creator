@@ -34,10 +34,7 @@ public class ViewController {
         characterPrototypes = new CharacterPrototypes();
         weaponPrototypes = new WeaponPrototypes();
         //En este momento necesito los datos del json para mostrar las listas
-        characterList = new ArrayList<String>(
-                characterPrototypes.getObjects().keySet());
-        weaponList = new ArrayList<String>(
-                weaponPrototypes.getObjects().keySet());
+        setListNames();
         actualCharacter = new CharacterBuilder();
         actualWeapon = new WeaponBuilder();
     }
@@ -196,10 +193,53 @@ public class ViewController {
     }
 
     public String[] getNameWeapons() {
-        if(weaponList.size() == 0){
+        if(weaponList.isEmpty()){
             String[] result = {"No hay armas aún"};
             return result;
         }
         return weaponList.toArray(new String[0]);
+    }
+    
+    public boolean save(boolean isCharacter){
+        try{
+            if(isCharacter){
+                Character newCharacter = actualCharacter.build();
+                characterPrototypes
+                        .addPrototype(newCharacter.getName(), newCharacter);
+                actualCharacter = new CharacterBuilder();
+            } else {
+                Weapon newWeapon = actualWeapon.build();
+                weaponPrototypes
+                        .addPrototype(newWeapon.getName(), newWeapon);
+                actualWeapon = new WeaponBuilder();
+            }
+            //Guardar el archivo
+            setListNames();
+            return true;
+        }catch(Exception e){
+            System.out.println("Error al guardar, e: " + e);
+            return false;
+        }
+    }
+    
+    public void newGameObject(boolean isCharacter){
+        if(isCharacter){
+            actualCharacter = new CharacterBuilder();
+        } else {
+            actualWeapon = new WeaponBuilder();
+        }
+    }
+    
+    public void delete(boolean isCharacter){
+        //Actualmente no hay opción de eliminar prototipos
+        newGameObject(isCharacter);
+        setListNames();
+    }
+
+    private void setListNames() {
+        characterList = new ArrayList<String>(
+                characterPrototypes.getObjects().keySet());
+        weaponList = new ArrayList<String>(
+                weaponPrototypes.getObjects().keySet());
     }
 }

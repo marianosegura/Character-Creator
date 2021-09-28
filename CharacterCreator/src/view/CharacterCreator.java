@@ -34,7 +34,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     public CharacterCreator() {
         initComponents();
         controller = new ViewController();
-        setList();
+        setLists();
         //imagenes de ejemplo
         String homerPath = "src/images/homer.jpg";
         String bartPath = "src/images/Bart.png";
@@ -88,9 +88,9 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         unlockLevel = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        saveCharacter = new javax.swing.JButton();
+        deleteCharacter = new javax.swing.JButton();
+        newCharacter = new javax.swing.JButton();
         levelWeapon = new javax.swing.JSpinner();
         xWeapon = new javax.swing.JSpinner();
         jLabel16 = new javax.swing.JLabel();
@@ -111,9 +111,9 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         levelDepend = new javax.swing.JCheckBox();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        saveWeapon = new javax.swing.JButton();
+        deleteWeapon = new javax.swing.JButton();
+        newWeapon = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         jSpinner21 = new javax.swing.JSpinner();
         jButton7 = new javax.swing.JButton();
@@ -345,14 +345,29 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         jLabel15.setText("Nivel de desbloqueo");
 
-        jButton1.setText("Guardar Personaje");
-        jButton1.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveCharacter.setText("Guardar Personaje");
+        saveCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveCharacter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveCharacterActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Eliminar Personaje");
-        jButton3.setPreferredSize(new java.awt.Dimension(250, 24));
+        deleteCharacter.setText("Eliminar Personaje");
+        deleteCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        deleteCharacter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteCharacterActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Nuevo Personaje");
-        jButton4.setPreferredSize(new java.awt.Dimension(250, 24));
+        newCharacter.setText("Nuevo Personaje");
+        newCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        newCharacter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCharacterActionPerformed(evt);
+            }
+        });
 
         levelWeapon.setName("Cantidad de pasos "); // NOI18N
         levelWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -458,14 +473,29 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Guardar Arma");
-        jButton2.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveWeapon.setText("Guardar Arma");
+        saveWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveWeapon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveWeaponActionPerformed(evt);
+            }
+        });
 
-        jButton5.setText("Eliminar Arma");
-        jButton5.setPreferredSize(new java.awt.Dimension(250, 24));
+        deleteWeapon.setText("Eliminar Arma");
+        deleteWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        deleteWeapon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteWeaponActionPerformed(evt);
+            }
+        });
 
-        jButton6.setText("Nuevo Arma");
-        jButton6.setPreferredSize(new java.awt.Dimension(250, 24));
+        newWeapon.setText("Nuevo Arma");
+        newWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        newWeapon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newWeaponActionPerformed(evt);
+            }
+        });
 
         jLabel26.setText("Nivel");
 
@@ -558,9 +588,9 @@ public class CharacterCreator extends javax.swing.JFrame {
                             .addComponent(nameWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel5)
                     .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(damageCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -617,9 +647,9 @@ public class CharacterCreator extends javax.swing.JFrame {
                             .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -754,17 +784,17 @@ public class CharacterCreator extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(saveCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deleteCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(newCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deleteWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel27)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -986,6 +1016,40 @@ public class CharacterCreator extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void saveCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterActionPerformed
+        boolean isSaved = controller.save(true);
+        showSavedMessage(isSaved);
+        setLists();
+    }//GEN-LAST:event_saveCharacterActionPerformed
+
+    private void saveWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponActionPerformed
+        boolean isSaved = controller.save(false);
+        showSavedMessage(isSaved);
+        setLists();
+    }//GEN-LAST:event_saveWeaponActionPerformed
+
+    private void deleteCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCharacterActionPerformed
+        controller.delete(true);
+        setLists();
+        //me falta actualizar pantalla
+    }//GEN-LAST:event_deleteCharacterActionPerformed
+
+    private void deleteWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteWeaponActionPerformed
+        controller.delete(false);
+        setLists();
+        //me falta actualizar pantalla
+    }//GEN-LAST:event_deleteWeaponActionPerformed
+
+    private void newCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCharacterActionPerformed
+        controller.newGameObject(true);
+        setLists();
+    }//GEN-LAST:event_newCharacterActionPerformed
+
+    private void newWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newWeaponActionPerformed
+        controller.newGameObject(false);
+        setLists();
+    }//GEN-LAST:event_newWeaponActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1050,11 +1114,14 @@ public class CharacterCreator extends javax.swing.JFrame {
         }
     }
     
-    private void onlyNumber(java.awt.event.KeyEvent evt,JTextField field){
-        char c = evt.getKeyChar();
-        if(!Character.isDigit(c)){
-            evt.consume();
+    private void showSavedMessage(boolean isSaved){
+        String result = "";
+        if(isSaved){
+            result += "El personaje se ha guardado";
+        } else {
+            result += "Error al guardar el personaje";
         }
+        showMessageDialog(null,result);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1063,16 +1130,12 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JSpinner cost;
     private javax.swing.JSpinner damageCharacter;
     private javax.swing.JSpinner damageWeapon;
+    private javax.swing.JButton deleteCharacter;
+    private javax.swing.JButton deleteWeapon;
     private javax.swing.JComboBox<String> directionBox;
     private javax.swing.JSpinner explosionRange;
     private javax.swing.JSpinner health;
     private javax.swing.JSpinner hitPerUnitTime;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
@@ -1115,6 +1178,10 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JSpinner moveSteps;
     private javax.swing.JTextField nameCharacter;
     private javax.swing.JTextField nameWeapon;
+    private javax.swing.JButton newCharacter;
+    private javax.swing.JButton newWeapon;
+    private javax.swing.JButton saveCharacter;
+    private javax.swing.JButton saveWeapon;
     private javax.swing.JSpinner scope;
     private javax.swing.JButton selectImageCharacterButton;
     private javax.swing.JButton selectImageWeoponButton;
@@ -1131,7 +1198,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JSpinner yWeapon;
     // End of variables declaration//GEN-END:variables
 
-    private void setList() {
+    private void setLists() {
         characterList.setModel(controller.getListModelCharacters());
         weaponList.setModel(controller.getListModelCharacters());
     }
