@@ -70,4 +70,33 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
     public int getDamage() {  // multiply by factor if level dependant
         return (this.levelDependant) ? this.damage * this.levelMultiplier : this.damage;
     }
+
+    public int getScope() {
+        return scope;
+    }
+
+    public int getExplosionRange() {
+        return explosionRange;
+    }
+
+    public int getMaxSupplies() {
+        return maxSupplies;
+    }
+
+    public int getSupplies() {
+        return supplies;
+    }
+
+    public int getLevelMultiplier() {
+        return levelMultiplier;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public boolean isLevelDependant() {
+        return levelDependant;
+    }
+    
 }

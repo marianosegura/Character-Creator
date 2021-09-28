@@ -14,4 +14,22 @@ public class WeaponBuilder extends AbstractWeaponBuilder<Weapon, WeaponBuilder> 
     public Weapon build() {
         return new Weapon(scope, explosionRange, maxSupplies, levelMultiplier, image, levelDependant, name, damage, level, x, y);
     }
+    
+    public WeaponBuilder(Weapon oldWeapon){
+        this.x = oldWeapon.getX();
+        this.y = oldWeapon.getY();
+        this.name = oldWeapon.getName();
+        this.damage = oldWeapon.getDamage();
+        this.level = oldWeapon.getLevel();
+        this.image = oldWeapon.getImage();
+        this.scope = oldWeapon.getScope();
+        this.explosionRange = oldWeapon.getExplosionRange();
+        this.maxSupplies = oldWeapon.getMaxSupplies();
+        this.supplies = oldWeapon.getSupplies();
+        this.levelMultiplier = oldWeapon.getLevelMultiplier();
+        this.levelDependant = oldWeapon.isLevelDependant();
+    }
+    
+    public WeaponBuilder(){
+    }
 }

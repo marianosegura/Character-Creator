@@ -31,6 +31,7 @@ public class ViewController {
         weaponList = new ArrayList<Weapon>();
         actualCharacter = new CharacterBuilder();
         actualWeapon = new WeaponBuilder();
+        
     }
     
     public DefaultListModel getListModelCharacters(){
@@ -99,7 +100,7 @@ public class ViewController {
     }
     
     public void setHealth(int value){
-        actualCharacter.setMaxHealth(value); //falta el setHealth del builder
+        actualCharacter.setHealth(value);
     }
     
     public void setHitsPerTimeUnit(int value){
@@ -119,7 +120,8 @@ public class ViewController {
     }
     
     public void setEquipedWeapon(String name){
-        //no encontre el set del arma equipada
+        Weapon w = new Weapon(1,2,5,2,"tengo que cambiar",true);//tengo que sacarlo de la fotocopiadora
+        actualCharacter.setEquipedWeapon(w);
     }
     
     public void setDirection(String dir){
@@ -158,8 +160,7 @@ public class ViewController {
     }
     
     public void setSupplies(int value){
-        //actualWeapon.setSupplies(value);
-        //no encontre setSupplies en el builder
+        actualWeapon.setSupplies(value);
     }
     
     public void setLevelMultiplier(int value){

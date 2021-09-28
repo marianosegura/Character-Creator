@@ -28,6 +28,7 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
         cost,  
         unlockLevel,  
         moveSteps;
+    protected AbstractWeapon equipedWeapon;
     protected HashMap<Integer, SpriteSet> spriteSets; 
     protected ArrayList<AbstractWeapon> weapons;
     protected Direction direction;
@@ -100,6 +101,11 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
         this.maxHealth = maxHealth;
         return (E) this;
     }
+    
+    public E setHealth(int health) {
+        this.health = health;
+        return (E) this;
+    }
 
     public E setHitsPerTimeUnit(int hitsPerTimeUnit) {
         this.hitsPerTimeUnit = hitsPerTimeUnit;
@@ -118,6 +124,11 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
 
     public E setMoveSteps(int moveSteps) {
         this.moveSteps = moveSteps;
+        return (E) this;
+    }
+    
+    public E setEquipedWeapon(AbstractWeapon weapon) {
+        this.equipedWeapon = weapon;
         return (E) this;
     }
 

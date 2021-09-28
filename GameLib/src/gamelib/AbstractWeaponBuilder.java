@@ -95,4 +95,9 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         return (E) this;
     }
     
+    public E setSupplies(int supplies) {
+        this.supplies = supplies;
+        return (E) this;
+    }
+    
 }

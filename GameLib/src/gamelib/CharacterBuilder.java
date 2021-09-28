@@ -14,5 +14,24 @@ public class CharacterBuilder extends AbstractCharacterBuilder<Character, Charac
     public Character build() {
         return new Character(size, maxHealth, hitsPerTimeUnit, cost, unlockLevel, moveSteps, spriteState, spriteSets, weapons, null, direction, name, damage, level, x, y);
     }
-    
+    public CharacterBuilder (Character oldCharacter){
+        this.x = oldCharacter.getX();
+        this.y = oldCharacter.getY();
+        this.name = oldCharacter.getName();
+        this.damage = oldCharacter.getDamage();
+        this.level = oldCharacter.getLevel();
+        this.size = oldCharacter.getSize();
+        this.maxHealth = oldCharacter.getMaxHealth();
+        this.health = oldCharacter.getHealth();
+        this.hitsPerTimeUnit = oldCharacter.getHitsPerTimeUnit();
+        this.cost = oldCharacter.getCost();
+        this.unlockLevel = oldCharacter.getUnlockLevel();
+        this.spriteState = oldCharacter.getSpriteState();
+        this.spriteSets = oldCharacter.getSpriteSets();
+        this.weapons = oldCharacter.getWeapons();
+        this.direction = oldCharacter.getDirection();
+        this.moveSteps = oldCharacter.getMoveSteps();
+    }
+    public CharacterBuilder(){
+    }
 }
