@@ -15,6 +15,7 @@ import gamelib.CharacterPrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
 import gamelib.JsonData;
+import gamelib.SpriteSet;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -33,6 +34,7 @@ public class ViewController {
     private Weapon dataWeapon;
     private CharacterPrototypes characterPrototypes;
     private WeaponPrototypes weaponPrototypes;
+    private String path = "./";
 
     public ViewController() {
         characterPrototypes = new CharacterPrototypes();
@@ -51,6 +53,42 @@ public class ViewController {
         }
         return listModel;
     }
+    
+    public DefaultListModel getListModelSpritsetLevels(){
+        DefaultListModel listModel = new DefaultListModel();
+        if(actualCharacter != null && 
+                !actualCharacter.getSpriteSets().keySet().isEmpty()){
+            ArrayList<String> list = 
+                    new ArrayList(actualCharacter.getSpriteSets().keySet());
+            for (int i = 0; i < list.size(); i++) {
+                listModel.addElement(list.get(i));
+            }
+        } else {
+            listModel.addElement("No hay Sprite sets");
+        }
+        return listModel;
+    }
+    
+    public DefaultListModel getListModelSpritesetStates(int level){
+        DefaultListModel listModel = new DefaultListModel();
+        if(level == -1){//sin cargar nada
+           listModel.addElement("Selecciona un nivel para cargar esta lista");
+        } else {
+            ArrayList<String> list = actualCharacter.getSpriteSet(level).getKeys();
+            for (int i = 0; i < list.size(); i++) {
+                    listModel.addElement(list.get(i));
+            }
+        }
+        return listModel;
+    }
+    
+    public boolean anySpriteSet(){
+        if(actualCharacter == null || actualCharacter.getSpriteSets().keySet().isEmpty()){
+            return false;
+        }
+        return true;
+    }
+    
     public DefaultListModel getListModelWeapons(boolean isInventory){
         DefaultListModel listModel = new DefaultListModel();
         ArrayList<String> list = new ArrayList();
@@ -149,8 +187,18 @@ public class ViewController {
         actualCharacter.setSpriteState(state);
     }
     
-    public void addStripteSet(int level,String state, String path){
-       actualCharacter.getSpriteSet(level).addSprite(state, path);
+    public void addStripteSet(int level,String state){
+        ArrayList<String> levels = new ArrayList(actualCharacter.getSpriteSets().keySet());
+        String levelString = level + "";
+        if(levels.contains(level+"")){
+            actualCharacter.getSpriteSet(level).addSprite(state, path);
+        } else {
+            SpriteSet newSpriteSet = new SpriteSet();
+            newSpriteSet.addSprite(state, path);
+            actualCharacter.addSpriteSet(level, newSpriteSet);
+            
+        }
+        
     }
     
     public void setEquipedWeapon(int index){
@@ -308,5 +356,14 @@ public class ViewController {
     
     public Weapon getDataWeapon(){
         return dataWeapon;
+    }
+
+    public int getLevelSprite(int indexLevel) {
+        ArrayList<String> list = new ArrayList(actualCharacter.getSpriteSets().keySet());
+        return Integer.parseInt(list.get(indexLevel));
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 }

@@ -5,6 +5,7 @@
  */
 package gamelib;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -13,7 +14,7 @@ import java.util.HashMap;
  */
 public class SpriteSet  implements IPrototype {
     private HashMap<String, String> sprites = new HashMap<>();  // maps string state to string image url
-    
+ 
     /**
      * Adds a sprite for a given state
      * @param state Character state (jumping, attacking etc)
@@ -30,6 +31,10 @@ public class SpriteSet  implements IPrototype {
      */
     public String getSprite(String state) {
         return sprites.get(state);
+    }
+    
+    public ArrayList<String> getKeys(){
+        return new ArrayList<String>(sprites.keySet());
     }
 
     @Override

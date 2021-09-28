@@ -5,6 +5,8 @@
  */
 package gamelib;
 
+import java.util.HashMap;
+
 /**
  * Generic character builder.
  * @author Luis Mariano Ramírez Segura
@@ -33,5 +35,8 @@ public class CharacterBuilder extends AbstractCharacterBuilder<Character, Charac
         this.moveSteps = oldCharacter.getMoveSteps();
     }
     public CharacterBuilder(){
+    }
+    public HashMap<Integer, SpriteSet> getSpriteSets(){
+        return this.spriteSets;
     }
 }
