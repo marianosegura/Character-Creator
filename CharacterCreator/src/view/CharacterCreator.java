@@ -487,6 +487,11 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         saveWeapon.setText("Guardar Arma");
         saveWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveWeapon.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveWeaponMouseClicked(evt);
+            }
+        });
         saveWeapon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 saveWeaponActionPerformed(evt);
@@ -1049,15 +1054,21 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void saveCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterActionPerformed
-        boolean isSaved = controller.save(true);
+        boolean isSaved = controller.save(true,false);
         showSavedMessage(isSaved);
         setLists();
+        if(isSaved){
+            //clearCharacterView();
+        }
     }//GEN-LAST:event_saveCharacterActionPerformed
 
     private void saveWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponActionPerformed
-        boolean isSaved = controller.save(false);
+        boolean isSaved = controller.save(false, isInventaryButton.isSelected());
         showSavedMessage(isSaved);
         setLists();
+        if(isSaved){
+            clearWeaponView();
+        }
     }//GEN-LAST:event_saveWeaponActionPerformed
 
     private void deleteCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCharacterActionPerformed
@@ -1094,6 +1105,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         clearWeaponView();
         setListWeapon(isInventaryButton.isSelected());
     }//GEN-LAST:event_isInventaryButtonMouseClicked
+
+    private void saveWeaponMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveWeaponMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveWeaponMouseClicked
 
     /**
      * @param args the command line arguments

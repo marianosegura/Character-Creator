@@ -221,7 +221,7 @@ public class ViewController {
         return dataCharacter.getWeapons().toArray(new String[0]);
     }
     
-    public boolean save(boolean isCharacter){
+    public boolean save(boolean isCharacter, boolean isInventary){
         try{
             if(isCharacter){
                 Character newCharacter = actualCharacter.build();
@@ -233,7 +233,10 @@ public class ViewController {
                 weaponPrototypes
                         .addPrototype(newWeapon.getName(), newWeapon);
                 actualWeapon = new WeaponBuilder();
-                
+                if(isInventary){
+                    actualCharacter.addWeapon(newWeapon);
+                    dataCharacter = actualCharacter.build();
+                }
             }
             //Guardar el archivo
             setListNames();
