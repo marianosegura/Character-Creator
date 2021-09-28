@@ -52,10 +52,22 @@ public class ViewController {
         }
         return listModel;
     }
-    public DefaultListModel getListModelWeapons(){
+    public DefaultListModel getListModelWeapons(boolean isInventory){
         DefaultListModel listModel = new DefaultListModel();
-        for (int i = 0; i < weaponList.size(); i++) {
-            listModel.addElement(weaponList.get(i));
+        ArrayList<String> list = new ArrayList();
+        if (isInventory && dataCharacter != null ) {
+            for (int i = 0; i < dataCharacter.getWeapons().size(); i++) {
+                list.add(dataCharacter.getWeapons().get(i).getName());
+            }
+        } else if (!isInventory){
+            list = weaponList;
+        }
+        if(list.isEmpty()){
+            list.add("No hay armas aún");
+        }
+        System.out.println("List:"+list);
+        for (int i = 0; i < list.size(); i++) {
+                listModel.addElement(list.get(i));
         }
         return listModel;
     }
@@ -67,11 +79,14 @@ public class ViewController {
         actualCharacter = new CharacterBuilder(dataCharacter);
         return dataCharacter;
     }
-    public Weapon setWeapon(int index){
-        dataWeapon = weaponPrototypes
-                .getPrototypeDeepClone(weaponList.get(index));
+    public void setWeapon(int index,boolean isInventary){
+        if(isInventary && dataCharacter != null){
+            dataWeapon = (Weapon) dataCharacter.getWeapons().get(index);
+        } else {
+            dataWeapon = weaponPrototypes
+                .getPrototypeDeepClone(weaponList.get(index));  
+        }
         actualWeapon = new WeaponBuilder(dataWeapon);
-        return dataWeapon;
     }
 
     public void setDamage(int value, boolean character) {
@@ -241,6 +256,19 @@ public class ViewController {
         //Actualmente no hay opción de eliminar prototipos
         newGameObject(isCharacter);
         setListNames();
+    }
+    
+    public boolean anyWeapon(boolean isInventory){
+        if(isInventory){
+            if(dataCharacter == null || dataCharacter.getWeapons().isEmpty()){
+                return false;
+            }   
+        } else {
+            if(weaponList.isEmpty()){
+                return false;
+            }
+        }
+        return true;
     }
 
     private void setListNames() {

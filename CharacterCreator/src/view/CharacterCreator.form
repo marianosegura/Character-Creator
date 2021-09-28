@@ -133,7 +133,7 @@
                   <Group type="102" attributes="0">
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jToggleButton1" max="32767" attributes="0"/>
+                      <Component id="isInventaryButton" max="32767" attributes="0"/>
                   </Group>
                   <Component id="selectImageWeoponButton" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="weaponLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -314,7 +314,7 @@
                       </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="isInventaryButton" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="518" max="-2" attributes="0"/>
@@ -453,12 +453,14 @@
         <Property name="text" type="java.lang.String" value="Lista de armas"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JToggleButton" name="jToggleButton1">
+    <Component class="javax.swing.JToggleButton" name="isInventaryButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Mostrar todas"/>
+        <Property name="text" type="java.lang.String" value="Solitarias"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>
+        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="isInventaryButtonStateChanged"/>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="isInventaryButtonMouseClicked"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="isInventaryButtonActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">

@@ -64,7 +64,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         nameWeapon = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
+        isInventaryButton = new javax.swing.JToggleButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         weaponList = new javax.swing.JList<>();
         directionBox = new javax.swing.JComboBox<>();
@@ -214,10 +214,20 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         jLabel3.setText("Lista de armas");
 
-        jToggleButton1.setText("Mostrar todas");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+        isInventaryButton.setText("Solitarias");
+        isInventaryButton.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                isInventaryButtonStateChanged(evt);
+            }
+        });
+        isInventaryButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                isInventaryButtonMouseClicked(evt);
+            }
+        });
+        isInventaryButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+                isInventaryButtonActionPerformed(evt);
             }
         });
 
@@ -658,7 +668,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(isInventaryButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(selectImageWeoponButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -811,7 +821,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                             .addComponent(characterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jToggleButton1))
+                            .addComponent(isInventaryButton))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(15, Short.MAX_VALUE))
@@ -875,9 +885,9 @@ public class CharacterCreator extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nameWeaponActionPerformed
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+    private void isInventaryButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isInventaryButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    }//GEN-LAST:event_isInventaryButtonActionPerformed
 
     private void levelDependActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelDependActionPerformed
         // TODO add your handling code here:
@@ -912,7 +922,8 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void weaponListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_weaponListMouseClicked
         int indexWeapon = weaponList.locationToIndex(evt.getPoint());
-        controller.setWeapon(indexWeapon);
+        if(controller.anyWeapon(isInventaryButton.isSelected())){
+            controller.setWeapon(indexWeapon,isInventaryButton.isSelected());
         nameWeapon.setText(controller.getDataWeapon().getName());
         nameWeapon.setForeground(Color.BLACK);
         damageWeapon.setValue(controller.getDataWeapon().getDamage());
@@ -927,6 +938,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         levelDepend.setSelected(controller.getDataWeapon().isLevelDependant());
         System.out.println("path: "+controller.getDataWeapon().getImage());
         setImage(controller.getDataWeapon().getImage(),weaponLabel);
+        } else {
+            showMessageDialog(null, "No hay armas");
+        }
+        
     }//GEN-LAST:event_weaponListMouseClicked
 
     private void damageCharacterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_damageCharacterStateChanged
@@ -1029,7 +1044,6 @@ public class CharacterCreator extends javax.swing.JFrame {
            ImageIcon icon = new ImageIcon("src/images/icon.png");
            String name = (String)JOptionPane.showInputDialog(null, "Selecciona el arma que quieras", 
                 "I like turtles", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]); 
-            System.out.println("index: "+Arrays.asList(options).indexOf(name));
            controller.setEquipedWeapon(Arrays.asList(options).indexOf(name));
         }
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -1066,6 +1080,20 @@ public class CharacterCreator extends javax.swing.JFrame {
         controller.newGameObject(false);
         clearWeaponView();
     }//GEN-LAST:event_newWeaponActionPerformed
+
+    private void isInventaryButtonStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_isInventaryButtonStateChanged
+        
+    }//GEN-LAST:event_isInventaryButtonStateChanged
+
+    private void isInventaryButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_isInventaryButtonMouseClicked
+        if(isInventaryButton.isSelected()){
+            isInventaryButton.setText("Inventario");
+        } else {
+            isInventaryButton.setText("Solitarias");
+        }
+        clearWeaponView();
+        setListWeapon(isInventaryButton.isSelected());
+    }//GEN-LAST:event_isInventaryButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1153,6 +1181,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JSpinner explosionRange;
     private javax.swing.JSpinner health;
     private javax.swing.JSpinner hitPerUnitTime;
+    private javax.swing.JToggleButton isInventaryButton;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
@@ -1185,7 +1214,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner21;
-    private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JSpinner levelCharacter;
     private javax.swing.JCheckBox levelDepend;
     private javax.swing.JSpinner levelMultiplier;
@@ -1217,7 +1245,7 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void setLists() {
         characterList.setModel(controller.getListModelCharacters());
-        weaponList.setModel(controller.getListModelWeapons());
+        setListWeapon(false);
     }
     
     private void clearWeaponView(){
@@ -1234,6 +1262,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         levelMultiplier.setValue(0);
         levelDepend.setSelected(false);
         setImage("./src/images/Bart.png",weaponLabel);
+    }
+
+    private void setListWeapon(boolean isInventary) {
+        weaponList.setModel(controller.getListModelWeapons(isInventary));
     }
 
 }
