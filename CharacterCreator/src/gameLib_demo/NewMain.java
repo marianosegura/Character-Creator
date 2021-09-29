@@ -22,7 +22,7 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        JsonData j = new JsonData();
+        JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
         weapons = j.loadWeapon();
         GamePrototypes<AbstractWeapon> Weapons = new GamePrototypes<AbstractWeapon>();

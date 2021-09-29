@@ -15,7 +15,7 @@
 	    	{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"Gamelib\\src\\image\\espada.png","levelDependant":true},
 	    	{"name":"Hacha","damage":100,"level":1,"x":0,"y":0,"scope": 2,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":10,"image":"Gamelib\\src\\image\\hacha.png","levelDependant":true},
 	    ],
-	    "equipedWeapon":{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"Gamelib\\src\\image\\espada.png","levelDependant":true},
+	    "equipedWeapon":1,
 	    "direction":"RIGHT"
 	},{"name":"barbaro","damage": 130,"level": 1,"x": 0,"y": 0,"size": 1,"maxHealth": 100,"health": 100,"hitsPerTimeUnit": 2,"cost": 20,"unlockLevel": 1,"moveSteps": 1,"spriteState": "jumping",
 	    "spriteSets":[
@@ -32,7 +32,7 @@
 	    	{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"Gamelib\\src\\image\\espada.png","levelDependant":true},
 	    	{"name":"Hacha","damage":100,"level":1,"x":0,"y":0,"scope": 2,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":10,"image":"Gamelib\\src\\image\\hacha.png","levelDependant":true},
 	    ],
-	    "equipedWeapon":{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"Gamelib\\src\\image\\espada.png","levelDependant":true},
+	    "equipedWeapon":1,
 	    "direction":"RIGHT"
 	}]
 }

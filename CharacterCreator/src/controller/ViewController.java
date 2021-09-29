@@ -333,7 +333,7 @@ public class ViewController {
     }
 
     private void loadPrototypes() {
-        JsonData j = new JsonData();
+        JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = j.loadWeapon();
         System.out.println("Weapons:");
         for (AbstractWeapon weapon : weapons ){

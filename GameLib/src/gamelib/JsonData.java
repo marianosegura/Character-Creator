@@ -6,11 +6,12 @@
 package gamelib;
 
 import gamelib.Direction;
-
+import gamelib.WeaponBuilder;
 import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -21,12 +22,23 @@ import org.json.simple.parser.ParseException;
  * @author Yosua Andres Blanco Diaz y Paula Mariana Bustos Vargas
  */
 public class JsonData {
-    private List<AbstractCharacter> characters = new ArrayList<AbstractCharacter>();
-    private List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
-    public JsonData(){ 
+    private static JsonData configurator;
+
+    private JsonData(){ 
+        
     }
+    
+    public static JsonData getInstance(){
+        if(configurator == null)
+            configurator = new JsonData();
+        return configurator;
+    }
+    
     public List<AbstractCharacter> loadCharacter(){
+        List<AbstractCharacter> characters = new ArrayList<AbstractCharacter>();
         JSONParser parser = new JSONParser();
+        WeaponBuilder b = new WeaponBuilder();
+        CharacterBuilder a = new CharacterBuilder();
         try{
             Object obj = parser.parse(new FileReader("data.json"));
             JSONObject jsonObject = (JSONObject) obj;
@@ -42,17 +54,18 @@ public class JsonData {
                 JSONArray array = (JSONArray) jsonChar1.get("weapons");
                 for(int j = 0 ; j < array.size() ; j++) {
                     JSONObject jsonObject1 = (JSONObject) array.get(j);
-                    Weapon nuevo = new Weapon((int)(long)jsonObject1.get("scope"),
-                            (int)(long)jsonObject1.get("explosionRange"),
-                            (int)(long)jsonObject1.get("maxSupplies"),
-                            (int)(long)jsonObject1.get("levelMultiplier"),
-                            (String)jsonObject1.get("image"),
-                            (boolean)jsonObject1.get("levelDependant"),
-                            (String)jsonObject1.get("name"),
-                            (int)(long)jsonObject1.get("damage"),
-                            (int)(long)jsonObject1.get("level"),
-                            (int)(long)jsonObject1.get("x"),
-                            (int)(long)jsonObject1.get("y"));
+                    Weapon nuevo = b.setScope((int)(long)jsonObject1.get("scope"))
+                         .setExplosionRange((int)(long)jsonObject1.get("explosionRange"))
+                         .setMaxSupplies((int)(long)jsonObject1.get("maxSupplies"))
+                         .setLevelMultiplier((int)(long)jsonObject1.get("levelMultiplier"))
+                         .setImage((String)jsonObject1.get("image"))
+                         .setLevelDependant((boolean)jsonObject1.get("levelDependant"))
+                         .setName((String)jsonObject1.get("name"))
+                         .setDamage((int)(long)jsonObject1.get("damage"))
+                         .setLevel((int)(long)jsonObject1.get("level"))
+                         .setX((int)(long)jsonObject1.get("x"))
+                         .setY((int)(long)jsonObject1.get("y"))
+                         .build();
                     weaponsCharter.add(nuevo);
                 }
                 
@@ -61,7 +74,7 @@ public class JsonData {
                 
                 //sprites
                 JSONArray spritesArray = (JSONArray) jsonChar1.get("spriteSets");
-                
+                 
                 for(int n = 0 ; n < spritesArray.size() ; n++) {
                     
                     JSONObject jsonObject2 = (JSONObject) spritesArray.get(n);
@@ -85,42 +98,26 @@ public class JsonData {
                 
                 //Direction
                 Direction directionChar = Direction.valueOf((String)jsonChar1.get("direction"));
-                                              
+                System.out.println("ok");                              
                 //equipedWeapon
-                JSONObject equiped = (JSONObject) jsonChar1.get("equipedWeapon");
-                               
-                Weapon equipedWeapon = new Weapon((int)(long)equiped.get("scope"),
-                        (int)(long)equiped.get("explosionRange"),
-                        (int)(long)equiped.get("maxSupplies"),
-                        (int)(long)equiped.get("levelMultiplier"),
-                        (String)equiped.get("image"),
-                        (boolean)equiped.get("levelDependant"),
-                        (String)equiped.get("name"),
-                        (int)(long)equiped.get("damage"),
-                        (int)(long)equiped.get("level"),
-                        (int)(long)equiped.get("x"),
-                        (int)(long)equiped.get("y"));
-                
-                Character newChar = new Character((int)(long)jsonChar1.get("size"),
-                                (int)(long)jsonChar1.get("maxHealth"),
-                                (int)(long)jsonChar1.get("hitsPerTimeUnit"),
-                                (int)(long)jsonChar1.get("cost"),
-                                (int)(long)jsonChar1.get("unlockLevel"),
-                                (int)(long)jsonChar1.get("moveSteps"),
-                                (String)jsonChar1.get("spriteState"),
-                                //HashMap<Integer, SpriteSet> spriteSets,
-                                sprites,
-                                //ArrayList<AbstractWeapon> weapons
-                                weaponsCharter,
-                                //AbstractWeapon equipedWeapon, 
-                                equipedWeapon,
-                                //Direction direction, 
-                                directionChar,
-                                (String)jsonChar1.get("name"),
-                                (int)(long)jsonChar1.get("damage"),
-                                (int)(long)jsonChar1.get("level"),
-                                (int)(long)jsonChar1.get("x"),
-                                (int)(long)jsonChar1.get("y"));
+                int equiped = (int)(long)jsonChar1.get("equipedWeapon");
+                Character newChar = a.setSize((int)(long)jsonChar1.get("size"))
+                        .setMaxHealth((int)(long)jsonChar1.get("maxHealth"))
+                        .setHitsPerTimeUnit((int)(long)jsonChar1.get("hitsPerTimeUnit"))
+                        .setCost((int)(long)jsonChar1.get("cost"))
+                        .setUnlockLevel((int)(long)jsonChar1.get("unlockLevel"))
+                        .setMoveSteps((int)(long)jsonChar1.get("moveSteps"))
+                        .setSpriteState((String)jsonChar1.get("spriteState"))
+                        .setSpriteSets(sprites)
+                        .setWeapons(weaponsCharter)
+                        .setEquipedWeapon(equiped)
+                        .setDirection(directionChar)
+                        .setName((String)jsonChar1.get("name"))
+                        .setDamage((int)(long)jsonChar1.get("damage"))
+                        .setLevel((int)(long)jsonChar1.get("level"))
+                        .setX((int)(long)jsonChar1.get("x"))
+                        .setY((int)(long)jsonChar1.get("y"))
+                        .build();
                 characters.add(newChar);               
             }
         }
@@ -131,24 +128,27 @@ public class JsonData {
     }
     
     public List<AbstractWeapon> loadWeapon(){
+        List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
         JSONParser parser = new JSONParser();
+        WeaponBuilder b = new WeaponBuilder();
         try{
             Object obj = parser.parse(new FileReader("PrototypeBasicWeapons.json"));
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray array = (JSONArray) jsonObject.get("weapons");
             for(int i = 0 ; i < array.size() ; i++) {
                 JSONObject jsonObject1 = (JSONObject) array.get(i);
-                Weapon nuevo = new Weapon((int)(long)jsonObject1.get("scope"),
-                        (int)(long)jsonObject1.get("explosionRange"),
-                        (int)(long)jsonObject1.get("maxSupplies"),
-                        (int)(long)jsonObject1.get("levelMultiplier"),
-                        (String)jsonObject1.get("image"),
-                        (boolean)jsonObject1.get("levelDependant"),
-                        (String)jsonObject1.get("name"),
-                        (int)(long)jsonObject1.get("damage"),
-                        (int)(long)jsonObject1.get("level"),
-                        (int)(long)jsonObject1.get("x"),
-                        (int)(long)jsonObject1.get("y"));
+                Weapon nuevo = b.setScope((int)(long)jsonObject1.get("scope"))
+                         .setExplosionRange((int)(long)jsonObject1.get("explosionRange"))
+                         .setMaxSupplies((int)(long)jsonObject1.get("maxSupplies"))
+                         .setLevelMultiplier((int)(long)jsonObject1.get("levelMultiplier"))
+                         .setImage((String)jsonObject1.get("image"))
+                         .setLevelDependant((boolean)jsonObject1.get("levelDependant"))
+                         .setName((String)jsonObject1.get("name"))
+                         .setDamage((int)(long)jsonObject1.get("damage"))
+                         .setLevel((int)(long)jsonObject1.get("level"))
+                         .setX((int)(long)jsonObject1.get("x"))
+                         .setY((int)(long)jsonObject1.get("y"))
+                         .build();                   
                 weapons.add(nuevo);
             }
         }

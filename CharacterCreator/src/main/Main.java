@@ -10,15 +10,9 @@ import gamelib.AbstractWeapon;
 import gamelib.GamePrototypes;
 import gamelib.JsonData;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
 /**
  *
  * @author Luis Mariano Ramírez Segura
@@ -29,7 +23,7 @@ public class Main {
      */
     
     public static void main(String[] args) {
-        JsonData j = new JsonData();
+        JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
         weapons = j.loadWeapon();
         GamePrototypes<AbstractWeapon> Weapons = new GamePrototypes<AbstractWeapon>();
