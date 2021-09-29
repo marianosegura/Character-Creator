@@ -7,6 +7,8 @@ package gameLib_demo;
 
 import gamelib.AbstractCharacter;
 import gamelib.AbstractWeapon;
+import gamelib.Character;
+import gamelib.CharacterBuilder;
 import gamelib.GamePrototypes;
 import gamelib.JsonData;
 import java.util.ArrayList;
@@ -41,7 +43,11 @@ public class NewMain {
         System.out.println("characters loaded.");
         String nameTest = "barbaro";
         AbstractCharacter test = Characters.getPrototypeDeepClone(nameTest);
-        System.out.println(test);
+        System.out.println("Weapons: "+test.getWeapons());
+        System.out.println("Set weapon of index 0 :"+test.getWeapons().get(0));
+        CharacterBuilder builder = new CharacterBuilder((Character) test);
+        builder.setEquipedWeapon(0);
+        System.out.println("Null when change equiped weapon: " + builder.build().getEquipedWeapon());
     }
     
 }

@@ -1087,11 +1087,15 @@ public class CharacterCreator extends javax.swing.JFrame {
            String name = (String)JOptionPane.showInputDialog(null, "Selecciona el arma que quieras", 
                 "I like turtles", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]); 
            controller.setEquipedWeapon(Arrays.asList(options).indexOf(name));
+           if(controller.getDataCharacter().getEquipedWeapon() != null){
+            weaponEquipedButton.setText("Arma equipada:"
+                + controller.getDataCharacter().getEquipedWeapon().getName());
+           }
         }
     }//GEN-LAST:event_weaponEquipedButtonActionPerformed
 
     private void saveCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterActionPerformed
-        boolean isSaved = controller.save(true,false);
+        boolean isSaved = controller.save(true,false,nameCharacter.getText());
         showSavedMessage(isSaved);
         setLists();
         if(isSaved){
@@ -1100,7 +1104,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_saveCharacterActionPerformed
 
     private void saveWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponActionPerformed
-        boolean isSaved = controller.save(false, isInventaryButton.isSelected());
+        boolean isSaved = controller.save(false, isInventaryButton.isSelected(),nameWeapon.getText());
         showSavedMessage(isSaved);
         setLists();
         if(isSaved){
