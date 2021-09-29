@@ -118,6 +118,8 @@ public class JsonData {
                         .setX((int)(long)jsonChar1.get("x"))
                         .setY((int)(long)jsonChar1.get("y"))
                         .build();
+                newChar.equipWeapon(equiped);
+                System.out.println(newChar);
                 characters.add(newChar);               
             }
         }

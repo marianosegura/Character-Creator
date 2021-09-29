@@ -28,14 +28,19 @@ public class Main {
         weapons = j.loadWeapon();
         GamePrototypes<AbstractWeapon> Weapons = new GamePrototypes<AbstractWeapon>();
         for (AbstractWeapon a : weapons ){
+            System.out.println(a.getName());
+            
             Weapons.addPrototype(a.getName(), a);
         }
         System.out.println("Weapons loaded.");
+        
+       
         
         List<AbstractCharacter> characters = new ArrayList<AbstractCharacter>();
         characters = j.loadCharacter();
         GamePrototypes<AbstractCharacter> Characters = new GamePrototypes<AbstractCharacter>();
         for (AbstractCharacter b : characters ){
+            
             Characters.addPrototype(b.getName(), b);
             //System.out.println(b.getEquipedWeapon());
         }
