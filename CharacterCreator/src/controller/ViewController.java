@@ -206,6 +206,7 @@ public class ViewController {
     
     public void setEquipedWeapon(int index){
         actualCharacter.setEquipedWeapon(index);
+        dataCharacter = actualCharacter.build();
     }
     
     public void setDirection(String dir){
@@ -279,9 +280,10 @@ public class ViewController {
         return list.toArray(new String[0]);
     }
     
-    public boolean save(boolean isCharacter, boolean isInventary){
+    public boolean save(boolean isCharacter, boolean isInventary, String name){
         try{
             if(isCharacter){
+                actualCharacter.setName(name);
                 Character newCharacter = actualCharacter.build();
                 characterPrototypes
                         .addPrototype(newCharacter.getName(), newCharacter);

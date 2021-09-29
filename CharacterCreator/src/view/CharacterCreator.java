@@ -250,6 +250,16 @@ public class CharacterCreator extends javax.swing.JFrame {
         directionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una dirección", "Arriba", "Abajo", "Izquierda", "Derecha" }));
         directionBox.setToolTipText("");
         directionBox.setPreferredSize(new java.awt.Dimension(250, 24));
+        directionBox.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                directionBoxItemStateChanged(evt);
+            }
+        });
+        directionBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                directionBoxActionPerformed(evt);
+            }
+        });
 
         moveSteps.setName("Cantidad de pasos "); // NOI18N
         moveSteps.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -960,6 +970,22 @@ public class CharacterCreator extends javax.swing.JFrame {
                 + controller.getDataCharacter().getEquipedWeapon().getName());
         }
         moveSteps.setValue(controller.getDataCharacter().getMoveSteps());
+        if(controller.getDataCharacter().getDirection() != null){
+            switch(controller.getDataCharacter().getDirection()){
+                case UP:
+                    directionBox.setSelectedIndex(1);
+                    break;
+                case DOWN:
+                    directionBox.setSelectedIndex(2);
+                    break;
+                case LEFT:
+                    directionBox.setSelectedIndex(3);
+                    break;
+                case RIGHT:
+                    directionBox.setSelectedIndex(4);
+                    break;
+            }
+        }
     }//GEN-LAST:event_characterListMouseClicked
 
     private void weaponListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_weaponListMouseClicked
@@ -1087,11 +1113,15 @@ public class CharacterCreator extends javax.swing.JFrame {
            String name = (String)JOptionPane.showInputDialog(null, "Selecciona el arma que quieras", 
                 "I like turtles", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]); 
            controller.setEquipedWeapon(Arrays.asList(options).indexOf(name));
+           if(controller.getDataCharacter().getEquipedWeapon() != null){
+            weaponEquipedButton.setText("Arma equipada:"
+                + controller.getDataCharacter().getEquipedWeapon().getName());
+           }
         }
     }//GEN-LAST:event_weaponEquipedButtonActionPerformed
 
     private void saveCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterActionPerformed
-        boolean isSaved = controller.save(true,false);
+        boolean isSaved = controller.save(true,false,nameCharacter.getText());
         showSavedMessage(isSaved);
         setLists();
         if(isSaved){
@@ -1100,7 +1130,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_saveCharacterActionPerformed
 
     private void saveWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponActionPerformed
-        boolean isSaved = controller.save(false, isInventaryButton.isSelected());
+        boolean isSaved = controller.save(false, isInventaryButton.isSelected(),nameWeapon.getText());
         showSavedMessage(isSaved);
         setLists();
         if(isSaved){
@@ -1158,6 +1188,14 @@ public class CharacterCreator extends javax.swing.JFrame {
            showMessageDialog(null, "No hay sprit sets"); 
         }
     }//GEN-LAST:event_spriteListLevelMouseClicked
+
+    private void directionBoxItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_directionBoxItemStateChanged
+        controller.setDirection(directionBox.getSelectedItem().toString());
+    }//GEN-LAST:event_directionBoxItemStateChanged
+
+    private void directionBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_directionBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_directionBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1365,6 +1403,7 @@ public class CharacterCreator extends javax.swing.JFrame {
        unlockLevel.setValue(0);
        weaponEquipedButton.setText("Selecciona un arma");
        moveSteps.setValue(0);
+       directionBox.setSelectedIndex(0);
     }
 
 }

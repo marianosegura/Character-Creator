@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class CharacterBuilder extends AbstractCharacterBuilder<Character, CharacterBuilder>{    
     @Override
     public Character build() {
-        return new Character(size, maxHealth, hitsPerTimeUnit, cost, unlockLevel, moveSteps, spriteState, spriteSets, weapons, null, direction, name, damage, level, x, y);
+        return new Character(size, maxHealth, hitsPerTimeUnit, cost, unlockLevel, moveSteps, spriteState, spriteSets, weapons, equipedWeapon, direction, name, damage, level, x, y);
     }
     public CharacterBuilder (Character oldCharacter){
         this.x = oldCharacter.getX();
