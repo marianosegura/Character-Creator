@@ -42,7 +42,8 @@ public abstract class AbstractCharacter extends GameObject<AbstractCharacter> {
         this.direction = direction;
     }
 
-    public AbstractCharacter(int size, int maxHealth, int hitsPerTimeUnit, int cost, int unlockLevel, int moveSteps, String spriteState, Direction direction) {
+    public AbstractCharacter(int size, int maxHealth, int hitsPerTimeUnit, int cost, int unlockLevel, int moveSteps, String spriteState, Direction direction, String name, int damage, int level, int x, int y) {
+        super(name, damage, level, x, y);
         this.size = size;
         this.maxHealth = maxHealth;
         this.health = maxHealth;

@@ -17,13 +17,13 @@ public class Character extends AbstractCharacter {
         super(size, maxHealth, hitsPerTimeUnit, cost, unlockLevel, moveSteps, spriteState, spriteSets, weapons, equipedWeapon, direction, name, damage, level, x, y);
     }
 
-    public Character(int size, int maxHealth, int hitsPerTimeUnit, int cost, int unlockLevel, int moveSteps, String spriteState, Direction direction) {
-        super(size, maxHealth, hitsPerTimeUnit, cost, unlockLevel, moveSteps, spriteState, direction);
+    public Character(int size, int maxHealth, int hitsPerTimeUnit, int cost, int unlockLevel, int moveSteps, String spriteState, Direction direction, String name, int damage, int level, int x, int y) {
+        super(size, maxHealth, hitsPerTimeUnit, cost, unlockLevel, moveSteps, spriteState, direction, name, damage, level, x, y);
     }
 
     @Override
     public IPrototype shallowClone() {
-        return new Character(size, maxHealth, hitsPerTimeUnit, cost, unlockLevel, moveSteps, spriteState, direction);
+        return new Character(size, maxHealth, hitsPerTimeUnit, cost, unlockLevel, moveSteps, spriteState, direction, name, damage, level, x, y);
     }
 
     @Override
