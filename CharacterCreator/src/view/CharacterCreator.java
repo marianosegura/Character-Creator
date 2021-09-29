@@ -943,7 +943,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void characterListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_characterListMouseClicked
         int indexCharacter = characterList.locationToIndex(evt.getPoint());
         controller.setCharacter(indexCharacter);
-        nameCharacter.setName(controller.getDataCharacter().getName());
+        nameCharacter.setText(controller.getDataCharacter().getName());
         nameCharacter.setForeground(Color.BLACK);
         damageWeapon.setValue(controller.getDataCharacter().getDamage());
         levelCharacter.setValue(controller.getDataCharacter().getLevel());
@@ -955,8 +955,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         hitPerUnitTime.setValue(controller.getDataCharacter().getHitsPerTimeUnit());
         cost.setValue(controller.getDataCharacter().getCost());
         unlockLevel.setValue(controller.getDataCharacter().getUnlockLevel());
-        weaponEquipedButton.setText("Arma equipada:"
+        if(controller.getDataCharacter().getEquipedWeapon() != null){
+            weaponEquipedButton.setText("Arma equipada:"
                 + controller.getDataCharacter().getEquipedWeapon().getName());
+        }
         moveSteps.setValue(controller.getDataCharacter().getMoveSteps());
     }//GEN-LAST:event_characterListMouseClicked
 
@@ -1093,7 +1095,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         showSavedMessage(isSaved);
         setLists();
         if(isSaved){
-            //clearCharacterView();
+            clearCharacterView();
         }
     }//GEN-LAST:event_saveCharacterActionPerformed
 
@@ -1349,9 +1351,9 @@ public class CharacterCreator extends javax.swing.JFrame {
     }
 
     private void clearCharacterView() {
-       nameCharacter.setName("Nombre");
+       nameCharacter.setText("Nombre");
        nameCharacter.setForeground(Color.GRAY);
-       damageWeapon.setValue(0);
+       damageCharacter.setValue(0);
        levelCharacter.setValue(0);
        xCharacter.setValue(0);
        yCharacter.setValue(0);

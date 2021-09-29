@@ -12,6 +12,7 @@ import gamelib.CharacterBuilder;
 import gamelib.Direction;
 import gamelib.Weapon;
 import gamelib.CharacterPrototypes;
+import gamelib.GamePrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
 import gamelib.JsonData;
@@ -102,7 +103,6 @@ public class ViewController {
         if(list.isEmpty()){
             list.add("No hay armas aún");
         }
-        System.out.println("List:"+list);
         for (int i = 0; i < list.size(); i++) {
                 listModel.addElement(list.get(i));
         }
@@ -113,6 +113,9 @@ public class ViewController {
         dataCharacter = characterPrototypes.
                 getPrototypeDeepClone(characterList.get(index));
         System.out.println("Character loaded: " + dataCharacter);
+        if(dataCharacter.getName().isBlank()){
+            dataCharacter.setName(characterList.get(index));
+        }
         actualCharacter = new CharacterBuilder(dataCharacter);
         return dataCharacter;
     }
@@ -267,9 +270,13 @@ public class ViewController {
     public String[] getNameWeapons() {
         if(dataCharacter == null || dataCharacter.getWeapons().isEmpty()){
            String[] result = {"No hay armas aún"};
-            return result; 
+           return result; 
         }
-        return dataCharacter.getWeapons().toArray(new String[0]);
+        ArrayList<String> list = new ArrayList();
+        for(AbstractWeapon weapon: dataCharacter.getWeapons()){
+            list.add(weapon.getName());
+        }
+        return list.toArray(new String[0]);
     }
     
     public boolean save(boolean isCharacter, boolean isInventary){
@@ -289,7 +296,12 @@ public class ViewController {
                     dataCharacter = actualCharacter.build();
                 }
             }
-            //Guardar el archivo
+            JsonData j = JsonData.getInstance();
+            if(!isInventary && !isCharacter){
+                j.writeJsonWeapons((GamePrototypes) weaponPrototypes);
+            } else {
+                j.writeJsonCharacters((GamePrototypes) characterPrototypes);
+            }
             setListNames();
             return true;
         }catch(Exception e){
@@ -335,11 +347,9 @@ public class ViewController {
     private void loadPrototypes() {
         JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = j.loadWeapon();
-        System.out.println("Weapons:");
         for (AbstractWeapon weapon : weapons ){
             weaponPrototypes
                     .addPrototype(weapon.getName(), (Weapon)weapon);
-            System.out.println(weapons);
         }
         List<AbstractCharacter> characters = j.loadCharacter();
         System.out.println("Characters:");
