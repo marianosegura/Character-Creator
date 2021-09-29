@@ -12,6 +12,7 @@ import gamelib.CharacterBuilder;
 import gamelib.Direction;
 import gamelib.Weapon;
 import gamelib.CharacterPrototypes;
+import gamelib.GamePrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
 import gamelib.JsonData;
@@ -102,7 +103,6 @@ public class ViewController {
         if(list.isEmpty()){
             list.add("No hay armas aún");
         }
-        System.out.println("List:"+list);
         for (int i = 0; i < list.size(); i++) {
                 listModel.addElement(list.get(i));
         }
@@ -293,7 +293,12 @@ public class ViewController {
                     dataCharacter = actualCharacter.build();
                 }
             }
-            //Guardar el archivo
+            JsonData j = JsonData.getInstance();
+            if(!isInventary && !isCharacter){
+                j.writeJsonWeapons((GamePrototypes) weaponPrototypes);
+            } else {
+                j.writeJsonCharacters((GamePrototypes) characterPrototypes);
+            }
             setListNames();
             return true;
         }catch(Exception e){

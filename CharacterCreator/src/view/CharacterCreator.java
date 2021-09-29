@@ -955,8 +955,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         hitPerUnitTime.setValue(controller.getDataCharacter().getHitsPerTimeUnit());
         cost.setValue(controller.getDataCharacter().getCost());
         unlockLevel.setValue(controller.getDataCharacter().getUnlockLevel());
-        weaponEquipedButton.setText("Arma equipada:"
+        if(controller.getDataCharacter().getEquipedWeapon() != null){
+            weaponEquipedButton.setText("Arma equipada:"
                 + controller.getDataCharacter().getEquipedWeapon().getName());
+        }
         moveSteps.setValue(controller.getDataCharacter().getMoveSteps());
     }//GEN-LAST:event_characterListMouseClicked
 
@@ -1093,7 +1095,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         showSavedMessage(isSaved);
         setLists();
         if(isSaved){
-            //clearCharacterView();
+            clearCharacterView();
         }
     }//GEN-LAST:event_saveCharacterActionPerformed
 
