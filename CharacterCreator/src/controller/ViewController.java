@@ -113,6 +113,9 @@ public class ViewController {
         dataCharacter = characterPrototypes.
                 getPrototypeDeepClone(characterList.get(index));
         System.out.println("Character loaded: " + dataCharacter);
+        if(dataCharacter.getName().isBlank()){
+            dataCharacter.setName(characterList.get(index));
+        }
         actualCharacter = new CharacterBuilder(dataCharacter);
         return dataCharacter;
     }
