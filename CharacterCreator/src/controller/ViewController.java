@@ -15,7 +15,7 @@ import gamelib.CharacterPrototypes;
 import gamelib.GamePrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
-import gamelib.JsonData;
+import Data.JsonData;
 import gamelib.SpriteSet;
 import java.util.ArrayList;
 import java.util.List;

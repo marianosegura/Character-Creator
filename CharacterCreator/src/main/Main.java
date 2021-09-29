@@ -8,7 +8,7 @@ package main;
 import gamelib.AbstractCharacter;
 import gamelib.AbstractWeapon;
 import gamelib.GamePrototypes;
-import gamelib.JsonData;
+import Data.JsonData;
 import java.io.IOException;
 
 import java.util.ArrayList;
@@ -29,8 +29,7 @@ public class Main {
         weapons = j.loadWeapon();
         GamePrototypes<AbstractWeapon> Weapons = new GamePrototypes<AbstractWeapon>();
         for (AbstractWeapon a : weapons ){
-            System.out.println(a.getName());
-            
+            System.out.println(a);
             Weapons.addPrototype(a.getName(), a);
         }
         System.out.println("Weapons loaded.");
@@ -49,6 +48,7 @@ public class Main {
         
          //save
         j.writeJsonWeapons(Weapons);
+        System.out.println("OK");
         j.writeJsonCharacters(Characters);
     }
     

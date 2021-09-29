@@ -8,7 +8,7 @@ package gameLib_demo;
 import gamelib.AbstractCharacter;
 import gamelib.AbstractWeapon;
 import gamelib.GamePrototypes;
-import gamelib.JsonData;
+import Data.JsonData;
 import java.util.ArrayList;
 import java.util.List;
 

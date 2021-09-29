@@ -12,8 +12,8 @@
 	    		        ]}	
 	    ],
 	    "weapons": [
-	    	{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"Gamelib\\src\\image\\espada.png","levelDependant":true},
-	    	{"name":"Hacha","damage":100,"level":1,"x":0,"y":0,"scope": 2,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":10,"image":"Gamelib\\src\\image\\hacha.png","levelDependant":true},
+	    	{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"CharacterCreator\\src\\images\\espada.png","levelDependant":true},
+	    	{"name":"Hacha","damage":100,"level":1,"x":0,"y":0,"scope": 2,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":10,"image":"CharacterCreator\\src\\images\\hacha.png","levelDependant":true},
 	    ],
 	    "equipedWeapon":1,
 	    "direction":"RIGHT"
@@ -29,8 +29,8 @@
 	    		        ]}	
 	    ],
 	    "weapons": [
-	    	{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"Gamelib\\src\\image\\espada.png","levelDependant":true},
-	    	{"name":"Hacha","damage":100,"level":1,"x":0,"y":0,"scope": 2,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":10,"image":"Gamelib\\src\\image\\hacha.png","levelDependant":true},
+	    	{"name":"Espada","damage":230,"level":1,"x":0,"y":0,"scope": 1,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":5 ,"image":"CharacterCreator\\src\\images\\espada.png","levelDependant":true},
+	    	{"name":"Hacha","damage":100,"level":1,"x":0,"y":0,"scope": 2,"explosionRange":1,"maxSupplies":0,"supplies":1, "levelMultiplier":10,"image":"CharacterCreator\\src\\images\\hacha.png","levelDependant":true},
 	    ],
 	    "equipedWeapon":1,
 	    "direction":"RIGHT"

@@ -70,6 +70,10 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
     public int getDamage() {  // multiply by factor if level dependant
         return (this.levelDependant) ? this.damage * this.levelMultiplier : this.damage;
     }
+    
+    public int getRealDamage(){
+        return this.damage;
+    }
 
     public int getScope() {
         return scope;
