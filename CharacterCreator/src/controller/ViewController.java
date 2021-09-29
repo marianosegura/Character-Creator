@@ -267,9 +267,13 @@ public class ViewController {
     public String[] getNameWeapons() {
         if(dataCharacter == null || dataCharacter.getWeapons().isEmpty()){
            String[] result = {"No hay armas aún"};
-            return result; 
+           return result; 
         }
-        return dataCharacter.getWeapons().toArray(new String[0]);
+        ArrayList<String> list = new ArrayList();
+        for(AbstractWeapon weapon: dataCharacter.getWeapons()){
+            list.add(weapon.getName());
+        }
+        return list.toArray(new String[0]);
     }
     
     public boolean save(boolean isCharacter, boolean isInventary){
@@ -335,11 +339,9 @@ public class ViewController {
     private void loadPrototypes() {
         JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = j.loadWeapon();
-        System.out.println("Weapons:");
         for (AbstractWeapon weapon : weapons ){
             weaponPrototypes
                     .addPrototype(weapon.getName(), (Weapon)weapon);
-            System.out.println(weapons);
         }
         List<AbstractCharacter> characters = j.loadCharacter();
         System.out.println("Characters:");
