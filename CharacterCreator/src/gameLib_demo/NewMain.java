@@ -40,7 +40,8 @@ public class NewMain {
         }
         System.out.println("characters loaded.");
         String nameTest = "barbaro";
-        Characters.getPrototypeDeepClone(nameTest);
+        AbstractCharacter test = Characters.getPrototypeDeepClone(nameTest);
+        System.out.println(test);
     }
     
 }
