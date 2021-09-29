@@ -9,6 +9,7 @@ import gamelib.AbstractCharacter;
 import gamelib.AbstractWeapon;
 import gamelib.GamePrototypes;
 import gamelib.JsonData;
+import java.io.IOException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Main {
      * @param args the command line arguments
      */
     
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
         weapons = j.loadWeapon();
@@ -40,6 +41,10 @@ public class Main {
             //System.out.println(b.getEquipedWeapon());
         }
         System.out.println("characters loaded.");
+        
+         //save
+        j.writeJsonWeapons(Weapons);
+        j.writeJsonCharacters(Characters);
     }
     
 }
