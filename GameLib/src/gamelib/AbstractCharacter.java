@@ -106,12 +106,17 @@ public abstract class AbstractCharacter extends GameObject<AbstractCharacter> {
     }
     
     public String getSprite() {
-        int maxSpriteLevel = 0;
+        int maxSpriteLevel = -1;
         for(int levelKey : this.spriteSets.keySet()) {  // iterate levels of sprite sets 
             if (levelKey >= this.level && levelKey > maxSpriteLevel)
                 maxSpriteLevel = levelKey;  // take the biggest value that is below or same as character range
         }
+        if (maxSpriteLevel == -1) return null;  // no level matched
+
         SpriteSet maxSpriteSet = this.spriteSets.get(maxSpriteLevel);
+
+        if (!maxSpriteSet.getSprites().containsKey(this.spriteState)) return null;  // sprite state not matched
+
         return maxSpriteSet.getSprite(this.spriteState);  // return sprite according to current sprite state
     }
     

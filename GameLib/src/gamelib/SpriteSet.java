@@ -42,6 +42,10 @@ public class SpriteSet  implements IPrototype {
         return new SpriteSet();  // empty sprites
     }
 
+    public HashMap<String, String> getSprites() {
+      return sprites;
+    }
+
     @Override
     public IPrototype deepClone() {
         SpriteSet set = new SpriteSet();

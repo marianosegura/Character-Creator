@@ -68,7 +68,7 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
     
     @Override
     public int getDamage() {  // multiply by factor if level dependant
-        return (this.levelDependant) ? this.damage * this.levelMultiplier : this.damage;
+        return (this.levelDependant) ? (int) this.damage * this.levelMultiplier/100 * this.level : this.damage;
     }
     
     public int getRealDamage(){
