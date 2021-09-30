@@ -90,7 +90,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         unlockLevel = new javax.swing.JSpinner();
         jLabel15 = new javax.swing.JLabel();
         saveCharacter = new javax.swing.JButton();
-        deleteCharacter = new javax.swing.JButton();
+        saveCharacterPrototype = new javax.swing.JButton();
         newCharacter = new javax.swing.JButton();
         levelWeapon = new javax.swing.JSpinner();
         xWeapon = new javax.swing.JSpinner();
@@ -113,7 +113,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         levelDepend = new javax.swing.JCheckBox();
         saveWeapon = new javax.swing.JButton();
-        deleteWeapon = new javax.swing.JButton();
+        addWeaponInventary = new javax.swing.JButton();
         newWeapon = new javax.swing.JButton();
         jLabel26 = new javax.swing.JLabel();
         levelSpriteInput = new javax.swing.JSpinner();
@@ -129,6 +129,21 @@ public class CharacterCreator extends javax.swing.JFrame {
         spriteListState = new javax.swing.JList<>();
         jLabel4 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
+        saveCharacterSoft = new javax.swing.JButton();
+        jLabel29 = new javax.swing.JLabel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        characterList1 = new javax.swing.JList<>();
+        jLabel30 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        weaponList1 = new javax.swing.JList<>();
+        saveWeaponPrototype = new javax.swing.JButton();
+        saveWeaponSoft = new javax.swing.JButton();
+        characterSelecterToPrint = new javax.swing.JComboBox<>();
+        numberCopiesCharacter = new javax.swing.JSpinner();
+        buildCharacter = new javax.swing.JButton();
+        characterSelecterToPrint1 = new javax.swing.JComboBox<>();
+        numberCopiesWeapon = new javax.swing.JSpinner();
+        buildWeapon = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Creador de personajes");
@@ -215,9 +230,10 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Lista de armas");
+        jLabel3.setText("Lista de armas en suave");
 
         isInventaryButton.setText("Solitarias");
+        isInventaryButton.setPreferredSize(new java.awt.Dimension(250, 24));
         isInventaryButton.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
                 isInventaryButtonStateChanged(evt);
@@ -370,7 +386,7 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         jLabel15.setText("Nivel de desbloqueo");
 
-        saveCharacter.setText("Guardar Personaje");
+        saveCharacter.setText("Guardar Personaje en Prototype");
         saveCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
         saveCharacter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,11 +394,12 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        deleteCharacter.setText("Eliminar Personaje");
-        deleteCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
-        deleteCharacter.addActionListener(new java.awt.event.ActionListener() {
+        saveCharacterPrototype.setText("Guardar Prototype en Json");
+        saveCharacterPrototype.setActionCommand("");
+        saveCharacterPrototype.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveCharacterPrototype.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteCharacterActionPerformed(evt);
+                saveCharacterPrototypeActionPerformed(evt);
             }
         });
 
@@ -498,7 +515,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        saveWeapon.setText("Guardar Arma");
+        saveWeapon.setText("Guardar Arma en Prototype");
         saveWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
         saveWeapon.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -511,11 +528,11 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        deleteWeapon.setText("Eliminar Arma");
-        deleteWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
-        deleteWeapon.addActionListener(new java.awt.event.ActionListener() {
+        addWeaponInventary.setText("Agegar a inventario");
+        addWeaponInventary.setPreferredSize(new java.awt.Dimension(250, 24));
+        addWeaponInventary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteWeaponActionPerformed(evt);
+                addWeaponInventaryActionPerformed(evt);
             }
         });
 
@@ -540,7 +557,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jLabel27.setText("List de personajes");
+        jLabel27.setText("List de personajes suave");
 
         characterList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -606,6 +623,129 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         jLabel28.setText("Por nivel");
 
+        saveCharacterSoft.setText("Guardar Personaje Suave");
+        saveCharacterSoft.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveCharacterSoft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveCharacterSoftActionPerformed(evt);
+            }
+        });
+
+        jLabel29.setText("List de personajes en prototype");
+
+        characterList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        characterList1.setPreferredSize(new java.awt.Dimension(250, 100));
+        characterList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                characterList1MouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(characterList1);
+
+        jLabel30.setText("Lista de armas en Prototype");
+
+        weaponList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        weaponList1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                weaponList1MouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(weaponList1);
+
+        saveWeaponPrototype.setText("Guardar Prototype en Json");
+        saveWeaponPrototype.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveWeaponPrototype.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveWeaponPrototypeMouseClicked(evt);
+            }
+        });
+        saveWeaponPrototype.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveWeaponPrototypeActionPerformed(evt);
+            }
+        });
+
+        saveWeaponSoft.setText("Guardar Arma en Suave");
+        saveWeaponSoft.setPreferredSize(new java.awt.Dimension(250, 24));
+        saveWeaponSoft.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveWeaponSoftMouseClicked(evt);
+            }
+        });
+        saveWeaponSoft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveWeaponSoftActionPerformed(evt);
+            }
+        });
+
+        characterSelecterToPrint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un personaje" }));
+        characterSelecterToPrint.setToolTipText("");
+        characterSelecterToPrint.setPreferredSize(new java.awt.Dimension(250, 24));
+        characterSelecterToPrint.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                characterSelecterToPrintItemStateChanged(evt);
+            }
+        });
+        characterSelecterToPrint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                characterSelecterToPrintActionPerformed(evt);
+            }
+        });
+
+        numberCopiesCharacter.setName("Cantidad de pasos "); // NOI18N
+        numberCopiesCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        numberCopiesCharacter.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numberCopiesCharacterStateChanged(evt);
+            }
+        });
+
+        buildCharacter.setText("Generar");
+        buildCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
+        buildCharacter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buildCharacterActionPerformed(evt);
+            }
+        });
+
+        characterSelecterToPrint1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un arma" }));
+        characterSelecterToPrint1.setToolTipText("");
+        characterSelecterToPrint1.setPreferredSize(new java.awt.Dimension(250, 24));
+        characterSelecterToPrint1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                characterSelecterToPrint1ItemStateChanged(evt);
+            }
+        });
+        characterSelecterToPrint1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                characterSelecterToPrint1ActionPerformed(evt);
+            }
+        });
+
+        numberCopiesWeapon.setName("Cantidad de pasos "); // NOI18N
+        numberCopiesWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        numberCopiesWeapon.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                numberCopiesWeaponStateChanged(evt);
+            }
+        });
+
+        buildWeapon.setText("Generar");
+        buildWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        buildWeapon.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buildWeaponActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -620,15 +760,8 @@ public class CharacterCreator extends javax.swing.JFrame {
                             .addComponent(selectImageCharacterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel26)
                             .addComponent(levelSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(stateSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(saveSprite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel27)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(15, 15, 15)
+                            .addComponent(stateSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(nameCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -644,12 +777,66 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addComponent(size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
+                    .addComponent(jLabel12))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(nameWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18)
+                    .addComponent(damageWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19)
+                    .addComponent(levelWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16)
+                    .addComponent(xWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17)
+                    .addComponent(yWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20)
+                    .addComponent(scope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21)
+                    .addComponent(explosionRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selectImageWeoponButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(saveSprite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addComponent(health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(180, 180, 180)
+                .addComponent(jLabel13)
+                .addGap(104, 104, 104)
+                .addComponent(jLabel23))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
-                    .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(supplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel24)
+                    .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel29)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel27)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel15)
                     .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
@@ -657,58 +844,41 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(weaponEquipedButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saveCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveCharacterPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveCharacterSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(characterSelecterToPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numberCopiesCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buildCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(nameWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18)
-                            .addComponent(damageWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19)
-                            .addComponent(levelWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16)
-                            .addComponent(xWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17)
-                            .addComponent(yWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20)
-                            .addComponent(scope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel21)
-                            .addComponent(explosionRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel22)
-                            .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel23)
-                            .addComponent(supplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24)
-                            .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(levelDepend))
-                            .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel25)
-                            .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(20, 20, 20))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)))
+                        .addComponent(levelDepend))
+                    .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25)
+                    .addComponent(saveWeaponPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(saveWeaponSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addWeaponInventary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(characterSelecterToPrint1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numberCopiesWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buildWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selectImageWeoponButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(3, 3, 3)
-                        .addComponent(isInventaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(isInventaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
+                        .addGap(1, 1, 1)
                         .addComponent(characterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
                         .addComponent(selectImageCharacterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -717,25 +887,8 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(levelSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(stateSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(saveSprite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(16, 16, 16)
-                        .addComponent(jLabel28)
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel4)
-                        .addGap(2, 2, 2)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(120, 120, 120)
-                                .addComponent(jLabel27))
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(stateSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addComponent(jLabel1)
                         .addGap(2, 2, 2)
                         .addComponent(nameCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -764,37 +917,8 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel12)
-                        .addGap(2, 2, 2)
-                        .addComponent(health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel13)
-                        .addGap(2, 2, 2)
-                        .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel14)
-                        .addGap(2, 2, 2)
-                        .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel15)
-                        .addGap(2, 2, 2)
-                        .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel5)
-                        .addGap(2, 2, 2)
-                        .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(weaponEquipedButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(saveCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(newCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(deleteCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel12))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addComponent(jLabel2)
                         .addGap(2, 2, 2)
                         .addComponent(nameWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -823,18 +947,77 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(explosionRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel22)
-                        .addGap(2, 2, 2)
-                        .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel22))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(selectImageWeoponButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(saveSprite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel23))
+                .addGap(2, 2, 2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel23)
+                        .addComponent(jLabel14)
                         .addGap(2, 2, 2)
+                        .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(supplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel24)
                         .addGap(2, 2, 2)
-                        .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel4)
+                        .addGap(2, 2, 2)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel29)
+                        .addGap(2, 2, 2)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, 0)
+                        .addComponent(jLabel27)
+                        .addGap(2, 2, 2)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addGap(2, 2, 2)
+                        .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
+                        .addComponent(jLabel5)
+                        .addGap(2, 2, 2)
+                        .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(weaponEquipedButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(saveCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(saveCharacterPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(saveCharacterSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(newCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(characterSelecterToPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(numberCopiesCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(buildCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(levelDepend)
                             .addGroup(layout.createSequentialGroup()
@@ -842,21 +1025,30 @@ public class CharacterCreator extends javax.swing.JFrame {
                                 .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel25))
                         .addGap(6, 6, 6)
+                        .addComponent(saveWeaponPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(saveWeaponSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
                         .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(deleteWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(6, 6, 6)
+                        .addComponent(addWeaponInventary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(characterSelecterToPrint1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(numberCopiesWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(buildWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(selectImageWeoponButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)
+                        .addComponent(isInventaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(isInventaryButton))
-                        .addGap(6, 6, 6)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10))
+                        .addComponent(jLabel30)
+                        .addGap(12, 12, 12)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel3)
+                        .addGap(2, 2, 2)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         pack();
@@ -1137,16 +1329,16 @@ public class CharacterCreator extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_saveWeaponActionPerformed
 
-    private void deleteCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteCharacterActionPerformed
-        controller.delete(true);
-        newCharacterActionPerformed(evt);
-    }//GEN-LAST:event_deleteCharacterActionPerformed
+    private void saveCharacterPrototypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterPrototypeActionPerformed
+//        controller.delete(true);
+//        newCharacterActionPerformed(evt); Actualizar
+    }//GEN-LAST:event_saveCharacterPrototypeActionPerformed
 
-    private void deleteWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteWeaponActionPerformed
+    private void addWeaponInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addWeaponInventaryActionPerformed
         controller.delete(false);
         setLists();
         clearWeaponView();
-    }//GEN-LAST:event_deleteWeaponActionPerformed
+    }//GEN-LAST:event_addWeaponInventaryActionPerformed
 
     private void newCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCharacterActionPerformed
         controller.newGameObject(true);
@@ -1195,6 +1387,66 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void directionBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_directionBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_directionBoxActionPerformed
+
+    private void saveCharacterSoftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterSoftActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveCharacterSoftActionPerformed
+
+    private void characterList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_characterList1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_characterList1MouseClicked
+
+    private void weaponList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_weaponList1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_weaponList1MouseClicked
+
+    private void saveWeaponPrototypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveWeaponPrototypeMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveWeaponPrototypeMouseClicked
+
+    private void saveWeaponPrototypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponPrototypeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveWeaponPrototypeActionPerformed
+
+    private void saveWeaponSoftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveWeaponSoftMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveWeaponSoftMouseClicked
+
+    private void saveWeaponSoftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponSoftActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_saveWeaponSoftActionPerformed
+
+    private void characterSelecterToPrintItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_characterSelecterToPrintItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_characterSelecterToPrintItemStateChanged
+
+    private void characterSelecterToPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_characterSelecterToPrintActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_characterSelecterToPrintActionPerformed
+
+    private void numberCopiesCharacterStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numberCopiesCharacterStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberCopiesCharacterStateChanged
+
+    private void buildCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCharacterActionPerformed
+        showMessageDialog(null, "Todavía no estoy implementado"); 
+    }//GEN-LAST:event_buildCharacterActionPerformed
+
+    private void characterSelecterToPrint1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_characterSelecterToPrint1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_characterSelecterToPrint1ItemStateChanged
+
+    private void characterSelecterToPrint1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_characterSelecterToPrint1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_characterSelecterToPrint1ActionPerformed
+
+    private void numberCopiesWeaponStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numberCopiesWeaponStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_numberCopiesWeaponStateChanged
+
+    private void buildWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildWeaponActionPerformed
+        showMessageDialog(null, "Todavía no estoy implementado"); 
+    }//GEN-LAST:event_buildWeaponActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1276,13 +1528,17 @@ public class CharacterCreator extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addWeaponInventary;
+    private javax.swing.JButton buildCharacter;
+    private javax.swing.JButton buildWeapon;
     private javax.swing.JLabel characterLabel;
     private javax.swing.JList<String> characterList;
+    private javax.swing.JList<String> characterList1;
+    private javax.swing.JComboBox<String> characterSelecterToPrint;
+    private javax.swing.JComboBox<String> characterSelecterToPrint1;
     private javax.swing.JSpinner cost;
     private javax.swing.JSpinner damageCharacter;
     private javax.swing.JSpinner damageWeapon;
-    private javax.swing.JButton deleteCharacter;
-    private javax.swing.JButton deleteWeapon;
     private javax.swing.JComboBox<String> directionBox;
     private javax.swing.JSpinner explosionRange;
     private javax.swing.JSpinner health;
@@ -1309,7 +1565,9 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1320,6 +1578,8 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JSpinner levelCharacter;
     private javax.swing.JCheckBox levelDepend;
     private javax.swing.JSpinner levelMultiplier;
@@ -1332,9 +1592,15 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JTextField nameWeapon;
     private javax.swing.JButton newCharacter;
     private javax.swing.JButton newWeapon;
+    private javax.swing.JSpinner numberCopiesCharacter;
+    private javax.swing.JSpinner numberCopiesWeapon;
     private javax.swing.JButton saveCharacter;
+    private javax.swing.JButton saveCharacterPrototype;
+    private javax.swing.JButton saveCharacterSoft;
     private javax.swing.JButton saveSprite;
     private javax.swing.JButton saveWeapon;
+    private javax.swing.JButton saveWeaponPrototype;
+    private javax.swing.JButton saveWeaponSoft;
     private javax.swing.JSpinner scope;
     private javax.swing.JButton selectImageCharacterButton;
     private javax.swing.JButton selectImageWeoponButton;
@@ -1347,6 +1613,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JButton weaponEquipedButton;
     private javax.swing.JLabel weaponLabel;
     private javax.swing.JList<String> weaponList;
+    private javax.swing.JList<String> weaponList1;
     private javax.swing.JSpinner xCharacter;
     private javax.swing.JSpinner xWeapon;
     private javax.swing.JSpinner yCharacter;

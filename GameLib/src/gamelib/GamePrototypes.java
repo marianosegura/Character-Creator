@@ -5,6 +5,7 @@
  */
 package gamelib;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -45,6 +46,14 @@ public class GamePrototypes<T extends IPrototype> {
 
     public HashMap<String, T> getObjects() {
         return objects;
+    }
+    
+    public ArrayList<T> getPrototypeDeepClone(String id, int quantity){
+        ArrayList<T> result = new ArrayList();
+        for(int i = 0; i < quantity; i++){
+            result.add(getPrototypeDeepClone(id));
+        }
+        return result;
     }
     
 }
