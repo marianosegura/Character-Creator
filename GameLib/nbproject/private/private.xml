@@ -3,10 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/esteban/Character-Creator/GameLib/src/weapon.json</file>
-            <file>file:/home/esteban/Character-Creator/GameLib/src/data.json</file>
-            <file>file:/home/esteban/Character-Creator/GameLib/src/gamelib/CharacterBuilder.java</file>
-            <file>file:/home/esteban/Character-Creator/GameLib/src/gamelib/AbstractCharacter.java</file>
+            <file>file:/home/esteban/Character-Creator/GameLib/src/gamelib/Character.java</file>
+            <file>file:/home/esteban/Character-Creator/GameLib/src/gamelib/AbstractCharacterBuilder.java</file>
         </group>
     </open-files>
 </project-private>

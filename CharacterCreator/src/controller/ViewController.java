@@ -15,7 +15,7 @@ import gamelib.CharacterPrototypes;
 import gamelib.GamePrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
-import gamelib.JsonData;
+import Data.JsonData;
 import gamelib.SpriteSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -113,7 +113,7 @@ public class ViewController {
         dataCharacter = characterPrototypes.
                 getPrototypeDeepClone(characterList.get(index));
         System.out.println("Character loaded: " + dataCharacter);
-        if(dataCharacter.getName().isBlank()){
+        if(dataCharacter.getName().isEmpty()){
             dataCharacter.setName(characterList.get(index));
         }
         actualCharacter = new CharacterBuilder(dataCharacter);

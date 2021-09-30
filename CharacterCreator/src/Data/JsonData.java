@@ -3,9 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gamelib;
+package Data;
 
+import gamelib.AbstractCharacter;
+import gamelib.AbstractWeapon;
+import gamelib.Character;
+import gamelib.CharacterBuilder;
 import gamelib.Direction;
+import gamelib.GamePrototypes;
+import gamelib.SpriteSet;
+import gamelib.Weapon;
 import gamelib.WeaponBuilder;
 import java.io.FileReader;
 import java.io.IOException;
@@ -14,11 +21,9 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 /**
  *
@@ -43,7 +48,7 @@ public class JsonData {
         WeaponBuilder b = new WeaponBuilder();
         CharacterBuilder a = new CharacterBuilder();
         try{
-            Object obj = parser.parse(new FileReader("data.json"));
+            Object obj = parser.parse(new FileReader("SaveCharacters.json"));
             JSONObject jsonObject = (JSONObject) obj;
                  
             JSONArray chars = (JSONArray) jsonObject.get("characters");
@@ -137,7 +142,7 @@ public class JsonData {
         JSONParser parser = new JSONParser();
         WeaponBuilder b = new WeaponBuilder();
         try{
-            Object obj = parser.parse(new FileReader("PrototypeBasicWeapons.json"));
+            Object obj = parser.parse(new FileReader("SaveWeapons.json"));
             JSONObject jsonObject = (JSONObject) obj;
             JSONArray array = (JSONArray) jsonObject.get("weapons");
             for(int i = 0 ; i < array.size() ; i++) {
@@ -175,18 +180,18 @@ public class JsonData {
             AbstractWeapon GPWeapon = objects.get(i);
             JSONObject weapon_i = new JSONObject();
             
-            weapon_i.put("name",GPWeapon.name );
-            weapon_i.put("damage",GPWeapon.damage );
-            weapon_i.put("level",GPWeapon.level );
-            weapon_i.put("x",GPWeapon.x );
-            weapon_i.put("y",GPWeapon.y );
-            weapon_i.put("scope",GPWeapon.scope );
-            weapon_i.put("explosionRange",GPWeapon.explosionRange);
-            weapon_i.put("maxSupplies",GPWeapon.maxSupplies);
-            weapon_i.put("supplies",GPWeapon.supplies );
-            weapon_i.put("levelMultiplier",GPWeapon.levelMultiplier );
-            weapon_i.put("image",GPWeapon.image );
-            weapon_i.put("levelDependant",GPWeapon.levelDependant );
+            weapon_i.put("name",GPWeapon.getName() );
+            weapon_i.put("damage",GPWeapon.getRealDamage() );
+            weapon_i.put("level",GPWeapon.getLevel() );
+            weapon_i.put("x",GPWeapon.getX() );
+            weapon_i.put("y",GPWeapon.getY() );
+            weapon_i.put("scope",GPWeapon.getScope() );
+            weapon_i.put("explosionRange",GPWeapon.getExplosionRange());
+            weapon_i.put("maxSupplies",GPWeapon.getMaxSupplies());
+            weapon_i.put("supplies",GPWeapon.getSupplies() );
+            weapon_i.put("levelMultiplier",GPWeapon.getLevelMultiplier() );
+            weapon_i.put("image",GPWeapon.getImage() );
+            weapon_i.put("levelDependant",GPWeapon.isLevelDependant());
             
             System.out.print(weapon_i);
             //Files.write(Paths.get("Prueba.json"), weapon_i.toJSONString().getBytes());
@@ -211,19 +216,19 @@ public class JsonData {
             AbstractCharacter GPCharacter = objects.get(i);
             JSONObject character_i = new JSONObject();
             
-            character_i.put("name",GPCharacter.name );
-            character_i.put("damage",GPCharacter.damage );
-            character_i.put("level",GPCharacter.level );
-            character_i.put("x",GPCharacter.x );
-            character_i.put("y",GPCharacter.y );
-            character_i.put("size",GPCharacter.size );
-            character_i.put("maxHealth",GPCharacter.maxHealth );
-            character_i.put("health",GPCharacter.health );
-            character_i.put("hitsPerTimeUnit",GPCharacter.hitsPerTimeUnit );
-            character_i.put("cost",GPCharacter.cost );
-            character_i.put("unlockLevel",GPCharacter.unlockLevel );
-            character_i.put("moveSteps",GPCharacter.moveSteps );
-            character_i.put("spriteState",GPCharacter.spriteState );
+            character_i.put("name",GPCharacter.getName());
+            character_i.put("damage",GPCharacter.getDamage());
+            character_i.put("level",GPCharacter.getLevel());
+            character_i.put("x",GPCharacter.getX() );
+            character_i.put("y",GPCharacter.getY() );
+            character_i.put("size",GPCharacter.getSize() );
+            character_i.put("maxHealth",GPCharacter.getMaxHealth() );
+            character_i.put("health",GPCharacter.getHealth() );
+            character_i.put("hitsPerTimeUnit",GPCharacter.getHitsPerTimeUnit() );
+            character_i.put("cost",GPCharacter.getCost() );
+            character_i.put("unlockLevel",GPCharacter.getUnlockLevel() );
+            character_i.put("moveSteps",GPCharacter.getMoveSteps() );
+            character_i.put("spriteState",GPCharacter.getSprite() );
             
             
             //-----------------------------------------------------------
@@ -231,7 +236,7 @@ public class JsonData {
             //-----------------------------------------------------------
             JSONArray arrayspriteSets = new JSONArray();
             
-            HashMap<Integer, SpriteSet> ArrayspriteSets = GPCharacter.spriteSets; 
+            HashMap<Integer, SpriteSet> ArrayspriteSets = GPCharacter.getSpriteSets(); 
             
             for (Integer s : ArrayspriteSets.keySet()){
                                 
@@ -267,25 +272,25 @@ public class JsonData {
             //Create a JSONArray to all weapons
             JSONArray array = new JSONArray();
             
-            ArrayList<AbstractWeapon> ArrayWeapons = GPCharacter.weapons; 
+            ArrayList<AbstractWeapon> ArrayWeapons = GPCharacter.getWeapons(); 
                        
             for (int w = 0; w < ArrayWeapons.size(); w++){
 
                 AbstractWeapon GPWeapon = ArrayWeapons.get(w);
                 JSONObject weapon_i = new JSONObject();
 
-                weapon_i.put("name",GPWeapon.name );
-                weapon_i.put("damage",GPWeapon.damage );
-                weapon_i.put("level",GPWeapon.level );
-                weapon_i.put("x",GPWeapon.x );
-                weapon_i.put("y",GPWeapon.y );
-                weapon_i.put("scope",GPWeapon.scope );
-                weapon_i.put("explosionRange",GPWeapon.explosionRange);
-                weapon_i.put("maxSupplies",GPWeapon.maxSupplies);
-                weapon_i.put("supplies",GPWeapon.supplies );
-                weapon_i.put("levelMultiplier",GPWeapon.levelMultiplier );
-                weapon_i.put("image",GPWeapon.image );
-                weapon_i.put("levelDependant",GPWeapon.levelDependant );
+                weapon_i.put("name",GPWeapon.getName() );
+                weapon_i.put("damage",GPWeapon.getRealDamage() );
+                weapon_i.put("level",GPWeapon.getLevel() );
+                weapon_i.put("x",GPWeapon.getX() );
+                weapon_i.put("y",GPWeapon.getY() );
+                weapon_i.put("scope",GPWeapon.getScope() );
+                weapon_i.put("explosionRange",GPWeapon.getExplosionRange());
+                weapon_i.put("maxSupplies",GPWeapon.getMaxSupplies());
+                weapon_i.put("supplies",GPWeapon.getSupplies() );
+                weapon_i.put("levelMultiplier",GPWeapon.getLevelMultiplier() );
+                weapon_i.put("image",GPWeapon.getImage() );
+                weapon_i.put("levelDependant",GPWeapon.isLevelDependant());
 
                 System.out.print(weapon_i);
                 
@@ -293,8 +298,10 @@ public class JsonData {
             }
             
             character_i.put("weapons",array ); 
-            character_i.put("equipedWeapon",GPCharacter.equipedWeapon );
-            String pez = GPCharacter.direction.toString();
+            int equiped = ArrayWeapons.indexOf(GPCharacter.getEquipedWeapon());
+            character_i.put("equipedWeapon",equiped);
+            
+            String pez = GPCharacter.getDirection().toString().toUpperCase();
             character_i.put("direction",pez );
             
             System.out.print(character_i);

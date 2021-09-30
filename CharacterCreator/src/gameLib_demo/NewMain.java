@@ -10,7 +10,7 @@ import gamelib.AbstractWeapon;
 import gamelib.Character;
 import gamelib.CharacterBuilder;
 import gamelib.GamePrototypes;
-import gamelib.JsonData;
+import Data.JsonData;
 import java.util.ArrayList;
 import java.util.List;
 
