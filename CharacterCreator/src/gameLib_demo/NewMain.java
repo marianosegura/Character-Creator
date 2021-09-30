@@ -24,6 +24,8 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        String os = System.getProperty("os.name");
+        System.out.println("Using System Property: " + os);
         JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = new ArrayList<AbstractWeapon>();
         weapons = j.loadWeapon();
@@ -48,6 +50,7 @@ public class NewMain {
         CharacterBuilder builder = new CharacterBuilder((Character) test);
         builder.setEquipedWeapon(0);
         System.out.println("Null when change equiped weapon: " + builder.build().getEquipedWeapon());
+        
     }
     
 }

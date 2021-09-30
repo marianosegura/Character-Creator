@@ -1,5 +1,60 @@
-<<<<<<< HEAD
-{"characters":[{"damage":230,"equipedWeapon":1,"cost":20,"level":2,"health":200,"spriteState":"","moveSteps":2,"unlockLevel":2,"size":2,"hitsPerTimeUnit":2,"name":"arquera","x":2,"y":2,"maxHealth":200,"spriteSets":[{"Sprite":[{"state":"jumping","URL":""},{"state":"attacking","URL":""}],"level":2}],"weapons":[{"damage":230,"image":"CharacterCreator\\src\\images\\espada.png","explosionRange":1,"levelMultiplier":5,"level":1,"supplies":0,"scope":1,"name":"Espada","x":0,"levelDependant":true,"y":0,"maxSupplies":0},{"damage":100,"image":"CharacterCreator\\src\\images\\hacha.png","explosionRange":1,"levelMultiplier":10,"level":1,"supplies":0,"scope":2,"name":"Hacha","x":0,"levelDependant":true,"y":0,"maxSupplies":0}],"direction":"RIGHT"}]}
-=======
-{"characters":[{"damage":230,"equipedWeapon":AbstractWeapon{super=GameObject{name=Hacha, damage=100, level=1, x=0, y=0}scope=2, explosionRange=1, maxSupplies=0, supplies=0, levelMultiplier=10, image=Gamelib\src\image\hacha.png, levelDependant=true},"cost":20,"level":2,"health":200,"spriteState":"jumping","moveSteps":2,"unlockLevel":2,"size":2,"hitsPerTimeUnit":2,"name":"barbaro","x":2,"y":2,"maxHealth":200,"spriteSets":[{"Sprite":[{"state":"jumping","URL":""},{"state":"attacking","URL":""}],"level":2}],"weapons":[{"damage":230,"image":"Gamelib\\src\\image\\espada.png","explosionRange":1,"levelMultiplier":5,"level":1,"supplies":0,"scope":1,"name":"Espada","x":0,"levelDependant":true,"y":0,"maxSupplies":0},{"damage":100,"image":"Gamelib\\src\\image\\hacha.png","explosionRange":1,"levelMultiplier":10,"level":1,"supplies":0,"scope":2,"name":"Hacha","x":0,"levelDependant":true,"y":0,"maxSupplies":0}],"direction":"Right"},{"damage":230,"equipedWeapon":null,"cost":20,"level":2,"health":46546199,"spriteState":"jumping","moveSteps":2,"unlockLevel":2,"size":2,"hitsPerTimeUnit":2,"name":"Alejandro","x":2,"y":2,"maxHealth":46546199,"spriteSets":[{"Sprite":[{"state":"jumping","URL":""},{"state":"attacking","URL":""}],"level":2}],"weapons":[{"damage":230,"image":"Gamelib\\src\\image\\espada.png","explosionRange":1,"levelMultiplier":5,"level":1,"supplies":0,"scope":1,"name":"Espada","x":0,"levelDependant":true,"y":0,"maxSupplies":0},{"damage":100,"image":"Gamelib\\src\\image\\hacha.png","explosionRange":1,"levelMultiplier":10,"level":1,"supplies":0,"scope":2,"name":"Hacha","x":0,"levelDependant":true,"y":0,"maxSupplies":0}],"direction":"Right"}]}
->>>>>>> 8100f36fda56dcbaeac6d695f232c4238643f43e
+{
+  "characters": [
+    {
+      "damage": 230,
+      "equipedWeapon": 1,
+      "cost": 20,
+      "level": 2,
+      "health": 200,
+      "spriteState": "",
+      "moveSteps": 2,
+      "unlockLevel": 2,
+      "size": 2,
+      "hitsPerTimeUnit": 2,
+      "name": "arquera",
+      "x": 2,
+      "y": 2,
+      "maxHealth": 200,
+      "spriteSets": [
+        {
+          "Sprite": [
+            { "state": "jumping", "URL": "" },
+            { "state": "attacking", "URL": "" }
+          ],
+          "level": 2
+        }
+      ],
+      "weapons": [
+        {
+          "damage": 230,
+          "image": "src\\images\\espada.png",
+          "explosionRange": 1,
+          "levelMultiplier": 5,
+          "level": 1,
+          "supplies": 0,
+          "scope": 1,
+          "name": "Espada",
+          "x": 0,
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 0
+        },
+        {
+          "damage": 100,
+          "image": "src\\images\\hacha.png",
+          "explosionRange": 1,
+          "levelMultiplier": 10,
+          "level": 1,
+          "supplies": 0,
+          "scope": 2,
+          "name": "Hacha",
+          "x": 0,
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 0
+        }
+      ],
+      "direction": "RIGHT"
+    }
+  ]
+}

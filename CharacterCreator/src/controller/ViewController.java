@@ -199,7 +199,6 @@ public class ViewController {
             SpriteSet newSpriteSet = new SpriteSet();
             newSpriteSet.addSprite(state, path);
             actualCharacter.addSpriteSet(level, newSpriteSet);
-            
         }
         
     }

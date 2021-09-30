@@ -1,1 +1,116 @@
-{"weapons":[{"damage":500,"image":"CharacterCreator\\src\\images\\pistola.png","explosionRange":5,"levelMultiplier":25,"level":1,"supplies":1,"scope":5,"name":"Pistola","x":0,"levelDependant":true,"y":0,"maxSupplies":1},{"damage":100,"image":"CharacterCreator\\src\\images\\hacha.png","explosionRange":1,"levelMultiplier":10,"level":1,"supplies":0,"scope":2,"name":"Hacha","x":0,"levelDependant":true,"y":0,"maxSupplies":0},{"damage":500,"image":"CharacterCreator\\src\\images\\bomba.png","explosionRange":5,"levelMultiplier":15,"level":1,"supplies":1,"scope":5,"name":"Bomba","x":0,"levelDependant":true,"y":0,"maxSupplies":1},{"damage":230,"image":"CharacterCreator\\src\\images\\espada.png","explosionRange":1,"levelMultiplier":5,"level":1,"supplies":0,"scope":1,"name":"Espada","x":0,"levelDependant":true,"y":0,"maxSupplies":0},{"damage":230,"image":"CharacterCreator\\src\\images\\granada.png","explosionRange":1,"levelMultiplier":30,"level":1,"supplies":0,"scope":1,"name":"Granada","x":0,"levelDependant":true,"y":0,"maxSupplies":0},{"damage":230,"image":"CharacterCreator\\src\\images\\bomba2.png","explosionRange":1,"levelMultiplier":20,"level":1,"supplies":0,"scope":1,"name":"Bomba2","x":0,"levelDependant":true,"y":0,"maxSupplies":0},{"damage":500,"image":"CharacterCreator\\src\\images\\dinamita.png","explosionRange":5,"levelMultiplier":30,"level":1,"supplies":1,"scope":5,"name":"Dinamita","x":0,"levelDependant":true,"y":0,"maxSupplies":1},{"damage":100,"image":"CharacterCreator\\src\\images\\botiquiin.png","explosionRange":1,"levelMultiplier":25,"level":1,"supplies":0,"scope":2,"name":"Botiquiin","x":0,"levelDependant":true,"y":0,"maxSupplies":0}]}
+{
+  "weapons": [
+    {
+      "damage": 500,
+      "image": "src\\images\\pistola.png",
+      "explosionRange": 5,
+      "levelMultiplier": 25,
+      "level": 1,
+      "supplies": 1,
+      "scope": 5,
+      "name": "Pistola",
+      "x": 0,
+      "levelDependant": true,
+      "y": 0,
+      "maxSupplies": 1
+    },
+    {
+      "damage": 100,
+      "image": "src\\images\\hacha.png",
+      "explosionRange": 1,
+      "levelMultiplier": 10,
+      "level": 1,
+      "supplies": 0,
+      "scope": 2,
+      "name": "Hacha",
+      "x": 0,
+      "levelDependant": true,
+      "y": 0,
+      "maxSupplies": 0
+    },
+    {
+      "damage": 500,
+      "image": "src\\images\\bomba.png",
+      "explosionRange": 5,
+      "levelMultiplier": 15,
+      "level": 1,
+      "supplies": 1,
+      "scope": 5,
+      "name": "Bomba",
+      "x": 0,
+      "levelDependant": true,
+      "y": 0,
+      "maxSupplies": 1
+    },
+    {
+      "damage": 230,
+      "image": "src\\images\\espada.png",
+      "explosionRange": 1,
+      "levelMultiplier": 5,
+      "level": 1,
+      "supplies": 0,
+      "scope": 1,
+      "name": "Espada",
+      "x": 0,
+      "levelDependant": true,
+      "y": 0,
+      "maxSupplies": 0
+    },
+    {
+      "damage": 230,
+      "image": "src\\images\\granada.png",
+      "explosionRange": 1,
+      "levelMultiplier": 30,
+      "level": 1,
+      "supplies": 0,
+      "scope": 1,
+      "name": "Granada",
+      "x": 0,
+      "levelDependant": true,
+      "y": 0,
+      "maxSupplies": 0
+    },
+    {
+      "damage": 230,
+      "image": "src\\images\\bomba2.png",
+      "explosionRange": 1,
+      "levelMultiplier": 20,
+      "level": 1,
+      "supplies": 0,
+      "scope": 1,
+      "name": "Bomba2",
+      "x": 0,
+      "levelDependant": true,
+      "y": 0,
+      "maxSupplies": 0
+    },
+    {
+      "damage": 500,
+      "image": "src\\images\\dinamita.png",
+      "explosionRange": 5,
+      "levelMultiplier": 30,
+      "level": 1,
+      "supplies": 1,
+      "scope": 5,
+      "name": "Dinamita",
+      "x": 0,
+      "levelDependant": true,
+      "y": 0,
+      "maxSupplies": 1
+    },
+    {
+      "damage": 100,
+      "image": "src/images/botiquiin.png",
+      "explosionRange": 1,
+      "levelMultiplier": 25,
+      "level": 1,
+      "supplies": 0,
+      "scope": 2,
+      "name": "Botiquiin",
+      "x": 0,
+      "levelDependant": true,
+      "y": 0,
+      "maxSupplies": 0
+    }
+  ]
+}

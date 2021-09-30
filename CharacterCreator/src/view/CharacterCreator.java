@@ -27,6 +27,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private ViewController controller;
     
     private JFileChooser openFileChosser;
+    private final boolean isLinux = System.getProperty("os.name").contains("Linux") ? true : false;
 
     /**
      * Creates new form CharacterCreator
@@ -1238,6 +1239,11 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void setImage(String path,javax.swing.JLabel label) {
         BufferedImage img = null;
         try {
+            if(isLinux){
+                path = path.replace("\\\\", "/").replace("\\", "/");
+            } else {
+                path = path.replace("/","\\\\");
+            }
             img = ImageIO.read(new File(path));
             Image dimg = img.getScaledInstance(label.getWidth(), 
                     label.getHeight(), Image.SCALE_SMOOTH);
