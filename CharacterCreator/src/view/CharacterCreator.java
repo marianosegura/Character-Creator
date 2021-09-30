@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.showMessageDialog;
+import javax.swing.SpinnerNumberModel;
 
 /**
  *
@@ -35,6 +36,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     public CharacterCreator() {
         initComponents();
         controller = new ViewController();
+        setMinSpinners();
         setLists();
         //imagenes de ejemplo
         String homerPath = "src/images/homer.jpg";
@@ -1331,8 +1333,8 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_saveWeaponActionPerformed
 
     private void saveCharacterPrototypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterPrototypeActionPerformed
-//        controller.delete(true);
-//        newCharacterActionPerformed(evt); Actualizar
+        controller.savePrototype(true);
+        newCharacterActionPerformed(evt); 
     }//GEN-LAST:event_saveCharacterPrototypeActionPerformed
 
     private void addWeaponInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addWeaponInventaryActionPerformed
@@ -1406,7 +1408,8 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_saveWeaponPrototypeMouseClicked
 
     private void saveWeaponPrototypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponPrototypeActionPerformed
-        // TODO add your handling code here:
+        controller.savePrototype(false);
+        newWeaponActionPerformed(evt); 
     }//GEN-LAST:event_saveWeaponPrototypeActionPerformed
 
     private void saveWeaponSoftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveWeaponSoftMouseClicked
@@ -1682,6 +1685,29 @@ public class CharacterCreator extends javax.swing.JFrame {
        weaponEquipedButton.setText("Selecciona un arma");
        moveSteps.setValue(0);
        directionBox.setSelectedIndex(0);
+    }
+
+    private void setMinSpinners() {
+        SpinnerNumberModel oneOrMore = new SpinnerNumberModel(1,1,Integer.MAX_VALUE,1);
+        // n<=0
+        levelCharacter.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        levelWeapon.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        size.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        unlockLevel.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        health.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        maxHealth.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        hitPerUnitTime.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        moveSteps.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        scope.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        supplies.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        levelMultiplier.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        maxSupplies.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
+        // n <= 1
+        numberCopiesCharacter.setModel(new SpinnerNumberModel(1,1,Integer.MAX_VALUE,1));
+        numberCopiesWeapon.setModel(new SpinnerNumberModel(1,1,Integer.MAX_VALUE,1));
+        scope.setModel(new SpinnerNumberModel(1,1,Integer.MAX_VALUE,1));
+        explosionRange.setModel(new SpinnerNumberModel(1,1,Integer.MAX_VALUE,1));
+        
     }
 
 }

@@ -105,7 +105,7 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
 
     @Override
     public String toString() {
-        return "AbstractWeapon{" + "super=" + super.toString() + "scope=" + scope + ", explosionRange=" + explosionRange + ", maxSupplies=" + maxSupplies + ", supplies=" + supplies + ", levelMultiplier=" + levelMultiplier + ", image=" + image + ", levelDependant=" + levelDependant + '}';
+        return "\nAbstractWeapon{" + super.toString() + "scope=" + scope + ", explosionRange=" + explosionRange + ", maxSupplies=" + maxSupplies + ", supplies=" + supplies + ", levelMultiplier=" + levelMultiplier + ", image=" + image + ", levelDependant=" + levelDependant + '}';
     }
     
 }

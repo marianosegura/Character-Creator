@@ -261,7 +261,7 @@ public abstract class AbstractCharacter extends GameObject<AbstractCharacter> {
 
     @Override
     public String toString() {
-        return "AbstractCharacter{"  + "super=" + super.toString() + "size=" + size + ", maxHealth=" + maxHealth + ", health=" + health + ", hitsPerTimeUnit=" + hitsPerTimeUnit + ", cost=" + cost + ", unlockLevel=" + unlockLevel + ", moveSteps=" + moveSteps + ", spriteState=" + spriteState + ", spriteSets=" + spriteSets + ", weapons=" + weapons + ", equipedWeapon=" + equipedWeapon + ", direction=" + direction + '}';
+        return "AbstractCharacter{"  + super.toString() + "\nsize=" + size + ", maxHealth=" + maxHealth + ", health=" + health + ", hitsPerTimeUnit=" + hitsPerTimeUnit + ", cost=" + cost + ", unlockLevel=" + unlockLevel + ", moveSteps=" + moveSteps + ", spriteState=" + spriteState + ", spriteSets=" + spriteSets + ",direction=" + direction + ",\nweapons=" + weapons + ",\nequipedWeapon=" + equipedWeapon + ",direction=" + direction + '}';
     }
     
     

@@ -18,8 +18,11 @@ import gamelib.WeaponBuilder;
 import Data.JsonData;
 import gamelib.GameObject;
 import gamelib.SpriteSet;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
@@ -300,12 +303,6 @@ public class ViewController {
                     dataCharacter = actualCharacter.build();
                 }
             }
-            JsonData j = JsonData.getInstance();
-            if(!isInventary && !isCharacter){
-                j.writeJsonWeapons((GamePrototypes) weaponPrototypes);
-            } else {
-                j.writeJsonCharacters((GamePrototypes) characterPrototypes);
-            }
             setListNames();
             return true;
         }catch(Exception e){
@@ -413,5 +410,20 @@ public class ViewController {
             model.addElement(weaponList.get(i));
         }
         return model;
+    }
+
+    public void savePrototype(boolean isCharacter) {
+            JsonData j = JsonData.getInstance();
+            try {
+               if(!isCharacter){   
+                    j.writeJsonWeapons((GamePrototypes) weaponPrototypes);
+                } else {
+                    j.writeJsonCharacters((GamePrototypes) characterPrototypes);
+                } 
+            } catch (IOException ex) {
+            Logger.getLogger(ViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+            
+ 
     }
 }
