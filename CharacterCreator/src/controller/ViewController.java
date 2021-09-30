@@ -15,9 +15,8 @@ import gamelib.CharacterPrototypes;
 import gamelib.GamePrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
-import Data.JsonData;
-import gamelib.GameObject;
 import gamelib.SpriteSet;
+import Data.JsonData;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +34,8 @@ public class ViewController {
     
     private ArrayList<String> characterList;
     private ArrayList<String> weaponList;
+    private ArrayList<Character> softCharacters;
+    private ArrayList<Weapon> softWeapons;
     private CharacterBuilder actualCharacter;
     private WeaponBuilder actualWeapon;
     private Character dataCharacter;
@@ -46,6 +47,8 @@ public class ViewController {
     public ViewController() {
         characterPrototypes = new CharacterPrototypes();
         weaponPrototypes = new WeaponPrototypes();
+        softCharacters = new ArrayList<Character>();
+        softWeapons = new ArrayList<Weapon>();
         loadPrototypes();
         setListNames();
         actualCharacter = new CharacterBuilder();
@@ -114,6 +117,40 @@ public class ViewController {
         }
         return listModel;
     }
+    
+    public DefaultListModel getListModelSoftCharacters(){
+        DefaultListModel listModel = new DefaultListModel();
+        for (int i = 0; i < softCharacters.size(); i++) {
+            
+            listModel.addElement(softCharacters.get(i).getName());
+        }
+        if(softCharacters.size() == 0){
+            listModel.addElement("No hay personajes suaves");
+        }
+        return listModel;
+    }
+    
+    public DefaultListModel getListModelSoftWeapons(){
+        DefaultListModel listModel = new DefaultListModel();
+        for (int i = 0; i < softWeapons.size(); i++) {
+            
+            listModel.addElement(softWeapons.get(i).getName());
+        }
+        if(softCharacters.size() == 0){
+            listModel.addElement("No hay armas suaves");
+        }
+        return listModel;
+    }
+    
+    public boolean anySoft(boolean isCharacter){
+        if(isCharacter){
+            return softCharacters.isEmpty() ? false : true;
+        } else {
+            return softWeapons.isEmpty() ? false : true;
+        }
+    }
+    
+    
     public Character setCharacter(int index){
         System.out.println("characterList["+index+"]: "+characterList.get(index));
         dataCharacter = characterPrototypes.
@@ -125,6 +162,7 @@ public class ViewController {
         actualCharacter = new CharacterBuilder(dataCharacter);
         return dataCharacter;
     }
+    
     public void setWeapon(int index,boolean isInventary){
         if(isInventary && dataCharacter != null){
             dataWeapon = (Weapon) dataCharacter.getWeapons().get(index);
@@ -399,7 +437,7 @@ public class ViewController {
         String result = "";
         ArrayList<Weapon> copies = weaponPrototypes.getPrototypeDeepClone(name, amount);
         for(Weapon character : copies){
-            result += character.toString() + "\n";
+            result += character.toString();
         }
         return result;
     }
@@ -425,5 +463,27 @@ public class ViewController {
         }
             
  
+    }
+
+    public void setSoftWeapon(int index) {
+        actualWeapon = new WeaponBuilder(softWeapons.get(index));
+        dataWeapon = actualWeapon.build();
+    }
+
+    public void setSoftCharacter(int index) {
+        actualCharacter = new CharacterBuilder(softCharacters.get(index));
+        dataCharacter = actualCharacter.build();
+    }
+
+    public void addWeaponInventory() {
+        actualCharacter.addWeapon(actualWeapon.build());
+    }
+
+    public void saveSoftCharacter() {
+        softCharacters.add(actualCharacter.build());
+    }
+
+    public void saveSoftWeapon() {
+        softWeapons.add(actualWeapon.build());
     }
 }

@@ -134,10 +134,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         saveCharacterSoft = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        characterList1 = new javax.swing.JList<>();
+        softCharacterList = new javax.swing.JList<>();
         jLabel30 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        weaponList1 = new javax.swing.JList<>();
+        softWeaponList = new javax.swing.JList<>();
         saveWeaponPrototype = new javax.swing.JButton();
         saveWeaponSoft = new javax.swing.JButton();
         characterSelecterToPrint = new javax.swing.JComboBox<>();
@@ -635,32 +635,32 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         jLabel29.setText("List de personajes en prototype");
 
-        characterList1.setModel(new javax.swing.AbstractListModel<String>() {
+        softCharacterList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        characterList1.setPreferredSize(new java.awt.Dimension(250, 100));
-        characterList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        softCharacterList.setPreferredSize(new java.awt.Dimension(250, 100));
+        softCharacterList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                characterList1MouseClicked(evt);
+                softCharacterListMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(characterList1);
+        jScrollPane5.setViewportView(softCharacterList);
 
         jLabel30.setText("Lista de armas en Prototype");
 
-        weaponList1.setModel(new javax.swing.AbstractListModel<String>() {
+        softWeaponList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        weaponList1.addMouseListener(new java.awt.event.MouseAdapter() {
+        softWeaponList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                weaponList1MouseClicked(evt);
+                softWeaponListMouseClicked(evt);
             }
         });
-        jScrollPane6.setViewportView(weaponList1);
+        jScrollPane6.setViewportView(softWeaponList);
 
         saveWeaponPrototype.setText("Guardar Prototype en Json");
         saveWeaponPrototype.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -856,10 +856,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
+                        .addComponent(jLabel25)
+                        .addGap(5, 5, 5)
                         .addComponent(levelDepend))
                     .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25)
                     .addComponent(saveWeaponPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saveWeaponSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -871,9 +871,9 @@ public class CharacterCreator extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(isInventaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1022,11 +1022,11 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addComponent(buildCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25)
                             .addComponent(levelDepend)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
-                                .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel25))
+                                .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(6, 6, 6)
                         .addComponent(saveWeaponPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
@@ -1046,12 +1046,12 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addComponent(isInventaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel30)
-                        .addGap(12, 12, 12)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(10, 10, 10)
                         .addComponent(jLabel3)
                         .addGap(2, 2, 2)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
 
         pack();
@@ -1147,59 +1147,14 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void characterListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_characterListMouseClicked
         int indexCharacter = characterList.locationToIndex(evt.getPoint());
         controller.setCharacter(indexCharacter);
-        nameCharacter.setText(controller.getDataCharacter().getName());
-        nameCharacter.setForeground(Color.BLACK);
-        damageWeapon.setValue(controller.getDataCharacter().getDamage());
-        levelCharacter.setValue(controller.getDataCharacter().getLevel());
-        xCharacter.setValue(controller.getDataCharacter().getX());
-        yCharacter.setValue(controller.getDataCharacter().getY());
-        size.setValue(controller.getDataCharacter().getSize());
-        maxHealth.setValue(controller.getDataCharacter().getMaxHealth());
-        health.setValue(controller.getDataCharacter().getHealth());
-        hitPerUnitTime.setValue(controller.getDataCharacter().getHitsPerTimeUnit());
-        cost.setValue(controller.getDataCharacter().getCost());
-        unlockLevel.setValue(controller.getDataCharacter().getUnlockLevel());
-        if(controller.getDataCharacter().getEquipedWeapon() != null){
-            weaponEquipedButton.setText("Arma equipada:"
-                + controller.getDataCharacter().getEquipedWeapon().getName());
-        }
-        moveSteps.setValue(controller.getDataCharacter().getMoveSteps());
-        if(controller.getDataCharacter().getDirection() != null){
-            switch(controller.getDataCharacter().getDirection()){
-                case UP:
-                    directionBox.setSelectedIndex(1);
-                    break;
-                case DOWN:
-                    directionBox.setSelectedIndex(2);
-                    break;
-                case LEFT:
-                    directionBox.setSelectedIndex(3);
-                    break;
-                case RIGHT:
-                    directionBox.setSelectedIndex(4);
-                    break;
-            }
-        }
+        setCharacterUI();
     }//GEN-LAST:event_characterListMouseClicked
 
     private void weaponListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_weaponListMouseClicked
         int indexWeapon = weaponList.locationToIndex(evt.getPoint());
         if(controller.anyWeapon(isInventaryButton.isSelected())){
             controller.setWeapon(indexWeapon,isInventaryButton.isSelected());
-        nameWeapon.setText(controller.getDataWeapon().getName());
-        nameWeapon.setForeground(Color.BLACK);
-        damageWeapon.setValue(controller.getDataWeapon().getDamage());
-        levelWeapon.setValue(controller.getDataWeapon().getLevel());
-        xWeapon.setValue(controller.getDataWeapon().getX());
-        yWeapon.setValue(controller.getDataWeapon().getY());
-        scope.setValue(controller.getDataWeapon().getScope());
-        explosionRange.setValue(controller.getDataWeapon().getExplosionRange());
-        maxSupplies.setValue(controller.getDataWeapon().getMaxSupplies());
-        supplies.setValue(controller.getDataWeapon().getSupplies());
-        levelMultiplier.setValue(controller.getDataWeapon().getLevelMultiplier());
-        levelDepend.setSelected(controller.getDataWeapon().isLevelDependant());
-        System.out.println("path: "+controller.getDataWeapon().getImage());
-        setImage(controller.getDataWeapon().getImage(),weaponLabel);
+            setWeaponUI();
         } else {
             showMessageDialog(null, "No hay armas");
         }
@@ -1338,9 +1293,12 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_saveCharacterPrototypeActionPerformed
 
     private void addWeaponInventaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addWeaponInventaryActionPerformed
-        controller.delete(false);
-        setLists();
+        controller.addWeaponInventory();
+        showMessageDialog(null,"Arma agregada al inventario");
         clearWeaponView();
+        if(isInventaryButton.isSelected()){
+            setListWeapon(isInventaryButton.isSelected());
+        }
     }//GEN-LAST:event_addWeaponInventaryActionPerformed
 
     private void newCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCharacterActionPerformed
@@ -1392,16 +1350,30 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_directionBoxActionPerformed
 
     private void saveCharacterSoftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterSoftActionPerformed
-        // TODO add your handling code here:
+        controller.saveSoftCharacter();
+        clearCharacterView();
+        setListSoftCharacter();
     }//GEN-LAST:event_saveCharacterSoftActionPerformed
 
-    private void characterList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_characterList1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_characterList1MouseClicked
+    private void softCharacterListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_softCharacterListMouseClicked
+        if(controller.anySoft(true)){
+            int index = softCharacterList.locationToIndex(evt.getPoint());
+            controller.setSoftCharacter(index);
+            setCharacterUI();
+        } else {
+            showMessageDialog(null,"No hay armas suaves");
+        }
+    }//GEN-LAST:event_softCharacterListMouseClicked
 
-    private void weaponList1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_weaponList1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_weaponList1MouseClicked
+    private void softWeaponListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_softWeaponListMouseClicked
+        if(controller.anySoft(false)){
+            int index = softWeaponList.locationToIndex(evt.getPoint());
+            controller.setSoftWeapon(index);
+            setWeaponUI();
+        } else {
+            showMessageDialog(null,"No hay armas suaves");
+        }
+    }//GEN-LAST:event_softWeaponListMouseClicked
 
     private void saveWeaponPrototypeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveWeaponPrototypeMouseClicked
         // TODO add your handling code here:
@@ -1417,7 +1389,8 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_saveWeaponSoftMouseClicked
 
     private void saveWeaponSoftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponSoftActionPerformed
-        // TODO add your handling code here:
+        controller.saveSoftWeapon();
+        clearWeaponView();
     }//GEN-LAST:event_saveWeaponSoftActionPerformed
 
     private void characterSelecterToPrintItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_characterSelecterToPrintItemStateChanged
@@ -1541,7 +1514,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JButton buildWeapon;
     private javax.swing.JLabel characterLabel;
     private javax.swing.JList<String> characterList;
-    private javax.swing.JList<String> characterList1;
     private javax.swing.JComboBox<String> characterSelecterToPrint;
     private javax.swing.JSpinner cost;
     private javax.swing.JSpinner damageCharacter;
@@ -1612,6 +1584,8 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JButton selectImageCharacterButton;
     private javax.swing.JButton selectImageWeoponButton;
     private javax.swing.JSpinner size;
+    private javax.swing.JList<String> softCharacterList;
+    private javax.swing.JList<String> softWeaponList;
     private javax.swing.JList<String> spriteListLevel;
     private javax.swing.JList<String> spriteListState;
     private javax.swing.JTextField stateSpriteInput;
@@ -1620,7 +1594,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JButton weaponEquipedButton;
     private javax.swing.JLabel weaponLabel;
     private javax.swing.JList<String> weaponList;
-    private javax.swing.JList<String> weaponList1;
     private javax.swing.JComboBox<String> weaponSelecterToPrint;
     private javax.swing.JSpinner xCharacter;
     private javax.swing.JSpinner xWeapon;
@@ -1631,6 +1604,8 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void setLists() {
         setListCharacter();
         setListWeapon(isInventaryButton.isSelected());
+        setListSoftCharacter();
+        setListSoftWeapons();
         setListSpriteLevel();
         setListStriteState(-1);
     }
@@ -1646,6 +1621,18 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void setListCharacter(){
         characterList.setModel(controller.getListModelCharacters());
         characterSelecterToPrint.setModel(controller.getListComboModelCharacters());
+    }
+    
+    private void setListWeapon(boolean isInventary) {
+        weaponList.setModel(controller.getListModelWeapons(isInventary));
+        weaponSelecterToPrint.setModel(controller.getListComboModelWeapons());
+    }
+    
+    private void setListSoftCharacter() {
+        softCharacterList.setModel(controller.getListModelSoftCharacters());
+    }
+        private void setListSoftWeapons() {
+        softWeaponList.setModel(controller.getListModelSoftWeapons());
     }
     
     private void clearWeaponView(){
@@ -1664,10 +1651,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         setImage("./src/images/Bart.png",weaponLabel);
     }
 
-    private void setListWeapon(boolean isInventary) {
-        weaponList.setModel(controller.getListModelWeapons(isInventary));
-        weaponSelecterToPrint.setModel(controller.getListComboModelWeapons());
-    }
 
     private void clearCharacterView() {
        nameCharacter.setText("Nombre");
@@ -1708,6 +1691,58 @@ public class CharacterCreator extends javax.swing.JFrame {
         scope.setModel(new SpinnerNumberModel(1,1,Integer.MAX_VALUE,1));
         explosionRange.setModel(new SpinnerNumberModel(1,1,Integer.MAX_VALUE,1));
         
+    }
+
+    private void setWeaponUI() {
+        nameWeapon.setText(controller.getDataWeapon().getName());
+        nameWeapon.setForeground(Color.BLACK);
+        damageWeapon.setValue(controller.getDataWeapon().getDamage());
+        levelWeapon.setValue(controller.getDataWeapon().getLevel());
+        xWeapon.setValue(controller.getDataWeapon().getX());
+        yWeapon.setValue(controller.getDataWeapon().getY());
+        scope.setValue(controller.getDataWeapon().getScope());
+        explosionRange.setValue(controller.getDataWeapon().getExplosionRange());
+        maxSupplies.setValue(controller.getDataWeapon().getMaxSupplies());
+        supplies.setValue(controller.getDataWeapon().getSupplies());
+        levelMultiplier.setValue(controller.getDataWeapon().getLevelMultiplier());
+        levelDepend.setSelected(controller.getDataWeapon().isLevelDependant());
+        setImage(controller.getDataWeapon().getImage(), weaponLabel);
+    }
+
+    private void setCharacterUI() {
+        nameCharacter.setText(controller.getDataCharacter().getName());
+        nameCharacter.setForeground(Color.BLACK);
+        damageWeapon.setValue(controller.getDataCharacter().getDamage());
+        levelCharacter.setValue(controller.getDataCharacter().getLevel());
+        xCharacter.setValue(controller.getDataCharacter().getX());
+        yCharacter.setValue(controller.getDataCharacter().getY());
+        size.setValue(controller.getDataCharacter().getSize());
+        maxHealth.setValue(controller.getDataCharacter().getMaxHealth());
+        health.setValue(controller.getDataCharacter().getHealth());
+        hitPerUnitTime.setValue(controller.getDataCharacter().getHitsPerTimeUnit());
+        cost.setValue(controller.getDataCharacter().getCost());
+        unlockLevel.setValue(controller.getDataCharacter().getUnlockLevel());
+        if(controller.getDataCharacter().getEquipedWeapon() != null){
+            weaponEquipedButton.setText("Arma equipada:"
+                + controller.getDataCharacter().getEquipedWeapon().getName());
+        }
+        moveSteps.setValue(controller.getDataCharacter().getMoveSteps());
+        if(controller.getDataCharacter().getDirection() != null){
+            switch(controller.getDataCharacter().getDirection()){
+                case UP:
+                    directionBox.setSelectedIndex(1);
+                    break;
+                case DOWN:
+                    directionBox.setSelectedIndex(2);
+                    break;
+                case LEFT:
+                    directionBox.setSelectedIndex(3);
+                    break;
+                case RIGHT:
+                    directionBox.setSelectedIndex(4);
+                    break;
+            }
+        }
     }
 
 }

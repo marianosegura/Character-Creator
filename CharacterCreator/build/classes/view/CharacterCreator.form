@@ -141,11 +141,11 @@
               <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
+                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
                       <Component id="levelDepend" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="saveWeapon" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                   <Component id="saveWeaponPrototype" min="-2" max="-2" attributes="0"/>
                   <Component id="saveWeaponSoft" min="-2" max="-2" attributes="0"/>
                   <Component id="newWeapon" min="-2" max="-2" attributes="0"/>
@@ -158,9 +158,9 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="isInventaryButton" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane6" min="-2" pref="250" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="250" max="-2" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jScrollPane6" min="-2" pref="250" max="-2" attributes="0"/>
               </Group>
           </Group>
       </Group>
@@ -324,12 +324,12 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                           <Component id="levelDepend" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
                               <Component id="saveWeapon" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="saveWeaponPrototype" min="-2" max="-2" attributes="0"/>
@@ -351,12 +351,12 @@
                       <Component id="isInventaryButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                      <Component id="jScrollPane6" min="-2" pref="80" max="-2" attributes="0"/>
+                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="90" max="-2" attributes="0"/>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="80" max="-2" attributes="0"/>
+                      <Component id="jScrollPane6" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -1140,7 +1140,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="characterList1">
+        <Component class="javax.swing.JList" name="softCharacterList">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="5">
@@ -1156,7 +1156,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="characterList1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="softCharacterListMouseClicked"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1176,7 +1176,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="weaponList1">
+        <Component class="javax.swing.JList" name="softWeaponList">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
               <StringArray count="5">
@@ -1189,7 +1189,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="weaponList1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="softWeaponListMouseClicked"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
