@@ -141,7 +141,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         characterSelecterToPrint = new javax.swing.JComboBox<>();
         numberCopiesCharacter = new javax.swing.JSpinner();
         buildCharacter = new javax.swing.JButton();
-        characterSelecterToPrint1 = new javax.swing.JComboBox<>();
+        weaponSelecterToPrint = new javax.swing.JComboBox<>();
         numberCopiesWeapon = new javax.swing.JSpinner();
         buildWeapon = new javax.swing.JButton();
 
@@ -700,6 +700,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
+        numberCopiesCharacter.setToolTipText("");
         numberCopiesCharacter.setName("Cantidad de pasos "); // NOI18N
         numberCopiesCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
         numberCopiesCharacter.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -716,17 +717,17 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        characterSelecterToPrint1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un arma" }));
-        characterSelecterToPrint1.setToolTipText("");
-        characterSelecterToPrint1.setPreferredSize(new java.awt.Dimension(250, 24));
-        characterSelecterToPrint1.addItemListener(new java.awt.event.ItemListener() {
+        weaponSelecterToPrint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un arma" }));
+        weaponSelecterToPrint.setToolTipText("");
+        weaponSelecterToPrint.setPreferredSize(new java.awt.Dimension(250, 24));
+        weaponSelecterToPrint.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                characterSelecterToPrint1ItemStateChanged(evt);
+                weaponSelecterToPrintItemStateChanged(evt);
             }
         });
-        characterSelecterToPrint1.addActionListener(new java.awt.event.ActionListener() {
+        weaponSelecterToPrint.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                characterSelecterToPrint1ActionPerformed(evt);
+                weaponSelecterToPrintActionPerformed(evt);
             }
         });
 
@@ -861,7 +862,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addComponent(saveWeaponSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(addWeaponInventary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(characterSelecterToPrint1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(weaponSelecterToPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(numberCopiesWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buildWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
@@ -1033,7 +1034,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(addWeaponInventary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(characterSelecterToPrint1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(weaponSelecterToPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(numberCopiesWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
@@ -1429,23 +1430,27 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_numberCopiesCharacterStateChanged
 
     private void buildCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildCharacterActionPerformed
-        showMessageDialog(null, "Todavía no estoy implementado"); 
+        int amount = (int) numberCopiesCharacter.getValue();
+        String name = characterSelecterToPrint.getSelectedItem().toString();
+        showMessageDialog(null, controller.getBuildCharacter(name,amount)); 
     }//GEN-LAST:event_buildCharacterActionPerformed
 
-    private void characterSelecterToPrint1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_characterSelecterToPrint1ItemStateChanged
+    private void weaponSelecterToPrintItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_weaponSelecterToPrintItemStateChanged
         // TODO add your handling code here:
-    }//GEN-LAST:event_characterSelecterToPrint1ItemStateChanged
+    }//GEN-LAST:event_weaponSelecterToPrintItemStateChanged
 
-    private void characterSelecterToPrint1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_characterSelecterToPrint1ActionPerformed
+    private void weaponSelecterToPrintActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_weaponSelecterToPrintActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_characterSelecterToPrint1ActionPerformed
+    }//GEN-LAST:event_weaponSelecterToPrintActionPerformed
 
     private void numberCopiesWeaponStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_numberCopiesWeaponStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_numberCopiesWeaponStateChanged
 
     private void buildWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buildWeaponActionPerformed
-        showMessageDialog(null, "Todavía no estoy implementado"); 
+        int amount = (int) numberCopiesWeapon.getValue();
+        String name = weaponSelecterToPrint.getSelectedItem().toString();
+        showMessageDialog(null, controller.getBuildWeapon(name,amount));  
     }//GEN-LAST:event_buildWeaponActionPerformed
 
     /**
@@ -1535,7 +1540,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JList<String> characterList;
     private javax.swing.JList<String> characterList1;
     private javax.swing.JComboBox<String> characterSelecterToPrint;
-    private javax.swing.JComboBox<String> characterSelecterToPrint1;
     private javax.swing.JSpinner cost;
     private javax.swing.JSpinner damageCharacter;
     private javax.swing.JSpinner damageWeapon;
@@ -1614,6 +1618,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JLabel weaponLabel;
     private javax.swing.JList<String> weaponList;
     private javax.swing.JList<String> weaponList1;
+    private javax.swing.JComboBox<String> weaponSelecterToPrint;
     private javax.swing.JSpinner xCharacter;
     private javax.swing.JSpinner xWeapon;
     private javax.swing.JSpinner yCharacter;
@@ -1637,6 +1642,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     
     private void setListCharacter(){
         characterList.setModel(controller.getListModelCharacters());
+        characterSelecterToPrint.setModel(controller.getListComboModelCharacters());
     }
     
     private void clearWeaponView(){
@@ -1657,6 +1663,7 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void setListWeapon(boolean isInventary) {
         weaponList.setModel(controller.getListModelWeapons(isInventary));
+        weaponSelecterToPrint.setModel(controller.getListComboModelWeapons());
     }
 
     private void clearCharacterView() {

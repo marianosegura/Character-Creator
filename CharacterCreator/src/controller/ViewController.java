@@ -16,9 +16,12 @@ import gamelib.GamePrototypes;
 import gamelib.WeaponPrototypes;
 import gamelib.WeaponBuilder;
 import Data.JsonData;
+import gamelib.GameObject;
 import gamelib.SpriteSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.ComboBoxModel;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 
 /**
@@ -376,5 +379,39 @@ public class ViewController {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public ComboBoxModel<String> getListComboModelCharacters() {
+        DefaultComboBoxModel model= new DefaultComboBoxModel();
+        for (int i = 0; i < characterList.size(); i++) {
+            model.addElement(characterList.get(i));
+        }
+        return model;
+    }
+
+    public String getBuildCharacter(String name, int amount) {
+        String result = "";
+        ArrayList<Character> copies = characterPrototypes.getPrototypeDeepClone(name, amount);
+        for(Character character : copies){
+            result += character.toString() + "\n";
+        }
+        return result;
+    }
+    
+    public String getBuildWeapon(String name, int amount) {
+        String result = "";
+        ArrayList<Weapon> copies = weaponPrototypes.getPrototypeDeepClone(name, amount);
+        for(Weapon character : copies){
+            result += character.toString() + "\n";
+        }
+        return result;
+    }
+
+    public ComboBoxModel<String> getListComboModelWeapons() {
+        DefaultComboBoxModel model= new DefaultComboBoxModel();
+        for (int i = 0; i < weaponList.size(); i++) {
+            model.addElement(weaponList.get(i));
+        }
+        return model;
     }
 }

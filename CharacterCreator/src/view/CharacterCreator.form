@@ -150,7 +150,7 @@
                   <Component id="saveWeaponSoft" min="-2" max="-2" attributes="0"/>
                   <Component id="newWeapon" min="-2" max="-2" attributes="0"/>
                   <Component id="addWeaponInventary" min="-2" max="-2" attributes="0"/>
-                  <Component id="characterSelecterToPrint1" min="-2" max="-2" attributes="0"/>
+                  <Component id="weaponSelecterToPrint" min="-2" max="-2" attributes="0"/>
                   <Component id="numberCopiesWeapon" min="-2" max="-2" attributes="0"/>
                   <Component id="buildWeapon" min="-2" max="-2" attributes="0"/>
               </Group>
@@ -340,7 +340,7 @@
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="addWeaponInventary" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="characterSelecterToPrint1" min="-2" max="-2" attributes="0"/>
+                      <Component id="weaponSelecterToPrint" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="numberCopiesWeapon" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
@@ -1243,6 +1243,7 @@
     </Component>
     <Component class="javax.swing.JSpinner" name="numberCopiesCharacter">
       <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
         <Property name="name" type="java.lang.String" value="Cantidad de pasos " noResource="true"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[250, 24]"/>
@@ -1263,7 +1264,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buildCharacterActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JComboBox" name="characterSelecterToPrint1">
+    <Component class="javax.swing.JComboBox" name="weaponSelecterToPrint">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="1">
@@ -1276,8 +1277,8 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="characterSelecterToPrint1ItemStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="characterSelecterToPrint1ActionPerformed"/>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="weaponSelecterToPrintItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="weaponSelecterToPrintActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
