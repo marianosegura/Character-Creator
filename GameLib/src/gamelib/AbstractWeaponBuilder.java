@@ -5,6 +5,8 @@
  */
 package gamelib;
 
+import java.util.HashMap;
+
 /**
  * Generic builder for any type of weapon.Delegates the build method implementation.
  * @author Luis Mariano Ramírez Segura
@@ -12,8 +14,8 @@ package gamelib;
  * @param <E> Concrete weapon builder class
  */
 public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends AbstractWeaponBuilder> implements IBuilder<T> {
-    protected String name,
-        image;  
+    protected String name;
+    protected HashMap<Integer, String> sprites;
     protected int damage,  
         level,  
         x,  
@@ -36,7 +38,7 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         this.maxSupplies = 1;
         this.supplies = maxSupplies;
         this.levelMultiplier = 1;
-        this.image = "";
+        this.sprites = new HashMap<>();
         this.levelDependant = false;
     }
  
@@ -45,8 +47,8 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         return (E) this;
     }
 
-    public E setImage(String image) {
-        this.image = image;
+    public E addSprite(int level, String sprite) {
+        this.sprites.put(level, sprite);
         return (E) this;
     }
 
@@ -99,5 +101,63 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         this.supplies = supplies;
         return (E) this;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public HashMap<Integer, String> getSprites() {
+        return sprites;
+    }
     
+    public String getSprite() {
+        int maxSpriteLevel = -1;
+        for(int levelKey : sprites.keySet()) {  // iterate levels of sprite sets 
+            if (levelKey >= level && levelKey > maxSpriteLevel)
+                maxSpriteLevel = levelKey;  // take the biggest value that is below or same as character range
+        }
+        if (maxSpriteLevel == -1) return null;  // no level matched
+        return this.sprites.get(maxSpriteLevel);
+    }
+
+    public int getDamage() {
+        return damage;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public int getScope() {
+        return scope;
+    }
+
+    public int getExplosionRange() {
+        return explosionRange;
+    }
+
+    public int getMaxSupplies() {
+        return maxSupplies;
+    }
+
+    public int getSupplies() {
+        return supplies;
+    }
+
+    public int getLevelMultiplier() {
+        return levelMultiplier;
+    }
+
+    public boolean isLevelDependant() {
+        return levelDependant;
+    }
+   
 }

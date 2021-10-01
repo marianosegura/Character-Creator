@@ -5,27 +5,33 @@
  */
 package gamelib;
 
+import java.util.HashMap;
+
 /**
  * Generic weapon class.
  * @author Luis Mariano Ramírez Segura
  */
 public class Weapon extends AbstractWeapon {
-    public Weapon(int scope, int range, int maxSupplies, int levelMultiplier, String image, boolean levelDependant, String name, int damage, int level, int x, int y) {
-        super(scope, range, maxSupplies, levelMultiplier, image, levelDependant, name, damage, level, x, y);
+    public Weapon(int scope, int range, int maxSupplies, int levelMultiplier, HashMap<Integer, String> sprites, boolean levelDependant, String name, int damage, int level, int x, int y) {
+        super(scope, range, maxSupplies, levelMultiplier, sprites, levelDependant, name, damage, level, x, y);
     }
     
-    public Weapon(int scope, int range, int maxSupplies, int levelMultiplier, String image, boolean levelDependant) {
-        super(scope, range, maxSupplies, levelMultiplier, image, levelDependant);
+    public Weapon(int scope, int range, int maxSupplies, int levelMultiplier, boolean levelDependant, String name, int damage, int level, int x, int y) {
+        super(scope, range, maxSupplies, levelMultiplier, levelDependant, name, damage, level, x, y);
     }
     
     @Override
     public IPrototype shallowClone() {
-        return this.deepClone();
+        return new Weapon(scope, explosionRange, maxSupplies, levelMultiplier, levelDependant, name, damage, level, x, y);
     }
 
     @Override
     public IPrototype deepClone() {
-        return new Weapon(scope, explosionRange, maxSupplies, levelMultiplier, image, levelDependant, name, damage, level, x, y);
+        HashMap<Integer, String> clonedSprites = new HashMap<>();
+        for(int spriteLevel: sprites.keySet()) {  // copy sprites
+            clonedSprites.put(spriteLevel, sprites.get(spriteLevel));
+        }
+        return new Weapon(scope, explosionRange, maxSupplies, levelMultiplier, clonedSprites, levelDependant, name, damage, level, x, y);
     }
     
 }

@@ -5,6 +5,8 @@
  */
 package gamelib;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Luis Mariano Ramírez Segura
@@ -15,27 +17,28 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
         maxSupplies,
         supplies,
         levelMultiplier;
-    protected String image;
+    protected HashMap<Integer, String> sprites;
     protected boolean levelDependant;
 
-    public AbstractWeapon(int scope, int range, int maxSupplies, int levelMultiplier, String image, boolean levelDependant, String name, int damage, int level, int x, int y) {
+    public AbstractWeapon(int scope, int range, int maxSupplies, int levelMultiplier, HashMap<Integer, String> sprites, boolean levelDependant, String name, int damage, int level, int x, int y) {
         super(name, damage, level, x, y);
         this.scope = scope;
         this.explosionRange = range;
         this.maxSupplies = maxSupplies;
         this.supplies = maxSupplies;
         this.levelMultiplier = levelMultiplier;
-        this.image = image;
+        this.sprites = sprites;
         this.levelDependant = levelDependant;
     }
-
-    public AbstractWeapon(int scope, int range, int maxSupplies, int levelMultiplier, String image, boolean levelDependant) {
+    
+    public AbstractWeapon(int scope, int range, int maxSupplies, int levelMultiplier, boolean levelDependant, String name, int damage, int level, int x, int y) {
+        super(name, damage, level, x, y);
         this.scope = scope;
         this.explosionRange = range;
         this.maxSupplies = maxSupplies;
         this.supplies = maxSupplies;
         this.levelMultiplier = levelMultiplier;
-        this.image = image;
+        this.sprites = new HashMap<>();
         this.levelDependant = levelDependant;
     }
     
@@ -45,7 +48,7 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
         this.maxSupplies = 1;
         this.supplies = maxSupplies;
         this.levelMultiplier = 1;
-        this.image = "";
+        this.sprites = new HashMap<>();
         this.levelDependant = false;
     }
     
@@ -74,6 +77,20 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
     public int getRealDamage(){
         return this.damage;
     }
+    
+    public String getSprite() {
+        int maxSpriteLevel = -1;
+        for(int levelKey : sprites.keySet()) {  // iterate levels of sprite sets 
+            if (levelKey >= level && levelKey > maxSpriteLevel)
+                maxSpriteLevel = levelKey;  // take the biggest value that is below or same as character range
+        }
+        if (maxSpriteLevel == -1) return null;  // no level matched
+        return this.sprites.get(maxSpriteLevel);
+    }
+    
+    public void addSprite(int level, String sprite) {
+        sprites.put(level, sprite);
+    }
 
     public int getScope() {
         return scope;
@@ -95,17 +112,45 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
         return levelMultiplier;
     }
 
-    public String getImage() {
-        return image;
+    public HashMap<Integer, String> getSprites() {
+        return sprites;
     }
 
     public boolean isLevelDependant() {
         return levelDependant;
     }
 
+    public void setScope(int scope) {
+        this.scope = scope;
+    }
+
+    public void setExplosionRange(int explosionRange) {
+        this.explosionRange = explosionRange;
+    }
+
+    public void setMaxSupplies(int maxSupplies) {
+        this.maxSupplies = maxSupplies;
+    }
+
+    public void setSupplies(int supplies) {
+        this.supplies = supplies;
+    }
+
+    public void setLevelMultiplier(int levelMultiplier) {
+        this.levelMultiplier = levelMultiplier;
+    }
+
+    public void setSprites(HashMap<Integer, String> sprites) {
+        this.sprites = sprites;
+    }
+
+    public void setLevelDependant(boolean levelDependant) {
+        this.levelDependant = levelDependant;
+    }
+
     @Override
     public String toString() {
-        return "\nAbstractWeapon{" + super.toString() + "scope=" + scope + ", explosionRange=" + explosionRange + ", maxSupplies=" + maxSupplies + ", supplies=" + supplies + ", levelMultiplier=" + levelMultiplier + ", image=" + image + ", levelDependant=" + levelDependant + '}';
+        return "\nAbstractWeapon{" + super.toString() + "scope=" + scope + ", explosionRange=" + explosionRange + ", maxSupplies=" + maxSupplies + ", supplies=" + supplies + ", levelMultiplier=" + levelMultiplier + ", levelDependant=" + levelDependant + '}';
     }
     
 }

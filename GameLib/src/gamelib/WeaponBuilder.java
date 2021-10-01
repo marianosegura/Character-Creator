@@ -12,7 +12,7 @@ package gamelib;
 public class WeaponBuilder extends AbstractWeaponBuilder<Weapon, WeaponBuilder> {
     @Override
     public Weapon build() {
-        return new Weapon(scope, explosionRange, maxSupplies, levelMultiplier, image, levelDependant, name, damage, level, x, y);
+        return new Weapon(scope, explosionRange, maxSupplies, levelMultiplier, sprites, levelDependant, name, damage, level, x, y);
     }
     
     public WeaponBuilder(Weapon oldWeapon){
@@ -21,7 +21,7 @@ public class WeaponBuilder extends AbstractWeaponBuilder<Weapon, WeaponBuilder> 
         this.name = oldWeapon.getName();
         this.damage = oldWeapon.getDamage();
         this.level = oldWeapon.getLevel();
-        this.image = oldWeapon.getImage();
+        this.sprites = oldWeapon.getSprites();
         this.scope = oldWeapon.getScope();
         this.explosionRange = oldWeapon.getExplosionRange();
         this.maxSupplies = oldWeapon.getMaxSupplies();
@@ -31,17 +31,5 @@ public class WeaponBuilder extends AbstractWeaponBuilder<Weapon, WeaponBuilder> 
     }
     
     public WeaponBuilder(){
-    }
-
-    public Object getSprites() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public void addSprite(int i, String path) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public String getSprite(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
