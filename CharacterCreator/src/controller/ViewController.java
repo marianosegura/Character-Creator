@@ -25,6 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.ListModel;
 
 /**
  *
@@ -84,7 +85,8 @@ public class ViewController {
         if(level == -1){//sin cargar nada
            listModel.addElement("Selecciona un nivel para cargar esta lista");
         } else {
-            ArrayList<String> list = actualCharacter.getSpriteSet(level).getKeys();
+            ArrayList<String> list = 
+                    actualCharacter.getSpriteSet(level).getKeys();
             for (int i = 0; i < list.size(); i++) {
                     listModel.addElement(list.get(i));
             }
@@ -93,7 +95,8 @@ public class ViewController {
     }
     
     public boolean anySpriteSet(){
-        if(actualCharacter == null || actualCharacter.getSpriteSets().keySet().isEmpty()){
+        if(actualCharacter == null || 
+                actualCharacter.getSpriteSets().keySet().isEmpty()){
             return false;
         }
         return true;
@@ -151,11 +154,20 @@ public class ViewController {
     }
     
     
+    public ListModel<String> getListModelSpriteWeapon() {
+        DefaultListModel listModel = new DefaultListModel();
+        ArrayList<String> spriteKeys = 
+                new ArrayList(actualWeapon.getSprites().keySet());
+        for (int i = 0; i < spriteKeys.size(); i++) {
+            listModel.addElement(spriteKeys.get(i));
+        }
+        return listModel;
+    }
+    
+    
     public Character setCharacter(int index){
-        System.out.println("characterList["+index+"]: "+characterList.get(index));
         dataCharacter = characterPrototypes.
                 getPrototypeDeepClone(characterList.get(index));
-        System.out.println("Character loaded: " + dataCharacter);
         if(dataCharacter.getName().isEmpty()){
             dataCharacter.setName(characterList.get(index));
         }
@@ -235,7 +247,8 @@ public class ViewController {
     }
     
     public void addStripteSet(int level,String state){
-        ArrayList<String> levels = new ArrayList(actualCharacter.getSpriteSets().keySet());
+        ArrayList<String> levels = 
+                new ArrayList(actualCharacter.getSpriteSets().keySet());
         String levelString = level + "";
         if(levels.contains(level+"")){
             actualCharacter.getSpriteSet(level).addSprite(state, path);
@@ -408,7 +421,8 @@ public class ViewController {
     }
 
     public int getLevelSprite(int indexLevel) {
-        ArrayList<String> list = new ArrayList(actualCharacter.getSpriteSets().keySet());
+        ArrayList<String> list = 
+                new ArrayList(actualCharacter.getSpriteSets().keySet());
         return Integer.parseInt(list.get(indexLevel));
     }
 
@@ -426,7 +440,8 @@ public class ViewController {
 
     public String getBuildCharacter(String name, int amount) {
         String result = "";
-        ArrayList<Character> copies = characterPrototypes.getPrototypeDeepClone(name, amount);
+        ArrayList<Character> copies = 
+                characterPrototypes.getPrototypeDeepClone(name, amount);
         for(Character character : copies){
             result += character.toString() + "\n";
         }
@@ -435,7 +450,8 @@ public class ViewController {
     
     public String getBuildWeapon(String name, int amount) {
         String result = "";
-        ArrayList<Weapon> copies = weaponPrototypes.getPrototypeDeepClone(name, amount);
+        ArrayList<Weapon> copies = 
+                weaponPrototypes.getPrototypeDeepClone(name, amount);
         for(Weapon character : copies){
             result += character.toString();
         }
@@ -459,7 +475,9 @@ public class ViewController {
                     j.writeJsonCharacters((GamePrototypes) characterPrototypes);
                 } 
             } catch (IOException ex) {
-            Logger.getLogger(ViewController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(
+                    ViewController.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
             
  
@@ -485,5 +503,16 @@ public class ViewController {
 
     public void saveSoftWeapon() {
         softWeapons.add(actualWeapon.build());
+    }
+
+    public void addSpriteWeapon(int i) {
+        actualWeapon.addSprite(i, path);
+    }
+
+    public String getSpritePath(int index) {
+        ArrayList<String> keySet = 
+                new ArrayList(actualWeapon.getSprites().keySet());
+        path = actualWeapon.getSprite(Integer.parseInt(keySet.get(index)));
+        return path;
     }
 }

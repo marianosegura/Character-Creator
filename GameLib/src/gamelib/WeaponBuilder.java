@@ -32,4 +32,16 @@ public class WeaponBuilder extends AbstractWeaponBuilder<Weapon, WeaponBuilder> 
     
     public WeaponBuilder(){
     }
+
+    public Object getSprites() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public void addSprite(int i, String path) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public String getSprite(int index) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
