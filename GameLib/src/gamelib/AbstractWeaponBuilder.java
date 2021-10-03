@@ -119,6 +119,10 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         if (maxSpriteLevel == -1) return null;  // no level matched
         return this.sprites.get(maxSpriteLevel);
     }
+    
+    public String getSprite(int key){
+        return sprites.get(key);
+    }
 
     public int getDamage() {
         return damage;

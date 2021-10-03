@@ -308,10 +308,6 @@ public class ViewController {
         actualWeapon.setLevelMultiplier(value);
     }
     
-    public void setImage(String path){
-        actualWeapon.setImage(path);
-    }
-    
     public void setLevelDependant(boolean depent){
         actualWeapon.setLevelDependant(depent);
     }

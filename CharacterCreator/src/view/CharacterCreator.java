@@ -1107,7 +1107,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void selectImageWeoponButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectImageWeoponButtonActionPerformed
        String path = getSelectedPath();
        if(path != null){
-           controller.setImage(path);
+           controller.setPath(path);
            setImage(path,weaponLabel);
        } else {
            System.out.println("No seleccionó ningún archivo");
@@ -1764,7 +1764,9 @@ public class CharacterCreator extends javax.swing.JFrame {
         supplies.setValue(controller.getDataWeapon().getSupplies());
         levelMultiplier.setValue(controller.getDataWeapon().getLevelMultiplier());
         levelDepend.setSelected(controller.getDataWeapon().isLevelDependant());
-        setImage(controller.getDataWeapon().getImage(), weaponLabel);
+        if(controller.getDataWeapon().getSprite() != null){
+            setImage(controller.getDataWeapon().getSprite(), weaponLabel);
+        }
     }
 
     private void setCharacterUI() {
