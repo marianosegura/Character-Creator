@@ -81,7 +81,7 @@ public abstract class AbstractWeapon extends GameObject<AbstractCharacter> {
     public String getSprite() {
         int maxSpriteLevel = -1;
         for(int levelKey : sprites.keySet()) {  // iterate levels of sprite sets 
-            if (levelKey >= level && levelKey > maxSpriteLevel)
+            if (levelKey <= level && levelKey > maxSpriteLevel)
                 maxSpriteLevel = levelKey;  // take the biggest value that is below or same as character range
         }
         if (maxSpriteLevel == -1) return null;  // no level matched
