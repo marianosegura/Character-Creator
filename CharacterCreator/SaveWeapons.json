@@ -2,7 +2,7 @@
   "weapons": [
     {
       "damage": 500,
-      "image": "src\\images\\pistola.png",
+      "sprite": [{"level":1,"URL":"src\\images\\pistola.png"},{"level":2,"URL":"src\\images\\bomba.png"}],
       "explosionRange": 5,
       "levelMultiplier": 25,
       "level": 1,
@@ -16,7 +16,7 @@
     },
     {
       "damage": 100,
-      "image": "src\\images\\hacha.png",
+      "sprite": [{"level":1,"URL":"src\\images\\hacha.png"},{"level":2,"URL":"src\\images\\bomba2.png"}],
       "explosionRange": 1,
       "levelMultiplier": 10,
       "level": 1,
@@ -30,7 +30,7 @@
     },
     {
       "damage": 500,
-      "image": "src\\images\\bomba.png",
+      "sprite": [{"level":1,"URL":"src\\images\\bomba.png"},{"level":2,"URL":"src\\images\\espada.png"}],
       "explosionRange": 5,
       "levelMultiplier": 15,
       "level": 1,
@@ -44,7 +44,7 @@
     },
     {
       "damage": 230,
-      "image": "src\\images\\espada.png",
+      "sprite": [{"level":1,"URL":"src\\images\\espada.png"},{"level":2,"URL":"src\\images\\granada.png"}],
       "explosionRange": 1,
       "levelMultiplier": 5,
       "level": 1,
@@ -58,7 +58,7 @@
     },
     {
       "damage": 230,
-      "image": "src\\images\\granada.png",
+      "sprite": [{"level":1,"URL":"src\\images\\granada.png"},{"level":2,"URL":"src\\images\\dinamita.png"}],
       "explosionRange": 1,
       "levelMultiplier": 30,
       "level": 1,
@@ -72,7 +72,7 @@
     },
     {
       "damage": 230,
-      "image": "src\\images\\bomba2.png",
+      "sprite": [{"level":1,"URL":"src\\images\\bomba2.png"},{"level":2,"URL":"src\\images\\bomba.png"}],
       "explosionRange": 1,
       "levelMultiplier": 20,
       "level": 1,
@@ -86,7 +86,7 @@
     },
     {
       "damage": 500,
-      "image": "src\\images\\dinamita.png",
+      "sprite": [{"level":1,"URL":"src\\images\\dinamita.png"},{"level":2,"URL":"src\\images\\botiquiin.png"}],
       "explosionRange": 5,
       "levelMultiplier": 30,
       "level": 1,
@@ -100,7 +100,7 @@
     },
     {
       "damage": 100,
-      "image": "src/images/botiquiin.png",
+      "sprite": [{"level":1,"URL":"src\\images\\botiquiin.png"},{"level":2,"URL":"src\\images\\botiquiin.png"}],
       "explosionRange": 1,
       "levelMultiplier": 25,
       "level": 1,

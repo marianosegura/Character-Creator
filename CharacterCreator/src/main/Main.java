@@ -29,7 +29,7 @@ public class Main {
         weapons = j.loadWeapon();
         GamePrototypes<AbstractWeapon> Weapons = new GamePrototypes<AbstractWeapon>();
         for (AbstractWeapon a : weapons ){
-            System.out.println(a);
+//            System.out.println(a.getSprites());
             Weapons.addPrototype(a.getName(), a);
         }
         System.out.println("Weapons loaded.");
@@ -42,7 +42,7 @@ public class Main {
         for (AbstractCharacter b : characters ){
             
             Characters.addPrototype(b.getName(), b);
-            //System.out.println(b.getEquipedWeapon());
+//            System.out.println(b.getWeapons());
         }
         System.out.println("characters loaded.");
         

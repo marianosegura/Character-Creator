@@ -27,7 +27,7 @@
       "weapons": [
         {
           "damage": 230,
-          "image": "src\\images\\espada.png",
+          "sprite": [{"level":1,"URL":"src\\images\\espada.png"},{"level":2,"URL":"src\\images\\espada.png"}],
           "explosionRange": 1,
           "levelMultiplier": 5,
           "level": 1,
@@ -41,7 +41,7 @@
         },
         {
           "damage": 100,
-          "image": "src\\images\\hacha.png",
+          "sprite": [{"level":1,"URL":"src\\images\\hacha.png"},{"level":2,"URL":"src\\images\\hacha.png"}],
           "explosionRange": 1,
           "levelMultiplier": 10,
           "level": 1,
