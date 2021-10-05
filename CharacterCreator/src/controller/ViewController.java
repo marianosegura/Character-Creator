@@ -395,9 +395,11 @@ public class ViewController {
     private void loadPrototypes() {
         JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = j.loadWeapon();
+        System.out.println("Weapons in load:");
         for (AbstractWeapon weapon : weapons ){
             weaponPrototypes
                     .addPrototype(weapon.getName(), (Weapon)weapon);
+            System.out.println(weapon);
         }
         List<AbstractCharacter> characters = j.loadCharacter();
         System.out.println("Characters:");
@@ -405,6 +407,7 @@ public class ViewController {
             System.out.println(character);
             characterPrototypes
                     .addPrototype(character.getName(), (Character)character);
+            System.out.println(character);
         }
     }
     

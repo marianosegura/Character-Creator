@@ -51,6 +51,11 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         this.sprites.put(level, sprite);
         return (E) this;
     }
+    
+    public E setSprites(HashMap<Integer, String> sprites){
+        this.sprites = sprites;
+        return (E) this;
+    }
 
     public E setDamage(int damage) {
         this.damage = damage;
