@@ -156,10 +156,10 @@ public class ViewController {
     
     public ListModel<String> getListModelSpriteWeapon() {
         DefaultListModel listModel = new DefaultListModel();
-        ArrayList<String> spriteKeys = 
+        ArrayList spriteKeys = 
                 new ArrayList(actualWeapon.getSprites().keySet());
         for (int i = 0; i < spriteKeys.size(); i++) {
-            listModel.addElement(spriteKeys.get(i));
+            listModel.addElement(String.valueOf(spriteKeys.get(i)));
         }
         return listModel;
     }
@@ -509,9 +509,11 @@ public class ViewController {
     }
 
     public String getSpritePath(int index) {
-        ArrayList<String> keySet = 
+        ArrayList keySet = 
                 new ArrayList(actualWeapon.getSprites().keySet());
-        path = actualWeapon.getSprite(Integer.parseInt(keySet.get(index)));
+        System.out.println("keySet:"+keySet);
+        System.out.println("Intento a "+ keySet.get(index));
+        path = actualWeapon.getSprite((int) keySet.get(index));
         return path;
     }
 }

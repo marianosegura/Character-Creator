@@ -1473,6 +1473,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void spriteListWeaponMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spriteListWeaponMouseClicked
         int index = spriteListWeapon.locationToIndex(evt.getPoint());
         setImage(controller.getSpritePath(index),weaponLabel);
+        controller.setPath(controller.getSpritePath(index));
     }//GEN-LAST:event_spriteListWeaponMouseClicked
 
     /**
@@ -1766,6 +1767,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         levelDepend.setSelected(controller.getDataWeapon().isLevelDependant());
         if(controller.getDataWeapon().getSprite() != null){
             setImage(controller.getDataWeapon().getSprite(), weaponLabel);
+            setListSpriteWeapon();
         }
     }
 
