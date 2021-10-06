@@ -624,6 +624,11 @@ public class CharacterCreator extends javax.swing.JFrame {
             public String getElementAt(int i) { return strings[i]; }
         });
         spriteListState.setPreferredSize(new java.awt.Dimension(250, 100));
+        spriteListState.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                spriteListStateMouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(spriteListState);
 
         jLabel4.setText("Por estado");
@@ -1161,6 +1166,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void saveSpriteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSpriteActionPerformed
         controller.addStripteSet((int) levelSpriteInput.getValue(),
                 stateSpriteInput.getText());
+        setListSpriteLevel();
     }//GEN-LAST:event_saveSpriteActionPerformed
 
     private void stateSpriteInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stateSpriteInputFocusGained
@@ -1472,9 +1478,15 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void spriteListWeaponMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spriteListWeaponMouseClicked
         int index = spriteListWeapon.locationToIndex(evt.getPoint());
-        setImage(controller.getSpritePath(index),weaponLabel);
-        controller.setPath(controller.getSpritePath(index));
+        setImage(controller.getWeaponSpritePath(index),weaponLabel);
+        controller.setPath(controller.getWeaponSpritePath(index));
     }//GEN-LAST:event_spriteListWeaponMouseClicked
+
+    private void spriteListStateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spriteListStateMouseClicked
+        int index = spriteListState.locationToIndex(evt.getPoint());
+        setImage(controller.getCharacterSpritePath(index),characterLabel);
+        controller.setPath(controller.getCharacterSpritePath(index));
+    }//GEN-LAST:event_spriteListStateMouseClicked
 
     /**
      * @param args the command line arguments
@@ -1548,9 +1560,9 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void showSavedMessage(boolean isSaved){
         String result = "";
         if(isSaved){
-            result += "El personaje se ha guardado";
+            result += "Guardado exitoso";
         } else {
-            result += "Error al guardar el personaje";
+            result += "Error al guardar";
         }
         showMessageDialog(null,result);
     }
@@ -1755,7 +1767,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void setWeaponUI() {
         nameWeapon.setText(controller.getDataWeapon().getName());
         nameWeapon.setForeground(Color.BLACK);
-        damageWeapon.setValue(controller.getDataWeapon().getDamage());
+        damageWeapon.setValue(controller.getDataWeapon().getRealDamage());
         levelWeapon.setValue(controller.getDataWeapon().getLevel());
         xWeapon.setValue(controller.getDataWeapon().getX());
         yWeapon.setValue(controller.getDataWeapon().getY());

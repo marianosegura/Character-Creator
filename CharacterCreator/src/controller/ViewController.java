@@ -19,6 +19,7 @@ import gamelib.SpriteSet;
 import Data.JsonData;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,6 +45,7 @@ public class ViewController {
     private CharacterPrototypes characterPrototypes;
     private WeaponPrototypes weaponPrototypes;
     private String path = "./";
+    private int levelSprite;
 
     public ViewController() {
         characterPrototypes = new CharacterPrototypes();
@@ -247,10 +249,9 @@ public class ViewController {
     }
     
     public void addStripteSet(int level,String state){
-        ArrayList<String> levels = 
+        ArrayList levels = 
                 new ArrayList(actualCharacter.getSpriteSets().keySet());
-        String levelString = level + "";
-        if(levels.contains(level+"")){
+        if(levels.contains(level)){
             actualCharacter.getSpriteSet(level).addSprite(state, path);
         } else {
             SpriteSet newSpriteSet = new SpriteSet();
@@ -420,9 +421,10 @@ public class ViewController {
     }
 
     public int getLevelSprite(int indexLevel) {
-        ArrayList<String> list = 
+        ArrayList list = 
                 new ArrayList(actualCharacter.getSpriteSets().keySet());
-        return Integer.parseInt(list.get(indexLevel));
+        levelSprite = (int) list.get(indexLevel);
+        return levelSprite;
     }
 
     public void setPath(String path) {
@@ -508,12 +510,16 @@ public class ViewController {
         actualWeapon.addSprite(i, path);
     }
 
-    public String getSpritePath(int index) {
+    public String getWeaponSpritePath(int index) {
         ArrayList keySet = 
                 new ArrayList(actualWeapon.getSprites().keySet());
-        System.out.println("keySet:"+keySet);
-        System.out.println("Intento a "+ keySet.get(index));
         path = actualWeapon.getSprite((int) keySet.get(index));
+        return path;
+    }
+    public String getCharacterSpritePath(int index) {
+        ArrayList<String> keySet = 
+                new ArrayList(actualCharacter.getSpriteSet(levelSprite).getKeys());
+        path = actualCharacter.getSpriteSet(levelSprite).getSprite(keySet.get(index));
         return path;
     }
 }

@@ -65,7 +65,7 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
     public SpriteSet getSpriteSet(int level) {
         return this.spriteSets.get(level);
     }
-
+    
     public E setName(String name) {
         this.name = name;
         return (E) this;
