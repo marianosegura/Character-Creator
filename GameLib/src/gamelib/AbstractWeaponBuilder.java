@@ -129,8 +129,12 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         return sprites.get(key);
     }
 
-    public int getDamage() {
-        return damage;
+    public int getDamage() {  // multiply by factor if level dependant
+        return (this.levelDependant) ? (int) this.damage + this.damage * this.levelMultiplier/100 * this.level : this.damage;
+    }
+    
+    public int getRealDamage(){
+        return this.damage;
     }
 
     public int getLevel() {
