@@ -202,9 +202,10 @@ public class JsonData {
         }   
     return weapons;
     }
+    
     public void writeJsonWeapons(GamePrototypes<AbstractWeapon> Weapons) throws IOException{
         
-        HashMap<String, AbstractWeapon> objects = Weapons.getObjects();
+        HashMap<String, AbstractWeapon> objects = Weapons.getObjects(); // saca la info del hashmap
                 
         JSONObject ObjectTotal = new JSONObject();
         
@@ -212,9 +213,24 @@ public class JsonData {
             
         for (String i : objects.keySet()) {
                              
-            AbstractWeapon GPWeapon = objects.get(i);
+            AbstractWeapon GPWeapon = objects.get(i);//da el objeto segun el key 
             JSONObject weapon_i = new JSONObject();
             
+            
+            HashMap<Integer, String> WeaponImages = GPWeapon.getSprites();// saca la info 
+            
+            JSONArray SpriteArray = new JSONArray() ;
+            
+            for (Integer level : WeaponImages.keySet()){
+                
+                JSONObject Sprite = new JSONObject();
+                                
+                Sprite.put("level",level);
+                Sprite.put("URL",WeaponImages.get(level));
+                
+                SpriteArray.add(Sprite);
+                
+            }
             weapon_i.put("name",GPWeapon.getName() );
             weapon_i.put("damage",GPWeapon.getRealDamage() );
             weapon_i.put("level",GPWeapon.getLevel() );
@@ -225,16 +241,12 @@ public class JsonData {
             weapon_i.put("maxSupplies",GPWeapon.getMaxSupplies());
             weapon_i.put("supplies",GPWeapon.getSupplies() );
             weapon_i.put("levelMultiplier",GPWeapon.getLevelMultiplier() );
-//            weapon_i.put("image",GPWeapon.getImage());
             weapon_i.put("levelDependant",GPWeapon.isLevelDependant());
-            
-            
-            //Files.write(Paths.get("Prueba.json"), weapon_i.toJSONString().getBytes());
+            weapon_i.put("sprite",SpriteArray);//agrega el array con las imagenes
             array.add(weapon_i);
-            
         }
-        ObjectTotal.put("weapons",array );    
-        Files.write(Paths.get("SaveWeapons.json"), ObjectTotal.toJSONString().getBytes());
+        ObjectTotal.put("weapons",array );//agrega el objeto completo al json    
+        Files.write(Paths.get("SaveWeapons.json"), ObjectTotal.toJSONString().getBytes()); // cambiar el nombre del archivo final
     }
     
     public void writeJsonCharacters(GamePrototypes<AbstractCharacter> Characters) throws IOException{
@@ -312,6 +324,25 @@ public class JsonData {
             for (int w = 0; w < ArrayWeapons.size(); w++){
 
                 AbstractWeapon GPWeapon = ArrayWeapons.get(w);
+                
+                System.out.println(GPWeapon.getSprites());
+                
+                HashMap<Integer, String> WeaponImages = GPWeapon.getSprites();// saca la info 
+            
+                JSONArray SpriteArray = new JSONArray() ;
+
+                for (Integer level : WeaponImages.keySet()){
+
+                    JSONObject Sprite = new JSONObject();
+
+                    Sprite.put("level",level);
+                    Sprite.put("URL",WeaponImages.get(level));
+
+                    SpriteArray.add(Sprite);
+
+                }
+                
+                
                 JSONObject weapon_i = new JSONObject();
 
                 weapon_i.put("name",GPWeapon.getName() );
@@ -324,11 +355,9 @@ public class JsonData {
                 weapon_i.put("maxSupplies",GPWeapon.getMaxSupplies());
                 weapon_i.put("supplies",GPWeapon.getSupplies() );
                 weapon_i.put("levelMultiplier",GPWeapon.getLevelMultiplier() );
-//                weapon_i.put("image",GPWeapon.getImage() );
+                weapon_i.put("sprite",SpriteArray);
                 weapon_i.put("levelDependant",GPWeapon.isLevelDependant());
 
-                
-                
                 array.add(weapon_i);
             }
             
