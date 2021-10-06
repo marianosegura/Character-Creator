@@ -1318,6 +1318,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         setLists();
         if(isSaved){
             clearCharacterView();
+            showMessageDialog(null,"Personajes Prototype guardados en json exitosamente");
         }
     }//GEN-LAST:event_saveCharacterActionPerformed
 
@@ -1327,6 +1328,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         setLists();
         if(isSaved){
             clearWeaponView();
+            showMessageDialog(null,"Armas Prototype guardadas en json exitosamente");
         }
     }//GEN-LAST:event_saveWeaponActionPerformed
 
@@ -1396,6 +1398,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         controller.saveSoftCharacter();
         clearCharacterView();
         setListSoftCharacter();
+        showMessageDialog(null,"Personaje suave guardado");
     }//GEN-LAST:event_saveCharacterSoftActionPerformed
 
     private void softCharacterListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_softCharacterListMouseClicked
@@ -1434,6 +1437,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void saveWeaponSoftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponSoftActionPerformed
         controller.saveSoftWeapon();
         clearWeaponView();
+        showMessageDialog(null,"Arma suave guardada");
     }//GEN-LAST:event_saveWeaponSoftActionPerformed
 
     private void characterSelecterToPrintItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_characterSelecterToPrintItemStateChanged
