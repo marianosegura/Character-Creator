@@ -1303,12 +1303,15 @@ public class CharacterCreator extends javax.swing.JFrame {
         } else {
            ImageIcon icon = new ImageIcon("src/images/icon.png");
            String name = (String)JOptionPane.showInputDialog(null, "Selecciona el arma que quieras", 
-                "I like turtles", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]); 
-           controller.setEquipedWeapon(Arrays.asList(options).indexOf(name));
-           if(controller.getDataCharacter().getEquipedWeapon() != null){
-            weaponEquipedButton.setText("Arma equipada:"
-                + controller.getDataCharacter().getEquipedWeapon().getName());
+                "I like turtles", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]);
+           if(name != null){
+               controller.setEquipedWeapon(Arrays.asList(options).indexOf(name));
+               if(controller.getDataCharacter().getEquipedWeapon() != null){
+                    weaponEquipedButton.setText("Arma equipada:" + controller
+                            .getDataCharacter().getEquipedWeapon().getName());
+               }
            }
+           
         }
     }//GEN-LAST:event_weaponEquipedButtonActionPerformed
 
