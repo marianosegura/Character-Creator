@@ -117,7 +117,10 @@ public class JsonData {
                         spritesSet.addSprite(state, sprite);
                                                                        
                     }
-                    sprites.put((int)(long)jsonChar1.get("level"),spritesSet);
+                    
+                    sprites.put((int)(long)jsonObject2.get("level"),spritesSet);
+                    int x = (int)(long)jsonObject2.get("level");
+                    System.out.println(spritesSet.getSprites());
                     System.out.println(x);
                     
                 }
