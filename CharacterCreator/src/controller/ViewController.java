@@ -55,6 +55,7 @@ public class ViewController {
         setListNames();
         actualCharacter = new CharacterBuilder();
         actualWeapon = new WeaponBuilder();
+        dataCharacter = actualCharacter.build();
     }
     
     public DefaultListModel getListModelCharacters(){
@@ -72,7 +73,7 @@ public class ViewController {
                 !actualCharacter.getSpriteSets().keySet().isEmpty()){
             ArrayList<String> list = 
                     new ArrayList(actualCharacter.getSpriteSets().keySet());
-            System.out.println("List of levels:"+list);
+            //System.out.println("List of levels:"+list);
             for (int i = 0; i < list.size(); i++) {
                 listModel.addElement(list.get(i));
             }
@@ -89,7 +90,7 @@ public class ViewController {
         } else {
             ArrayList<String> list = 
                     actualCharacter.getSpriteSet(level).getKeys();
-            System.out.println("States:"+list);
+            //System.out.println("States:"+list);
             for (int i = 0; i < list.size(); i++) {
                     listModel.addElement(list.get(i));
             }
@@ -126,24 +127,26 @@ public class ViewController {
     
     public DefaultListModel getListModelSoftCharacters(){
         DefaultListModel listModel = new DefaultListModel();
-        for (int i = 0; i < softCharacters.size(); i++) {
+        if(softCharacters.size() == 0){
+            listModel.addElement("No hay personajes temporales");
+        } else {
+           for (int i = 0; i < softCharacters.size(); i++) {
             
             listModel.addElement(softCharacters.get(i).getName());
-        }
-        if(softCharacters.size() == 0){
-            listModel.addElement("No hay personajes suaves");
+            } 
         }
         return listModel;
     }
     
     public DefaultListModel getListModelSoftWeapons(){
         DefaultListModel listModel = new DefaultListModel();
-        for (int i = 0; i < softWeapons.size(); i++) {
+        if(softWeapons.size() == 0){
+            listModel.addElement("No hay armas temporales");
+        } else {
+           for (int i = 0; i < softWeapons.size(); i++) {
             
             listModel.addElement(softWeapons.get(i).getName());
-        }
-        if(softCharacters.size() == 0){
-            listModel.addElement("No hay armas suaves");
+            } 
         }
         return listModel;
     }
@@ -336,7 +339,7 @@ public class ViewController {
                         .addPrototype(newCharacter.getName(), newCharacter);
                 actualCharacter = new CharacterBuilder();
             } else {
-                Weapon newWeapon = actualWeapon.build();
+                Weapon newWeapon = actualWeapon.setName(name).build();
                 weaponPrototypes
                         .addPrototype(newWeapon.getName(), newWeapon);
                 actualWeapon = new WeaponBuilder();
@@ -397,11 +400,11 @@ public class ViewController {
             //System.out.println(weapon);
         }
         List<AbstractCharacter> characters = j.loadCharacter();
-        System.out.println("Characters:");
+        //System.out.println("Characters:");
         for (AbstractCharacter character : characters ){
             characterPrototypes
                     .addPrototype(character.getName(), (Character)character);
-            System.out.println(character);
+            //System.out.println(character);
         }
     }
     
@@ -437,7 +440,7 @@ public class ViewController {
         ArrayList<Character> copies = 
                 characterPrototypes.getPrototypeDeepClone(name, amount);
         for(Character character : copies){
-            result += character.toString() + "\n";
+            result += "Id:"+ System.identityHashCode(character) + " " + character.toString() + "\n";
         }
         return result;
     }
@@ -447,7 +450,7 @@ public class ViewController {
         ArrayList<Weapon> copies = 
                 weaponPrototypes.getPrototypeDeepClone(name, amount);
         for(Weapon character : copies){
-            result += character.toString();
+            result += "Id:"+System.identityHashCode(character) + " " + character.toString()+ "\n";
         }
         return result;
     }

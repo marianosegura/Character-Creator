@@ -1271,7 +1271,6 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void saveCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterActionPerformed
         boolean isSaved = controller.save(true,false,nameCharacter.getText());
-        showSavedMessage(isSaved);
         setLists();
         if(isSaved){
             clearCharacterView();
@@ -1281,7 +1280,6 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void saveWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponActionPerformed
         boolean isSaved = controller.save(false, isInventaryButton.isSelected(),nameWeapon.getText());
-        showSavedMessage(isSaved);
         setLists();
         if(isSaved){
             clearWeaponView();
@@ -1356,7 +1354,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         controller.saveSoftCharacter();
         clearCharacterView();
         setListSoftCharacter();
-        showMessageDialog(null,"Personaje suave guardado");
+        showMessageDialog(null,"Personaje temporal guardado");
     }//GEN-LAST:event_saveCharacterSoftActionPerformed
 
     private void softCharacterListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_softCharacterListMouseClicked
@@ -1365,7 +1363,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             controller.setSoftCharacter(index);
             setCharacterUI();
         } else {
-            showMessageDialog(null,"No hay armas suaves");
+            showMessageDialog(null,"No hay armas temporales");
         }
     }//GEN-LAST:event_softCharacterListMouseClicked
 
@@ -1375,7 +1373,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             controller.setSoftWeapon(index);
             setWeaponUI();
         } else {
-            showMessageDialog(null,"No hay armas suaves");
+            showMessageDialog(null,"No hay armas temporales");
         }
     }//GEN-LAST:event_softWeaponListMouseClicked
 
@@ -1396,7 +1394,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void saveWeaponSoftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponSoftActionPerformed
         controller.saveSoftWeapon();
         clearWeaponView();
-        showMessageDialog(null,"Arma suave guardada");
+        showMessageDialog(null,"Arma temporal guardada");
     }//GEN-LAST:event_saveWeaponSoftActionPerformed
 
     private void characterSelecterToPrintItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_characterSelecterToPrintItemStateChanged
@@ -1437,6 +1435,7 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void saveSpriteWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveSpriteWeaponActionPerformed
         controller.addSpriteWeapon((int) levelSpriteWeapon.getValue());
+        setListSpriteWeapon();
     }//GEN-LAST:event_saveSpriteWeaponActionPerformed
 
     private void spriteListWeaponMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_spriteListWeaponMouseClicked
@@ -1520,15 +1519,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         }
     }
     
-    private void showSavedMessage(boolean isSaved){
-        String result = "";
-        if(isSaved){
-            result += "Guardado exitoso";
-        } else {
-            result += "Error al guardar";
-        }
-        showMessageDialog(null,result);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addWeaponInventary;
@@ -1677,6 +1667,8 @@ public class CharacterCreator extends javax.swing.JFrame {
         levelDepend.setSelected(false);
         setImage("./src/images/noImage.jpg",weaponLabel);
         setListSpriteWeapon();
+        setListWeapon(isInventaryButton.isSelected());
+        setListSoftWeapons();
     }
 
 
@@ -1735,8 +1727,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         levelDepend.setSelected(controller.getDataWeapon().isLevelDependant());
         if(controller.getDataWeapon().getSprite() != null){
             setImage(controller.getDataWeapon().getSprite(), weaponLabel);
-            setListSpriteWeapon();
+        } else {
+            setImage(noImagePath,weaponLabel);
         }
+        setListSpriteWeapon();
     }
 
     private void setCharacterUI() {

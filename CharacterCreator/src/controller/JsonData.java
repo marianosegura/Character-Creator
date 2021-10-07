@@ -153,7 +153,7 @@ public class JsonData {
             }
         }
         catch(Exception ex){
-            System.out.println(ex);
+            ex.printStackTrace();
         } 
         return characters;
     }
