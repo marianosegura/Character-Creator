@@ -10,7 +10,7 @@ import gamelib.AbstractWeapon;
 import gamelib.Character;
 import gamelib.CharacterBuilder;
 import gamelib.GamePrototypes;
-import Data.JsonData;
+import controller.JsonData;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class NewMain {
         for (AbstractWeapon a : weapons ){
             Weapons.addPrototype(a.getName(), a);
         }
-        System.out.println("Weapons loaded.");
+        System.out.println("Weapons loadeda.");
         
         List<AbstractCharacter> characters = new ArrayList<AbstractCharacter>();
         characters = j.loadCharacter();

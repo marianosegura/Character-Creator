@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Data;
+package controller;
 
 import gamelib.AbstractCharacter;
 import gamelib.AbstractWeapon;
@@ -120,8 +120,8 @@ public class JsonData {
                     
                     sprites.put((int)(long)jsonObject2.get("level"),spritesSet);
                     int x = (int)(long)jsonObject2.get("level");
-                    System.out.println(spritesSet.getSprites());
-                    System.out.println(x);
+                    
+                    
                     
                 }
                 
@@ -329,7 +329,7 @@ public class JsonData {
 
                 AbstractWeapon GPWeapon = ArrayWeapons.get(w);
                 
-                System.out.println(GPWeapon.getSprites());
+                
                 
                 HashMap<Integer, String> WeaponImages = GPWeapon.getSprites();// saca la info 
             

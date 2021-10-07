@@ -8,7 +8,7 @@ package main;
 import gamelib.AbstractCharacter;
 import gamelib.AbstractWeapon;
 import gamelib.GamePrototypes;
-import Data.JsonData;
+import controller.JsonData;
 import java.io.IOException;
 
 import java.util.ArrayList;
