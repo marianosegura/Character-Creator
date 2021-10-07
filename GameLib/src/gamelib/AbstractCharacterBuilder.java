@@ -125,7 +125,7 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
     }
     
     public E setEquipedWeapon(int index) {
-        if (this.weapons.size() < index && index > 0) {
+        if (this.weapons.size() > index && index >= 0) {
             this.equipedWeapon = this.weapons.get(index);
         }
         return (E) this;
