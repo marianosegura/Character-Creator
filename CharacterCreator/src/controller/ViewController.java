@@ -397,11 +397,11 @@ public class ViewController {
             //System.out.println(weapon);
         }
         List<AbstractCharacter> characters = j.loadCharacter();
-        //System.out.println("Characters:");
+        System.out.println("Characters:");
         for (AbstractCharacter character : characters ){
             characterPrototypes
                     .addPrototype(character.getName(), (Character)character);
-            //System.out.println(character);
+            System.out.println(character);
         }
     }
     

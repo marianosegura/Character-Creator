@@ -26,6 +26,7 @@ import javax.swing.SpinnerNumberModel;
 public class CharacterCreator extends javax.swing.JFrame {
     
     private ViewController controller;
+    private String noImagePath = "src/images/noImage.jpg";
     
     private JFileChooser openFileChosser;
     private final boolean isLinux = System.getProperty("os.name").contains("Linux") ? true : false;
@@ -38,7 +39,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         controller = new ViewController();
         setMinSpinners();
         setLists();
-        String noImagePath = "src/images/noImage.jpg";
         setImage(noImagePath,characterLabel);
         setImage(noImagePath,weaponLabel);
     }
@@ -229,7 +229,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Lista de armas en suave");
+        jLabel3.setText("Lista de armas en temporales");
 
         isInventaryButton.setText("Solitarias");
         isInventaryButton.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -383,7 +383,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        saveCharacterPrototype.setText("Guardar Prototype en Json");
+        saveCharacterPrototype.setText("Guardar Prototypes en Json");
         saveCharacterPrototype.setActionCommand("");
         saveCharacterPrototype.setPreferredSize(new java.awt.Dimension(250, 24));
         saveCharacterPrototype.addActionListener(new java.awt.event.ActionListener() {
@@ -507,7 +507,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        addWeaponInventary.setText("Agegar a inventario");
+        addWeaponInventary.setText("Agregar a inventario");
         addWeaponInventary.setPreferredSize(new java.awt.Dimension(250, 24));
         addWeaponInventary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -516,6 +516,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
 
         newWeapon.setText("Nuevo Arma");
+        newWeapon.setActionCommand("Nueva Arma");
         newWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
         newWeapon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -536,7 +537,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jLabel27.setText("List de personajes suave");
+        jLabel27.setText("Lista de personajes temporales");
 
         characterList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -607,7 +608,7 @@ public class CharacterCreator extends javax.swing.JFrame {
 
         jLabel28.setText("Por nivel");
 
-        saveCharacterSoft.setText("Guardar Personaje Suave");
+        saveCharacterSoft.setText("Guardar Personaje Temporal");
         saveCharacterSoft.setPreferredSize(new java.awt.Dimension(250, 24));
         saveCharacterSoft.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -615,7 +616,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jLabel29.setText("List de personajes en prototype");
+        jLabel29.setText("Lista de personajes en prototype");
 
         softCharacterList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -644,7 +645,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(softWeaponList);
 
-        saveWeaponPrototype.setText("Guardar Prototype en Json");
+        saveWeaponPrototype.setText("Guardar Prototypes en Json");
         saveWeaponPrototype.setPreferredSize(new java.awt.Dimension(250, 24));
         saveWeaponPrototype.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -657,7 +658,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        saveWeaponSoft.setText("Guardar Arma en Suave");
+        saveWeaponSoft.setText("Guardar Arma Temporal");
         saveWeaponSoft.setPreferredSize(new java.awt.Dimension(250, 24));
         saveWeaponSoft.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1061,6 +1062,7 @@ public class CharacterCreator extends javax.swing.JFrame {
 
     private void selectImageCharacterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectImageCharacterButtonActionPerformed
        String path = getSelectedPath();
+       path = path.substring(path.indexOf("src"));
        if(path != null){
            setImage(path,characterLabel);
            controller.setPath(path);
@@ -1255,7 +1257,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         } else {
            ImageIcon icon = new ImageIcon("src/images/icon.png");
            String name = (String)JOptionPane.showInputDialog(null, "Selecciona el arma que quieras", 
-                "I like turtles", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]);
+                "Selecciona un arma", JOptionPane.QUESTION_MESSAGE,icon, options, options[0]);
            if(name != null){
                controller.setEquipedWeapon(Arrays.asList(options).indexOf(name));
                if(controller.getDataCharacter().getEquipedWeapon() != null){
@@ -1273,7 +1275,7 @@ public class CharacterCreator extends javax.swing.JFrame {
         setLists();
         if(isSaved){
             clearCharacterView();
-            showMessageDialog(null,"Personajes Prototype guardados en json exitosamente");
+            showMessageDialog(null,"Prototipos de personaje actualizados");
         }
     }//GEN-LAST:event_saveCharacterActionPerformed
 
@@ -1283,12 +1285,13 @@ public class CharacterCreator extends javax.swing.JFrame {
         setLists();
         if(isSaved){
             clearWeaponView();
-            showMessageDialog(null,"Armas Prototype guardadas en json exitosamente");
+            showMessageDialog(null,"Armas Prototype actualizadas");
         }
     }//GEN-LAST:event_saveWeaponActionPerformed
 
     private void saveCharacterPrototypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterPrototypeActionPerformed
         controller.savePrototype(true);
+        showMessageDialog(null,"Personajes Prototype guardados en json exitosamente");
         newCharacterActionPerformed(evt); 
     }//GEN-LAST:event_saveCharacterPrototypeActionPerformed
 
@@ -1383,6 +1386,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void saveWeaponPrototypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponPrototypeActionPerformed
         controller.savePrototype(false);
         newWeaponActionPerformed(evt); 
+        showMessageDialog(null,"Armas Prototype guardadas en json exitosamente");
     }//GEN-LAST:event_saveWeaponPrototypeActionPerformed
 
     private void saveWeaponSoftMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveWeaponSoftMouseClicked
@@ -1691,6 +1695,7 @@ public class CharacterCreator extends javax.swing.JFrame {
        weaponEquipedButton.setText("Selecciona un arma");
        moveSteps.setValue(0);
        directionBox.setSelectedIndex(0);
+       setImage(noImagePath,characterLabel);
     }
 
     private void setMinSpinners() {

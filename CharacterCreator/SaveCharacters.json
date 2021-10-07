@@ -1,1 +1,269 @@
-{"characters":[{"damage":230,"equipedWeapon":1,"cost":20,"level":1,"health":200,"spriteState":"src\\images\\reina.png","moveSteps":2,"unlockLevel":2,"size":2,"hitsPerTimeUnit":2,"name":"Arquera","x":2,"y":2,"maxHealth":200,"spriteSets":[{"Sprite":[{"state":"normal","URL":"src\\images\\arquera.png"},{"state":"attacking","URL":"src\\images\\arquera.png"}],"level":1},{"Sprite":[{"state":"normal","URL":"src\\images\\arquera2.png"},{"state":"attacking","URL":"src\\images\\arquera2.png"}],"level":2},{"Sprite":[{"state":"normal","URL":"src\\images\\reina.png"},{"state":"attacking","URL":"src\\images\\reina.png"}],"level":3}],"weapons":[{"damage":70,"explosionRange":1,"levelMultiplier":5,"level":1,"supplies":0,"scope":1,"name":"Espada","x":0,"sprite":[{"level":1,"URL":"src\\images\\espada.png"},{"level":2,"URL":"src\\images\\espada2.png"}],"levelDependant":true,"y":0,"maxSupplies":0},{"damage":100,"explosionRange":1,"levelMultiplier":2,"level":2,"supplies":0,"scope":2,"name":"Hacha","x":0,"sprite":[{"level":1,"URL":"src\\images\\hacha.png"},{"level":2,"URL":"src\\images\\hacha2.png"}],"levelDependant":true,"y":0,"maxSupplies":0},{"damage":170,"explosionRange":1,"levelMultiplier":9,"level":3,"supplies":2,"scope":2,"name":"bomba","x":0,"sprite":[{"level":1,"URL":"src\\images\\bomba.png"},{"level":2,"URL":"src\\images\\bomba2.png"}],"levelDependant":true,"y":0,"maxSupplies":2}],"direction":"RIGHT"},{"damage":280,"equipedWeapon":1,"cost":20,"level":2,"health":200,"spriteState":"src\\images\\barbaro3.png","moveSteps":2,"unlockLevel":2,"size":2,"hitsPerTimeUnit":2,"name":"Barbaro","x":2,"y":2,"maxHealth":200,"spriteSets":[{"Sprite":[{"state":"normal","URL":"src\\images\\barbaro.png"},{"state":"attacking","URL":"src\\images\\barbaro.png"}],"level":1},{"Sprite":[{"state":"normal","URL":"src\\images\\barbaro2.png"},{"state":"attacking","URL":"src\\images\\barbaro2.png"}],"level":2},{"Sprite":[{"state":"normal","URL":"src\\images\\barbaro3.png"},{"state":"attacking","URL":"src\\images\\barbaro3.png"}],"level":3}],"weapons":[{"damage":230,"explosionRange":1,"levelMultiplier":5,"level":1,"supplies":0,"scope":1,"name":"Espada","x":0,"sprite":[{"level":1,"URL":"src\\images\\espada.png"},{"level":2,"URL":"src\\images\\espada2.png"}],"levelDependant":true,"y":0,"maxSupplies":0},{"damage":100,"explosionRange":1,"levelMultiplier":10,"level":1,"supplies":0,"scope":2,"name":"Hacha","x":0,"sprite":[{"level":1,"URL":"src\\images\\hacha.png"},{"level":2,"URL":"src\\images\\hacha2.png"}],"levelDependant":true,"y":0,"maxSupplies":0}],"direction":"RIGHT"}]}
+{
+  "characters": [
+    {
+      "damage": 230,
+      "equipedWeapon": 1,
+      "cost": 20,
+      "level": 1,
+      "health": 200,
+      "spriteState": null,
+      "moveSteps": 2,
+      "unlockLevel": 2,
+      "size": 2,
+      "hitsPerTimeUnit": 2,
+      "name": "Arquera",
+      "x": 2,
+      "y": 2,
+      "maxHealth": 200,
+      "spriteSets": [
+        {
+          "Sprite": [
+            { "state": "normal", "URL": "src\\images\\arquera.png" },
+            { "state": "attacking", "URL": "src\\images\\arquera.png" }
+          ],
+          "level": 1
+        },
+        {
+          "Sprite": [
+            { "state": "normal", "URL": "src\\images\\arquera2.png" },
+            { "state": "attacking", "URL": "src\\images\\arquera2.png" }
+          ],
+          "level": 2
+        },
+        {
+          "Sprite": [
+            { "state": "normal", "URL": "src\\images\\reina.png" },
+            { "state": "attacking", "URL": "src\\images\\reina.png" }
+          ],
+          "level": 3
+        }
+      ],
+      "weapons": [
+        {
+          "damage": 70,
+          "explosionRange": 1,
+          "levelMultiplier": 5,
+          "level": 1,
+          "supplies": 0,
+          "scope": 1,
+          "name": "Espada",
+          "x": 0,
+          "sprite": [
+            { "level": 1, "URL": "src\\images\\espada.png" },
+            { "level": 2, "URL": "src\\images\\espada2.png" }
+          ],
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 0
+        },
+        {
+          "damage": 100,
+          "explosionRange": 1,
+          "levelMultiplier": 2,
+          "level": 2,
+          "supplies": 0,
+          "scope": 2,
+          "name": "Hacha",
+          "x": 0,
+          "sprite": [
+            { "level": 1, "URL": "src\\images\\hacha.png" },
+            { "level": 2, "URL": "src\\images\\hacha2.png" }
+          ],
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 0
+        },
+        {
+          "damage": 170,
+          "explosionRange": 1,
+          "levelMultiplier": 9,
+          "level": 3,
+          "supplies": 2,
+          "scope": 2,
+          "name": "bomba",
+          "x": 0,
+          "sprite": [
+            { "level": 1, "URL": "src\\images\\bomba.png" },
+            { "level": 2, "URL": "src\\images\\bomba2.png" }
+          ],
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 2
+        }
+      ],
+      "direction": "RIGHT"
+    },
+    {
+      "damage": 280,
+      "equipedWeapon": 1,
+      "cost": 20,
+      "level": 2,
+      "health": 200,
+      "spriteState": null,
+      "moveSteps": 2,
+      "unlockLevel": 2,
+      "size": 2,
+      "hitsPerTimeUnit": 2,
+      "name": "Barbaro",
+      "x": 2,
+      "y": 2,
+      "maxHealth": 200,
+      "spriteSets": [
+        {
+          "Sprite": [
+            { "state": "normal", "URL": "src\\images\\barbaro.png" },
+            { "state": "attacking", "URL": "src\\images\\barbaro.png" }
+          ],
+          "level": 1
+        },
+        {
+          "Sprite": [
+            { "state": "normal", "URL": "src\\images\\barbaro2.png" },
+            { "state": "attacking", "URL": "src\\images\\barbaro2.png" }
+          ],
+          "level": 2
+        },
+        {
+          "Sprite": [
+            { "state": "normal", "URL": "src\\images\\barbaro3.png" },
+            { "state": "attacking", "URL": "src\\images\\barbaro3.png" }
+          ],
+          "level": 3
+        }
+      ],
+      "weapons": [
+        {
+          "damage": 230,
+          "explosionRange": 1,
+          "levelMultiplier": 5,
+          "level": 1,
+          "supplies": 0,
+          "scope": 1,
+          "name": "Espada",
+          "x": 0,
+          "sprite": [
+            { "level": 1, "URL": "src\\images\\espada.png" },
+            { "level": 2, "URL": "src\\images\\espada2.png" }
+          ],
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 0
+        },
+        {
+          "damage": 100,
+          "explosionRange": 1,
+          "levelMultiplier": 10,
+          "level": 1,
+          "supplies": 0,
+          "scope": 2,
+          "name": "Hacha",
+          "x": 0,
+          "sprite": [
+            { "level": 1, "URL": "src\\images\\hacha.png" },
+            { "level": 2, "URL": "src\\images\\hacha2.png" }
+          ],
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 0
+        }
+      ],
+      "direction": "RIGHT"
+    },
+    {
+      "damage": 40,
+      "equipedWeapon": -1,
+      "cost": 20,
+      "level": 1,
+      "health": 200,
+      "spriteState": null,
+      "moveSteps": 2,
+      "unlockLevel": 2,
+      "size": 2,
+      "hitsPerTimeUnit": 2,
+      "name": "Bart",
+      "x": 2,
+      "y": 2,
+      "maxHealth": 200,
+      "spriteSets": [
+        {
+          "Sprite": [
+            {
+              "state": "normal",
+              "URL": "src/images/Bart.png"
+            },
+            { "state": "attacking", "URL": "src\\images\\arquera.png" }
+          ],
+          "level": 1
+        },
+        {
+          "Sprite": [
+            { "state": "normal", "URL": "src\\images\\arquera2.png" },
+            { "state": "attacking", "URL": "src\\images\\arquera2.png" }
+          ],
+          "level": 2
+        },
+        {
+          "Sprite": [
+            { "state": "normal", "URL": "src\\images\\reina.png" },
+            { "state": "attacking", "URL": "src\\images\\reina.png" }
+          ],
+          "level": 3
+        }
+      ],
+      "weapons": [
+        {
+          "damage": 70,
+          "explosionRange": 1,
+          "levelMultiplier": 5,
+          "level": 1,
+          "supplies": 0,
+          "scope": 1,
+          "name": "Espada",
+          "x": 0,
+          "sprite": [
+            { "level": 1, "URL": "src\\images\\espada.png" },
+            { "level": 2, "URL": "src\\images\\espada2.png" }
+          ],
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 0
+        },
+        {
+          "damage": 100,
+          "explosionRange": 1,
+          "levelMultiplier": 2,
+          "level": 2,
+          "supplies": 0,
+          "scope": 2,
+          "name": "Hacha",
+          "x": 0,
+          "sprite": [
+            { "level": 1, "URL": "src\\images\\hacha.png" },
+            { "level": 2, "URL": "src\\images\\hacha2.png" }
+          ],
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 0
+        },
+        {
+          "damage": 170,
+          "explosionRange": 1,
+          "levelMultiplier": 9,
+          "level": 3,
+          "supplies": 2,
+          "scope": 2,
+          "name": "bomba",
+          "x": 0,
+          "sprite": [
+            { "level": 1, "URL": "src\\images\\bomba.png" },
+            { "level": 2, "URL": "src\\images\\bomba2.png" }
+          ],
+          "levelDependant": true,
+          "y": 0,
+          "maxSupplies": 2
+        }
+      ],
+      "direction": "RIGHT"
+    }
+  ]
+}
