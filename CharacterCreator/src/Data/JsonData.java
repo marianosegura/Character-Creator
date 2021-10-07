@@ -118,6 +118,7 @@ public class JsonData {
                                                                        
                     }
                     sprites.put((int)(long)jsonChar1.get("level"),spritesSet);
+                    System.out.println(x);
                     
                 }
                 
