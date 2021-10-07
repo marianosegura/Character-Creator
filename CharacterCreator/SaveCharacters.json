@@ -93,8 +93,8 @@
 		"y": 2,
 		"maxHealth": 200,
 		"spriteSets": [{"Sprite":[{"state": "normal","URL": "src\\images\\barbaro.png"},{"state": "attacking","URL": "src\\images\\barbaro.png"}],"level": 1},
-			{"Sprite":[{"state": "attacking","URL": "src\\images\\barbaro2.png"},{"state": "attacking","URL": "src\\images\\barbaro2.png"}],"level": 2},
-			{"Sprite":[{"state": "attacking","URL": "src\\images\\barbaro3.png"},{"state": "attacking","URL": "src\\images\\barbaro3.png"}],"level": 3}],
+			{"Sprite":[{"state": "normal","URL": "src\\images\\barbaro2.png"},{"state": "attacking","URL": "src\\images\\barbaro2.png"}],"level": 2},
+			{"Sprite":[{"state": "normal","URL": "src\\images\\barbaro3.png"},{"state": "attacking","URL": "src\\images\\barbaro3.png"}],"level": 3}],
 		"weapons": [{
 			"damage": 230,
 			"explosionRange": 1,
