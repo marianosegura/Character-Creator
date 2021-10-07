@@ -1824,6 +1824,8 @@ public class CharacterCreator extends javax.swing.JFrame {
                     break;
             }
         }
+        setListSpriteLevel();
+        setListStriteState(-1);
     }
 
 }

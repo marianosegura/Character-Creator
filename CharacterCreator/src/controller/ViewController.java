@@ -73,6 +73,7 @@ public class ViewController {
                 !actualCharacter.getSpriteSets().keySet().isEmpty()){
             ArrayList<String> list = 
                     new ArrayList(actualCharacter.getSpriteSets().keySet());
+            System.out.println("List of levels:"+list);
             for (int i = 0; i < list.size(); i++) {
                 listModel.addElement(list.get(i));
             }
@@ -89,6 +90,7 @@ public class ViewController {
         } else {
             ArrayList<String> list = 
                     actualCharacter.getSpriteSet(level).getKeys();
+            System.out.println("States:"+list);
             for (int i = 0; i < list.size(); i++) {
                     listModel.addElement(list.get(i));
             }
