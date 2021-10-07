@@ -86,8 +86,8 @@ public abstract class AbstractCharacter extends GameObject<AbstractCharacter> {
      * @param weaponIndex Weapon index in the weqpon list
      */
     public void equipWeapon(int weaponIndex) {
-      if (this.weapons.size() > index && index >= 0) {
-        this.equipedWeapon = this.weapons.get(index);
+      if (this.weapons.size() > weaponIndex && weaponIndex >= 0) {
+        this.equipedWeapon = this.weapons.get(weaponIndex);
     }
     }
     
