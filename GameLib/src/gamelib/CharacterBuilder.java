@@ -24,7 +24,6 @@ public class CharacterBuilder extends AbstractCharacterBuilder<Character, Charac
         this.level = oldCharacter.getLevel();
         this.size = oldCharacter.getSize();
         this.maxHealth = oldCharacter.getMaxHealth();
-        this.health = oldCharacter.getHealth();
         this.hitsPerTimeUnit = oldCharacter.getHitsPerTimeUnit();
         this.cost = oldCharacter.getCost();
         this.unlockLevel = oldCharacter.getUnlockLevel();

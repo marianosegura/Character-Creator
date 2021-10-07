@@ -23,7 +23,6 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
         y,
         size,
         maxHealth,
-        health, 
         hitsPerTimeUnit,  
         cost,  
         unlockLevel,  
@@ -41,7 +40,6 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
         this.y = 0;
         this.size = 1;
         this.maxHealth = 1;
-        this.health = maxHealth;
         this.hitsPerTimeUnit = 1;
         this.cost = 0;
         this.unlockLevel = 0;
@@ -103,11 +101,6 @@ public abstract class AbstractCharacterBuilder <T extends AbstractCharacter, E e
 
     public E setMaxHealth(int maxHealth) {
         this.maxHealth = maxHealth;
-        return (E) this;
-    }
-    
-    public E setHealth(int health) {
-        this.health = health;
         return (E) this;
     }
 

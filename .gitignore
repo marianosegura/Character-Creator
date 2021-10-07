@@ -26,5 +26,5 @@ hs_err_pid*
 # Netbeans project folders
 GameLib/nbproject/
 CharacterCreator/nbproject/
-GameLib/build/
+/GameLib/build/
 /CharacterCreator/dist/

@@ -23,7 +23,6 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         scope,
         explosionRange,
         maxSupplies,
-        supplies,
         levelMultiplier;
     protected boolean levelDependant;
     
@@ -36,7 +35,6 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         this.scope = 1;
         this.explosionRange = 1;
         this.maxSupplies = 1;
-        this.supplies = maxSupplies;
         this.levelMultiplier = 1;
         this.sprites = new HashMap<>();
         this.levelDependant = false;
@@ -101,11 +99,6 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
         this.levelDependant = levelDependant;
         return (E) this;
     }
-    
-    public E setSupplies(int supplies) {
-        this.supplies = supplies;
-        return (E) this;
-    }
 
     public String getName() {
         return name;
@@ -159,10 +152,6 @@ public abstract class AbstractWeaponBuilder<T extends AbstractWeapon, E extends 
 
     public int getMaxSupplies() {
         return maxSupplies;
-    }
-
-    public int getSupplies() {
-        return supplies;
     }
 
     public int getLevelMultiplier() {

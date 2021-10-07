@@ -25,7 +25,6 @@ public class WeaponBuilder extends AbstractWeaponBuilder<Weapon, WeaponBuilder> 
         this.scope = oldWeapon.getScope();
         this.explosionRange = oldWeapon.getExplosionRange();
         this.maxSupplies = oldWeapon.getMaxSupplies();
-        this.supplies = oldWeapon.getSupplies();
         this.levelMultiplier = oldWeapon.getLevelMultiplier();
         this.levelDependant = oldWeapon.isLevelDependant();
     }
