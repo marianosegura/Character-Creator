@@ -15,8 +15,8 @@
 		"y": 2,
 		"maxHealth": 200,
 		"spriteSets": [{"Sprite":[{"state": "normal","URL": "src\\images\\arquera.png"},{"state": "attacking","URL": "src\\images\\arquera.png"}],"level": 1},
-			           {"Sprite":[{"state": "attacking","URL": "src\\images\\arquera2.png"},{"state": "attacking","URL": "src\\images\\arquera2.png"}],"level": 2},
-					   {"Sprite":[{"state": "attacking","URL": "src\\images\\reina.png"},{"state": "attacking","URL": "src\\images\\reina.png"}],"level": 3}],
+			           {"Sprite":[{"state": "normal","URL": "src\\images\\arquera2.png"},{"state": "attacking","URL": "src\\images\\arquera2.png"}],"level": 2},
+					   {"Sprite":[{"state": "normal","URL": "src\\images\\reina.png"},{"state": "attacking","URL": "src\\images\\reina.png"}],"level": 3}],
 		"weapons": [{
 			"damage": 70,
 			"explosionRange": 1,
