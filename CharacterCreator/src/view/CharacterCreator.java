@@ -38,13 +38,9 @@ public class CharacterCreator extends javax.swing.JFrame {
         controller = new ViewController();
         setMinSpinners();
         setLists();
-        //imagenes de ejemplo
-        String homerPath = "src/images/homer.jpg";
-        String bartPath = "src/images/Bart.png";
-        String weaponPath = "src/images/resortera.jpg";
-        //
-        setImage(bartPath,characterLabel);
-        setImage(weaponPath,weaponLabel);
+        String noImagePath = "src/images/noImage.jpg";
+        setImage(noImagePath,characterLabel);
+        setImage(noImagePath,weaponLabel);
     }
 
     /**
@@ -83,8 +79,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         maxHealth = new javax.swing.JSpinner();
         jLabel11 = new javax.swing.JLabel();
-        health = new javax.swing.JSpinner();
-        jLabel12 = new javax.swing.JLabel();
         hitPerUnitTime = new javax.swing.JSpinner();
         jLabel13 = new javax.swing.JLabel();
         cost = new javax.swing.JSpinner();
@@ -108,8 +102,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         maxSupplies = new javax.swing.JSpinner();
         jLabel22 = new javax.swing.JLabel();
-        supplies = new javax.swing.JSpinner();
-        jLabel23 = new javax.swing.JLabel();
         levelMultiplier = new javax.swing.JSpinner();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
@@ -351,17 +343,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jLabel11.setText("Salud maxima");
-
-        health.setName("Cantidad de pasos "); // NOI18N
-        health.setPreferredSize(new java.awt.Dimension(250, 24));
-        health.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                healthStateChanged(evt);
-            }
-        });
-
-        jLabel12.setText("Salud actual");
+        jLabel11.setText("Salud");
 
         hitPerUnitTime.setName("Cantidad de pasos "); // NOI18N
         hitPerUnitTime.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -486,17 +468,7 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
 
-        jLabel22.setText("Munición máxima");
-
-        supplies.setName("Cantidad de pasos "); // NOI18N
-        supplies.setPreferredSize(new java.awt.Dimension(250, 24));
-        supplies.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                suppliesStateChanged(evt);
-            }
-        });
-
-        jLabel23.setText("Munición");
+        jLabel22.setText("Munición");
 
         levelMultiplier.setName("Cantidad de pasos "); // NOI18N
         levelMultiplier.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -815,7 +787,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addComponent(size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
+                    .addComponent(jLabel13))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
@@ -848,18 +820,21 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13)
                     .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14)
-                    .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel15)
+                    .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23)
-                    .addComponent(supplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel24)
-                    .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel25)
+                        .addGap(5, 5, 5)
+                        .addComponent(levelDepend))
+                    .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
@@ -873,8 +848,6 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -888,11 +861,6 @@ public class CharacterCreator extends javax.swing.JFrame {
                     .addComponent(buildCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(levelDepend))
-                    .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25)
                     .addComponent(saveWeaponPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(saveWeaponSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -953,7 +921,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel12))
+                        .addComponent(jLabel13))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addGap(2, 2, 2)
@@ -1003,25 +971,28 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(health, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel13)
-                        .addGap(2, 2, 2)
                         .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(jLabel14)
                         .addGap(2, 2, 2)
-                        .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel15)
+                        .addGap(2, 2, 2)
+                        .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
-                        .addComponent(jLabel23)
-                        .addGap(2, 2, 2)
-                        .addComponent(supplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
                         .addComponent(jLabel24)
                         .addGap(2, 2, 2)
-                        .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel25)
+                            .addComponent(levelDepend)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -1038,10 +1009,6 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addGap(2, 2, 2)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addGap(2, 2, 2)
-                        .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
                         .addComponent(jLabel5)
                         .addGap(2, 2, 2)
                         .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1064,13 +1031,6 @@ public class CharacterCreator extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(buildCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(levelDepend)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel25))
-                        .addGap(6, 6, 6)
                         .addComponent(saveWeaponPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(saveWeaponSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1248,10 +1208,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         controller.setMaxHealth((int) maxHealth.getValue());
     }//GEN-LAST:event_maxHealthStateChanged
 
-    private void healthStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_healthStateChanged
-        controller.setMaxHealth((int) health.getValue());
-    }//GEN-LAST:event_healthStateChanged
-
     private void hitPerUnitTimeStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_hitPerUnitTimeStateChanged
         controller.setHitsPerTimeUnit((int) hitPerUnitTime.getValue());
     }//GEN-LAST:event_hitPerUnitTimeStateChanged
@@ -1279,10 +1235,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private void maxSuppliesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_maxSuppliesStateChanged
         controller.setMaxSupplies((int) maxSupplies.getValue());
     }//GEN-LAST:event_maxSuppliesStateChanged
-
-    private void suppliesStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_suppliesStateChanged
-        controller.setSupplies((int) supplies.getValue());
-    }//GEN-LAST:event_suppliesStateChanged
 
     private void levelMultiplierStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_levelMultiplierStateChanged
         controller.setLevelMultiplier((int) levelMultiplier.getValue());
@@ -1586,13 +1538,11 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JSpinner damageWeapon;
     private javax.swing.JComboBox<String> directionBox;
     private javax.swing.JSpinner explosionRange;
-    private javax.swing.JSpinner health;
     private javax.swing.JSpinner hitPerUnitTime;
     private javax.swing.JToggleButton isInventaryButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1604,7 +1554,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -1660,7 +1609,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JList<String> spriteListState;
     private javax.swing.JList<String> spriteListWeapon;
     private javax.swing.JTextField stateSpriteInput;
-    private javax.swing.JSpinner supplies;
     private javax.swing.JSpinner unlockLevel;
     private javax.swing.JButton weaponEquipedButton;
     private javax.swing.JLabel weaponLabel;
@@ -1721,10 +1669,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         scope.setValue(0);
         explosionRange.setValue(0);
         maxSupplies.setValue(0);
-        supplies.setValue(0);
         levelMultiplier.setValue(0);
         levelDepend.setSelected(false);
-        setImage("./src/images/Bart.png",weaponLabel);
+        setImage("./src/images/noImage.jpg",weaponLabel);
+        setListSpriteWeapon();
     }
 
 
@@ -1737,7 +1685,6 @@ public class CharacterCreator extends javax.swing.JFrame {
        yCharacter.setValue(0);
        size.setValue(0);
        maxHealth.setValue(0);
-       health.setValue(0);
        hitPerUnitTime.setValue(0);
        cost.setValue(0);
        unlockLevel.setValue(0);
@@ -1753,12 +1700,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         levelWeapon.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         size.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         unlockLevel.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
-        health.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         maxHealth.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         hitPerUnitTime.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         moveSteps.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         scope.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
-        supplies.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         levelMultiplier.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         maxSupplies.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
         levelSpriteInput.setModel(new SpinnerNumberModel(0,0,Integer.MAX_VALUE,1));
@@ -1781,7 +1726,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         scope.setValue(controller.getDataWeapon().getScope());
         explosionRange.setValue(controller.getDataWeapon().getExplosionRange());
         maxSupplies.setValue(controller.getDataWeapon().getMaxSupplies());
-        supplies.setValue(controller.getDataWeapon().getSupplies());
         levelMultiplier.setValue(controller.getDataWeapon().getLevelMultiplier());
         levelDepend.setSelected(controller.getDataWeapon().isLevelDependant());
         if(controller.getDataWeapon().getSprite() != null){
@@ -1799,7 +1743,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         yCharacter.setValue(controller.getDataCharacter().getY());
         size.setValue(controller.getDataCharacter().getSize());
         maxHealth.setValue(controller.getDataCharacter().getMaxHealth());
-        health.setValue(controller.getDataCharacter().getHealth());
         hitPerUnitTime.setValue(controller.getDataCharacter().getHitsPerTimeUnit());
         cost.setValue(controller.getDataCharacter().getCost());
         unlockLevel.setValue(controller.getDataCharacter().getUnlockLevel());
