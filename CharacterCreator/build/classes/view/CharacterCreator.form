@@ -54,7 +54,7 @@
                   <Component id="size" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                   <Component id="maxHealth" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -92,19 +92,23 @@
               </Group>
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="health" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                   <Component id="hitPerUnitTime" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <Component id="cost" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                  <Component id="unlockLevel" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="maxSupplies" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                  <Component id="supplies" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                   <Component id="levelMultiplier" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
+                      <Component id="levelDepend" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="saveWeapon" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
               <Component id="jScrollPane7" min="-2" pref="250" max="-2" attributes="0"/>
@@ -121,8 +125,6 @@
               </Group>
               <EmptySpace min="15" pref="15" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                  <Component id="unlockLevel" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <Component id="moveSteps" min="-2" max="-2" attributes="0"/>
                   <Component id="directionBox" min="-2" max="-2" attributes="0"/>
@@ -137,12 +139,6 @@
               </Group>
               <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-                      <Component id="levelDepend" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="saveWeapon" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                   <Component id="saveWeaponPrototype" min="-2" max="-2" attributes="0"/>
                   <Component id="saveWeaponSoft" min="-2" max="-2" attributes="0"/>
                   <Component id="newWeapon" min="-2" max="-2" attributes="0"/>
@@ -208,7 +204,7 @@
                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                       <Component id="maxHealth" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -263,26 +259,31 @@
                       <Component id="jScrollPane1" min="-2" pref="80" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="health" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                       <Component id="hitPerUnitTime" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                       <Component id="cost" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
+                      <Component id="unlockLevel" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="maxSupplies" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
-                      <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                      <Component id="supplies" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                       <Component id="levelMultiplier" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                          <Component id="levelDepend" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
+                              <Component id="saveWeapon" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
                   <Component id="jScrollPane7" min="-2" pref="120" max="-2" attributes="0"/>
               </Group>
@@ -302,10 +303,6 @@
                       <Component id="jScrollPane5" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
-                      <Component id="unlockLevel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="2" pref="2" max="-2" attributes="0"/>
                       <Component id="moveSteps" min="-2" max="-2" attributes="0"/>
@@ -329,15 +326,6 @@
                       <Component id="buildCharacter" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="levelDepend" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="20" pref="20" max="-2" attributes="0"/>
-                              <Component id="saveWeapon" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="saveWeaponPrototype" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="6" pref="6" max="-2" attributes="0"/>
                       <Component id="saveWeaponSoft" min="-2" max="-2" attributes="0"/>
@@ -493,7 +481,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Lista de armas en suave"/>
+        <Property name="text" type="java.lang.String" value="Lista de armas en temporales"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="isInventaryButton">
@@ -670,23 +658,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Salud maxima"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="health">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="Cantidad de pasos " noResource="true"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 24]"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="healthStateChanged"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel12">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Salud actual"/>
+        <Property name="text" type="java.lang.String" value="Salud"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="hitPerUnitTime">
@@ -750,7 +722,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="saveCharacterPrototype">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar Prototype en Json"/>
+        <Property name="text" type="java.lang.String" value="Guardar Prototypes en Json"/>
         <Property name="actionCommand" type="java.lang.String" value=""/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[250, 24]"/>
@@ -880,22 +852,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel22">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Munici&#xf3;n m&#xe1;xima"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JSpinner" name="supplies">
-      <Properties>
-        <Property name="name" type="java.lang.String" value="Cantidad de pasos " noResource="true"/>
-        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[250, 24]"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="stateChanged" listener="javax.swing.event.ChangeListener" parameters="javax.swing.event.ChangeEvent" handler="suppliesStateChanged"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel23">
-      <Properties>
         <Property name="text" type="java.lang.String" value="Munici&#xf3;n"/>
       </Properties>
     </Component>
@@ -943,7 +899,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="addWeaponInventary">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Agegar a inventario"/>
+        <Property name="text" type="java.lang.String" value="Agregar a inventario"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[250, 24]"/>
         </Property>
@@ -955,6 +911,7 @@
     <Component class="javax.swing.JButton" name="newWeapon">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nuevo Arma"/>
+        <Property name="actionCommand" type="java.lang.String" value="Nueva Arma"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[250, 24]"/>
         </Property>
@@ -989,7 +946,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel27">
       <Properties>
-        <Property name="text" type="java.lang.String" value="List de personajes suave"/>
+        <Property name="text" type="java.lang.String" value="Lista de personajes temporales"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane3">
@@ -1127,7 +1084,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="saveCharacterSoft">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar Personaje Suave"/>
+        <Property name="text" type="java.lang.String" value="Guardar Personaje Temporal"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[250, 24]"/>
         </Property>
@@ -1138,7 +1095,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel29">
       <Properties>
-        <Property name="text" type="java.lang.String" value="List de personajes en prototype"/>
+        <Property name="text" type="java.lang.String" value="Lista de personajes en prototype"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane5">
@@ -1207,7 +1164,7 @@
     </Container>
     <Component class="javax.swing.JButton" name="saveWeaponPrototype">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar Prototype en Json"/>
+        <Property name="text" type="java.lang.String" value="Guardar Prototypes en Json"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[250, 24]"/>
         </Property>
@@ -1219,7 +1176,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="saveWeaponSoft">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar Arma en Suave"/>
+        <Property name="text" type="java.lang.String" value="Guardar Arma Temporal"/>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[250, 24]"/>
         </Property>

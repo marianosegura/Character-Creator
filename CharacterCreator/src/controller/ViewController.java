@@ -229,10 +229,6 @@ public class ViewController {
         actualCharacter.setMaxHealth(value);
     }
     
-    public void setHealth(int value){
-        actualCharacter.setHealth(value);
-    }
-    
     public void setHitsPerTimeUnit(int value){
         actualCharacter.setHitsPerTimeUnit(value);
     }
@@ -302,9 +298,6 @@ public class ViewController {
         actualWeapon.setMaxSupplies(value);
     }
     
-    public void setSupplies(int value){
-        actualWeapon.setSupplies(value);
-    }
     
     public void setLevelMultiplier(int value){
         actualWeapon.setLevelMultiplier(value);
@@ -397,16 +390,15 @@ public class ViewController {
     private void loadPrototypes() {
         JsonData j = JsonData.getInstance();
         List<AbstractWeapon> weapons = j.loadWeapon();
-        System.out.println("Weapons in load:");
+        //System.out.println("Weapons in load:");
         for (AbstractWeapon weapon : weapons ){
             weaponPrototypes
                     .addPrototype(weapon.getName(), (Weapon)weapon);
-            System.out.println(weapon);
+            //System.out.println(weapon);
         }
         List<AbstractCharacter> characters = j.loadCharacter();
         System.out.println("Characters:");
         for (AbstractCharacter character : characters ){
-            System.out.println(character);
             characterPrototypes
                     .addPrototype(character.getName(), (Character)character);
             System.out.println(character);
