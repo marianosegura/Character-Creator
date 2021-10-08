@@ -74,7 +74,6 @@ public class CharacterCreator extends javax.swing.JFrame {
         xCharacter = new javax.swing.JSpinner();
         jLabel8 = new javax.swing.JLabel();
         yCharacter = new javax.swing.JSpinner();
-        jLabel9 = new javax.swing.JLabel();
         size = new javax.swing.JSpinner();
         jLabel10 = new javax.swing.JLabel();
         maxHealth = new javax.swing.JSpinner();
@@ -143,19 +142,24 @@ public class CharacterCreator extends javax.swing.JFrame {
         saveSpriteWeapon = new javax.swing.JButton();
         jScrollPane7 = new javax.swing.JScrollPane();
         spriteListWeapon = new javax.swing.JList<>();
+        jLabel12 = new javax.swing.JLabel();
+        state = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Creador de personajes");
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         characterLabel.setToolTipText("");
         characterLabel.setBorder(new javax.swing.border.MatteBorder(null));
         characterLabel.setMaximumSize(new java.awt.Dimension(250, 250));
         characterLabel.setPreferredSize(new java.awt.Dimension(250, 250));
+        getContentPane().add(characterLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 11, -1, -1));
 
         weaponLabel.setToolTipText("");
         weaponLabel.setBorder(new javax.swing.border.MatteBorder(null));
         weaponLabel.setMaximumSize(new java.awt.Dimension(250, 250));
         weaponLabel.setPreferredSize(new java.awt.Dimension(250, 250));
+        getContentPane().add(weaponLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
 
         selectImageWeoponButton.setText("Seleccionar imagen");
         selectImageWeoponButton.setMaximumSize(new java.awt.Dimension(250, 24));
@@ -166,6 +170,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 selectImageWeoponButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(selectImageWeoponButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 270, -1, -1));
 
         selectImageCharacterButton.setText("Seleccionar imagen");
         selectImageCharacterButton.setMaximumSize(new java.awt.Dimension(250, 24));
@@ -176,6 +181,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 selectImageCharacterButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(selectImageCharacterButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
         nameCharacter.setForeground(new java.awt.Color(153, 153, 153));
         nameCharacter.setText("Nombre");
@@ -200,10 +206,13 @@ public class CharacterCreator extends javax.swing.JFrame {
                 nameCharacterKeyTyped(evt);
             }
         });
+        getContentPane().add(nameCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
         jLabel1.setText("Personaje");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         jLabel2.setText("Arma");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
 
         nameWeapon.setForeground(new java.awt.Color(153, 153, 153));
         nameWeapon.setText("Nombre");
@@ -228,8 +237,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 nameWeaponKeyTyped(evt);
             }
         });
+        getContentPane().add(nameWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 30, -1, -1));
 
         jLabel3.setText("Lista de armas en temporales");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 740, -1, -1));
 
         isInventaryButton.setText("Solitarias");
         isInventaryButton.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -248,6 +259,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 isInventaryButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(isInventaryButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 510, -1, -1));
 
         weaponList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -260,6 +272,8 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(weaponList);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 560, 250, 180));
 
         directionBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona una dirección", "Arriba", "Abajo", "Izquierda", "Derecha" }));
         directionBox.setToolTipText("");
@@ -274,6 +288,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 directionBoxActionPerformed(evt);
             }
         });
+        getContentPane().add(directionBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 590, -1, -1));
 
         moveSteps.setName("Cantidad de pasos "); // NOI18N
         moveSteps.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -282,8 +297,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 moveStepsStateChanged(evt);
             }
         });
+        getContentPane().add(moveSteps, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 560, -1, -1));
 
         jLabel5.setText("Cantidad de pasos");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 540, -1, -1));
 
         damageCharacter.setName("Cantidad de pasos "); // NOI18N
         damageCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -292,10 +309,13 @@ public class CharacterCreator extends javax.swing.JFrame {
                 damageCharacterStateChanged(evt);
             }
         });
+        getContentPane().add(damageCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
 
         jLabel6.setText("Daño");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
 
         jLabel7.setText("Nivel");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, -1, -1));
 
         levelCharacter.setName("Cantidad de pasos "); // NOI18N
         levelCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -304,6 +324,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 levelCharacterStateChanged(evt);
             }
         });
+        getContentPane().add(levelCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, -1, -1));
 
         xCharacter.setName("Cantidad de pasos "); // NOI18N
         xCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -312,8 +333,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 xCharacterStateChanged(evt);
             }
         });
+        getContentPane().add(xCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
 
         jLabel8.setText("Posición en X");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, -1, -1));
 
         yCharacter.setName("Cantidad de pasos "); // NOI18N
         yCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -322,8 +345,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 yCharacterStateChanged(evt);
             }
         });
-
-        jLabel9.setText("Posición en Y");
+        getContentPane().add(yCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, -1, -1));
 
         size.setName("Cantidad de pasos "); // NOI18N
         size.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -332,8 +354,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 sizeStateChanged(evt);
             }
         });
+        getContentPane().add(size, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 310, -1, -1));
 
         jLabel10.setText("Tamaño");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, -1, -1));
 
         maxHealth.setName("Cantidad de pasos "); // NOI18N
         maxHealth.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -342,8 +366,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 maxHealthStateChanged(evt);
             }
         });
+        getContentPane().add(maxHealth, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
 
         jLabel11.setText("Salud");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 340, -1, -1));
 
         hitPerUnitTime.setName("Cantidad de pasos "); // NOI18N
         hitPerUnitTime.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -352,8 +378,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 hitPerUnitTimeStateChanged(evt);
             }
         });
+        getContentPane().add(hitPerUnitTime, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 410, -1, -1));
 
         jLabel13.setText("Golpes por unidad de tiempo");
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 390, -1, -1));
 
         cost.setName("Cantidad de pasos "); // NOI18N
         cost.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -362,8 +390,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 costStateChanged(evt);
             }
         });
+        getContentPane().add(cost, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, -1));
 
         jLabel14.setText("Costo");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
         unlockLevel.setName("Cantidad de pasos "); // NOI18N
         unlockLevel.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -372,8 +402,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 unlockLevelStateChanged(evt);
             }
         });
+        getContentPane().add(unlockLevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 510, -1, -1));
 
         jLabel15.setText("Nivel de desbloqueo");
+        getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 490, -1, -1));
 
         saveCharacter.setText("Guardar Personaje en Prototype");
         saveCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -382,6 +414,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 saveCharacterActionPerformed(evt);
             }
         });
+        getContentPane().add(saveCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 650, -1, -1));
 
         saveCharacterPrototype.setText("Guardar Prototypes en Json");
         saveCharacterPrototype.setActionCommand("");
@@ -391,6 +424,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 saveCharacterPrototypeActionPerformed(evt);
             }
         });
+        getContentPane().add(saveCharacterPrototype, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 870, -1, -1));
 
         newCharacter.setText("Nuevo Personaje");
         newCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -399,6 +433,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 newCharacterActionPerformed(evt);
             }
         });
+        getContentPane().add(newCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 710, -1, -1));
 
         levelWeapon.setName("Cantidad de pasos "); // NOI18N
         levelWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -407,6 +442,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 levelWeaponStateChanged(evt);
             }
         });
+        getContentPane().add(levelWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, -1, -1));
 
         xWeapon.setName("Cantidad de pasos "); // NOI18N
         xWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -415,8 +451,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 xWeaponStateChanged(evt);
             }
         });
+        getContentPane().add(xWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 180, -1, -1));
 
         jLabel16.setText("Posición en X");
+        getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 160, -1, -1));
 
         yWeapon.setName("Cantidad de pasos "); // NOI18N
         yWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -425,8 +463,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 yWeaponStateChanged(evt);
             }
         });
+        getContentPane().add(yWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 230, -1, -1));
 
         jLabel17.setText("Posición en Y");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 210, -1, -1));
 
         damageWeapon.setName("Cantidad de pasos "); // NOI18N
         damageWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -435,10 +475,13 @@ public class CharacterCreator extends javax.swing.JFrame {
                 damageWeaponStateChanged(evt);
             }
         });
+        getContentPane().add(damageWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, -1, -1));
 
         jLabel18.setText("Daño");
+        getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, -1, -1));
 
         jLabel19.setText("Nivel");
+        getContentPane().add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 110, -1, -1));
 
         scope.setName("Cantidad de pasos "); // NOI18N
         scope.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -447,8 +490,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 scopeStateChanged(evt);
             }
         });
+        getContentPane().add(scope, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 280, -1, -1));
 
         jLabel20.setText("Alcance");
+        getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 260, -1, -1));
 
         explosionRange.setName("Cantidad de pasos "); // NOI18N
         explosionRange.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -457,8 +502,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 explosionRangeStateChanged(evt);
             }
         });
+        getContentPane().add(explosionRange, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 330, -1, -1));
 
         jLabel21.setText("Rango de explosión");
+        getContentPane().add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 310, -1, -1));
 
         maxSupplies.setName("Cantidad de pasos "); // NOI18N
         maxSupplies.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -467,8 +514,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 maxSuppliesStateChanged(evt);
             }
         });
+        getContentPane().add(maxSupplies, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, -1, -1));
 
         jLabel22.setText("Munición");
+        getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, -1, -1));
 
         levelMultiplier.setName("Cantidad de pasos "); // NOI18N
         levelMultiplier.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -477,10 +526,13 @@ public class CharacterCreator extends javax.swing.JFrame {
                 levelMultiplierStateChanged(evt);
             }
         });
+        getContentPane().add(levelMultiplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 430, -1, -1));
 
         jLabel24.setText("Multiplicador de nivel");
+        getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 410, -1, -1));
 
         jLabel25.setText("Nivel ");
+        getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 460, -1, -1));
 
         levelDepend.setText("Dependiente");
         levelDepend.addChangeListener(new javax.swing.event.ChangeListener() {
@@ -493,6 +545,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 levelDependActionPerformed(evt);
             }
         });
+        getContentPane().add(levelDepend, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, -1, -1));
 
         saveWeapon.setText("Guardar Arma en Prototype");
         saveWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -506,6 +559,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 saveWeaponActionPerformed(evt);
             }
         });
+        getContentPane().add(saveWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, -1, -1));
 
         addWeaponInventary.setText("Agregar a inventario");
         addWeaponInventary.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -514,6 +568,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 addWeaponInventaryActionPerformed(evt);
             }
         });
+        getContentPane().add(addWeaponInventary, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 570, -1, -1));
 
         newWeapon.setText("Nuevo Arma");
         newWeapon.setActionCommand("Nueva Arma");
@@ -523,11 +578,14 @@ public class CharacterCreator extends javax.swing.JFrame {
                 newWeaponActionPerformed(evt);
             }
         });
+        getContentPane().add(newWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 540, -1, -1));
 
         jLabel26.setText("Nivel");
+        getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 300, -1, -1));
 
         levelSpriteInput.setName("Cantidad de pasos "); // NOI18N
         levelSpriteInput.setPreferredSize(new java.awt.Dimension(250, 24));
+        getContentPane().add(levelSpriteInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, -1, -1));
 
         saveSprite.setText("Guardar Sprite");
         saveSprite.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -536,8 +594,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 saveSpriteActionPerformed(evt);
             }
         });
+        getContentPane().add(saveSprite, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
         jLabel27.setText("Lista de personajes temporales");
+        getContentPane().add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 770, -1, -1));
 
         characterList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -551,6 +611,8 @@ public class CharacterCreator extends javax.swing.JFrame {
             }
         });
         jScrollPane3.setViewportView(characterList);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 660, -1, 110));
 
         stateSpriteInput.setForeground(new java.awt.Color(153, 153, 153));
         stateSpriteInput.setText("Estado");
@@ -570,6 +632,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 stateSpriteInputActionPerformed(evt);
             }
         });
+        getContentPane().add(stateSpriteInput, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, -1, -1));
 
         spriteListLevel.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -583,6 +646,8 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(spriteListLevel);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 250, 80));
+
         weaponEquipedButton.setText("Selecciona un arma a equipar");
         weaponEquipedButton.setPreferredSize(new java.awt.Dimension(250, 24));
         weaponEquipedButton.addActionListener(new java.awt.event.ActionListener() {
@@ -590,6 +655,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 weaponEquipedButtonActionPerformed(evt);
             }
         });
+        getContentPane().add(weaponEquipedButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 620, -1, -1));
 
         spriteListState.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -604,9 +670,13 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(spriteListState);
 
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 255, 90));
+
         jLabel4.setText("Por estado");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 520, 120, -1));
 
         jLabel28.setText("Por nivel");
+        getContentPane().add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 90, -1));
 
         saveCharacterSoft.setText("Guardar Personaje Temporal");
         saveCharacterSoft.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -615,8 +685,10 @@ public class CharacterCreator extends javax.swing.JFrame {
                 saveCharacterSoftActionPerformed(evt);
             }
         });
+        getContentPane().add(saveCharacterSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 680, -1, -1));
 
         jLabel29.setText("Lista de personajes en prototype");
+        getContentPane().add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 640, -1, -1));
 
         softCharacterList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -631,7 +703,10 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
         jScrollPane5.setViewportView(softCharacterList);
 
+        getContentPane().add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 790, -1, 110));
+
         jLabel30.setText("Lista de armas en Prototype");
+        getContentPane().add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 540, -1, -1));
 
         softWeaponList.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -645,6 +720,8 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(softWeaponList);
 
+        getContentPane().add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 760, 250, 140));
+
         saveWeaponPrototype.setText("Guardar Prototypes en Json");
         saveWeaponPrototype.setPreferredSize(new java.awt.Dimension(250, 24));
         saveWeaponPrototype.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -657,6 +734,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 saveWeaponPrototypeActionPerformed(evt);
             }
         });
+        getContentPane().add(saveWeaponPrototype, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 870, -1, -1));
 
         saveWeaponSoft.setText("Guardar Arma Temporal");
         saveWeaponSoft.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -670,6 +748,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 saveWeaponSoftActionPerformed(evt);
             }
         });
+        getContentPane().add(saveWeaponSoft, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, -1, -1));
 
         characterSelecterToPrint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un personaje" }));
         characterSelecterToPrint.setToolTipText("");
@@ -684,6 +763,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 characterSelecterToPrintActionPerformed(evt);
             }
         });
+        getContentPane().add(characterSelecterToPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 740, -1, -1));
 
         numberCopiesCharacter.setToolTipText("");
         numberCopiesCharacter.setName("Cantidad de pasos "); // NOI18N
@@ -693,6 +773,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 numberCopiesCharacterStateChanged(evt);
             }
         });
+        getContentPane().add(numberCopiesCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 770, -1, -1));
 
         buildCharacter.setText("Generar");
         buildCharacter.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -701,6 +782,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 buildCharacterActionPerformed(evt);
             }
         });
+        getContentPane().add(buildCharacter, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 800, -1, -1));
 
         weaponSelecterToPrint.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un arma" }));
         weaponSelecterToPrint.setToolTipText("");
@@ -715,6 +797,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 weaponSelecterToPrintActionPerformed(evt);
             }
         });
+        getContentPane().add(weaponSelecterToPrint, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 600, -1, -1));
 
         numberCopiesWeapon.setName("Cantidad de pasos "); // NOI18N
         numberCopiesWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -723,6 +806,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 numberCopiesWeaponStateChanged(evt);
             }
         });
+        getContentPane().add(numberCopiesWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 630, -1, -1));
 
         buildWeapon.setText("Generar");
         buildWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -731,11 +815,14 @@ public class CharacterCreator extends javax.swing.JFrame {
                 buildWeaponActionPerformed(evt);
             }
         });
+        getContentPane().add(buildWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 660, -1, -1));
 
         levelSpriteWeapon.setName("Cantidad de pasos "); // NOI18N
         levelSpriteWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
+        getContentPane().add(levelSpriteWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 320, -1, -1));
 
         jLabel31.setText("Nivel");
+        getContentPane().add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
 
         saveSpriteWeapon.setText("Guardar Sprite");
         saveSpriteWeapon.setPreferredSize(new java.awt.Dimension(250, 24));
@@ -744,6 +831,7 @@ public class CharacterCreator extends javax.swing.JFrame {
                 saveSpriteWeaponActionPerformed(evt);
             }
         });
+        getContentPane().add(saveSpriteWeapon, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 350, -1, -1));
 
         spriteListWeapon.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -757,305 +845,30 @@ public class CharacterCreator extends javax.swing.JFrame {
         });
         jScrollPane7.setViewportView(spriteListWeapon);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(characterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(selectImageCharacterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel31)
-                            .addComponent(levelSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(stateSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(nameCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6)
-                    .addComponent(damageCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(levelCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(xCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(yCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
-                    .addComponent(size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11)
-                    .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(nameWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18)
-                    .addComponent(damageWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19)
-                    .addComponent(levelWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16)
-                    .addComponent(xWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17)
-                    .addComponent(yWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20)
-                    .addComponent(scope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21)
-                    .addComponent(explosionRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(selectImageWeoponButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26)
-                    .addComponent(levelSpriteWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveSpriteWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(saveSprite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14)
-                    .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15)
-                    .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24)
-                    .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel25)
-                        .addGap(5, 5, 5)
-                        .addComponent(levelDepend))
-                    .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel29)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel27)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(weaponEquipedButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveCharacterPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveCharacterSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(characterSelecterToPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numberCopiesCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buildCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(saveWeaponPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(saveWeaponSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addWeaponInventary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(weaponSelecterToPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numberCopiesWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buildWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(isInventaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(characterLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(9, 9, 9)
-                        .addComponent(selectImageCharacterButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel31)
-                        .addGap(2, 2, 2)
-                        .addComponent(levelSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(stateSpriteInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(2, 2, 2)
-                        .addComponent(nameCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel6)
-                        .addGap(2, 2, 2)
-                        .addComponent(damageCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel7)
-                        .addGap(2, 2, 2)
-                        .addComponent(levelCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel8)
-                        .addGap(2, 2, 2)
-                        .addComponent(xCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel9)
-                        .addGap(2, 2, 2)
-                        .addComponent(yCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel10)
-                        .addGap(2, 2, 2)
-                        .addComponent(size, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel11)
-                        .addGap(2, 2, 2)
-                        .addComponent(maxHealth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel13))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(2, 2, 2)
-                        .addComponent(nameWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel18)
-                        .addGap(2, 2, 2)
-                        .addComponent(damageWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel19)
-                        .addGap(2, 2, 2)
-                        .addComponent(levelWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel16)
-                        .addGap(2, 2, 2)
-                        .addComponent(xWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel17)
-                        .addGap(2, 2, 2)
-                        .addComponent(yWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel20)
-                        .addGap(2, 2, 2)
-                        .addComponent(scope, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel21)
-                        .addGap(2, 2, 2)
-                        .addComponent(explosionRange, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel22))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(weaponLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(selectImageWeoponButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel26)
-                        .addGap(2, 2, 2)
-                        .addComponent(levelSpriteWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(saveSpriteWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(2, 2, 2)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveSprite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel28)
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(hitPerUnitTime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel14)
-                        .addGap(2, 2, 2)
-                        .addComponent(cost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel15)
-                        .addGap(2, 2, 2)
-                        .addComponent(unlockLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(maxSupplies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel24)
-                        .addGap(2, 2, 2)
-                        .addComponent(levelMultiplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25)
-                            .addComponent(levelDepend)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(saveWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel4)
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel29)
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel27)
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(2, 2, 2)
-                        .addComponent(moveSteps, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(directionBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(weaponEquipedButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(saveCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(saveCharacterPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(saveCharacterSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(newCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(characterSelecterToPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(numberCopiesCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(buildCharacter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveWeaponPrototype, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(saveWeaponSoft, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(newWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(addWeaponInventary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(weaponSelecterToPrint, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(numberCopiesWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(buildWeapon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(isInventaryButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(jLabel30)
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel3)
-                        .addGap(2, 2, 2)
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        );
+        getContentPane().add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 380, 250, 120));
+
+        jLabel12.setText("Posición en Y");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 240, -1, -1));
+
+        state.setForeground(new java.awt.Color(153, 153, 153));
+        state.setText("Estado");
+        state.setMaximumSize(new java.awt.Dimension(250, 24));
+        state.setMinimumSize(new java.awt.Dimension(250, 24));
+        state.setPreferredSize(new java.awt.Dimension(250, 24));
+        state.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                stateFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                stateFocusLost(evt);
+            }
+        });
+        state.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                stateActionPerformed(evt);
+            }
+        });
+        getContentPane().add(state, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1270,7 +1083,8 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_weaponEquipedButtonActionPerformed
 
     private void saveCharacterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterActionPerformed
-        boolean isSaved = controller.save(true,false,nameCharacter.getText());
+        boolean isSaved = controller.save(true,
+                false,nameCharacter.getText(),state.getText());
         setLists();
         if(isSaved){
             clearCharacterView();
@@ -1279,7 +1093,8 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_saveCharacterActionPerformed
 
     private void saveWeaponActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveWeaponActionPerformed
-        boolean isSaved = controller.save(false, isInventaryButton.isSelected(),nameWeapon.getText());
+        boolean isSaved = controller.save(false, 
+                isInventaryButton.isSelected(),nameWeapon.getText(),"");
         setLists();
         if(isSaved){
             clearWeaponView();
@@ -1351,7 +1166,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     }//GEN-LAST:event_directionBoxActionPerformed
 
     private void saveCharacterSoftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveCharacterSoftActionPerformed
-        controller.saveSoftCharacter();
+        controller.saveSoftCharacter(state.getText());
         clearCharacterView();
         setListSoftCharacter();
         showMessageDialog(null,"Personaje temporal guardado");
@@ -1450,6 +1265,24 @@ public class CharacterCreator extends javax.swing.JFrame {
         controller.setPath(controller.getCharacterSpritePath(index));
     }//GEN-LAST:event_spriteListStateMouseClicked
 
+    private void stateFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stateFocusGained
+        if(state.getText().equals("Estado")){
+            state.setText("");
+            state.setForeground(Color.BLACK);
+        }
+    }//GEN-LAST:event_stateFocusGained
+
+    private void stateFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_stateFocusLost
+        if(state.getText().equals("")){
+            state.setText("Estado");
+            state.setForeground(Color.GRAY);
+        }
+    }//GEN-LAST:event_stateFocusLost
+
+    private void stateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_stateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1537,6 +1370,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1562,7 +1396,6 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1602,6 +1435,7 @@ public class CharacterCreator extends javax.swing.JFrame {
     private javax.swing.JList<String> spriteListLevel;
     private javax.swing.JList<String> spriteListState;
     private javax.swing.JList<String> spriteListWeapon;
+    private javax.swing.JTextField state;
     private javax.swing.JTextField stateSpriteInput;
     private javax.swing.JSpinner unlockLevel;
     private javax.swing.JButton weaponEquipedButton;

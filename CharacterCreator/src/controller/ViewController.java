@@ -330,10 +330,10 @@ public class ViewController {
         return list.toArray(new String[0]);
     }
     
-    public boolean save(boolean isCharacter, boolean isInventary, String name){
+    public boolean save(boolean isCharacter, boolean isInventary, String name,String state){
         try{
             if(isCharacter){
-                actualCharacter.setName(name);
+                actualCharacter.setName(name).setSpriteState(state);
                 Character newCharacter = actualCharacter.build();
                 characterPrototypes
                         .addPrototype(newCharacter.getName(), newCharacter);
@@ -494,8 +494,8 @@ public class ViewController {
         actualCharacter.addWeapon(actualWeapon.build());
     }
 
-    public void saveSoftCharacter() {
-        softCharacters.add(actualCharacter.build());
+    public void saveSoftCharacter(String state) {
+        softCharacters.add(actualCharacter.setSpriteState(state).build());
     }
 
     public void saveSoftWeapon() {
